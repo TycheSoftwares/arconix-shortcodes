@@ -3,7 +3,7 @@ Contributors: jgardner03
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Arconix Shortcodes provides a number of useful design elements to compliment any website.
 
