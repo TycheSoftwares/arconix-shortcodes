@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Arconix Shortcodes ===
 Contributors: jgardner03
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.1
@@ -9,7 +9,7 @@ Arconix Shortcodes provides a number of useful design elements to compliment any
 
 == Description ==
 
-With this plugin you can easily add various kinds of styled boxes, buttons, tabs, accordions, unordered lists and more. Choose from the supplied options or add your own with a little CSS.
+With this plugin you can easily add various kinds of styled boxes, buttons, tabs, accordions, unordered lists and more. Choose from the supplied options or advanced users can easily add their own by extending the built-in styles.
 
 = Features =
 * 8 style shortcodes (accordions, boxes, tabs, toggles, etc...)
@@ -49,12 +49,15 @@ I can certainly look into it. Contact me through [Twitter](http://arcnx.co/twitt
 
 == Changelog ==
 
-= 1.0.4 - =
+= 1.1-dev =
+* Add support for compatibility mode which will prevent collisions with other shortcodes using the same name
+
+= 1.0.4 =
 * fixed a bug with the accordion script
 * changed from a 'p' to a 'div' tag on the box shortcode (now allows the use of heading tags inside the box)
 * properly clearing floats on column tags so they can be stacked
 
-= 1.0.3 - 2012.04.26 =
+= 1.0.3 =
 * Fixed a bug in the output script for the Google Map shortcode
 * Tabs in prior tab groups will no longer show up in subsequent tab groups on the same page
 * A floated image in a tab will now stay in its tab container properly 
