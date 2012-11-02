@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: Arconix Shortcode Collection
+ * Plugin Name: Arconix Shortcodes
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 1.0.4
+ * Version: 1.1.0-dev
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -13,39 +13,47 @@
  * License URI: http://www.opensource.org/licenses/gpl-license.php
  */
 
-register_activation_hook( __FILE__, 'arconix_shortcodes_activation' );
-/**
- * This function runs on plugin activation. It checks for the existence of the class
- * and starts its creation
- *
- * @since 1.0
- */
-function arconix_shortcodes_activation() {
+class Arconix_Shortcodes {
+    
+    /**
+     * Construct Method
+     * 
+     * @since 1.0.0
+     * @version 1.1.0
+     */
+    function __construct() {
+        define( 'ACS_VERSION', '1.1.0' );
+        define( 'ACS_URL', plugin_dir_url( __FILE__ ) );
+        define( 'ACS_INCLUDES_URL', ACS_URL . 'includes' );
+        define( 'ACS_IMAGES_URL', ACE_URL . 'images' );
+        define( 'ACS_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'ACS_INCLUDES_DIR', trailingslashit( ACE_DIR . 'includes' ) );
+        
+        $this->hooks();
+    }
+    
+    /**
+     * Load necessary functions
+     * 
+     * @since 1.1.0
+     */
+    function hooks() {
 
-    if( ! class_exists( 'arconix_shortcodes' ) ) {
-	arconix_shortcodes_init();
-	global $_arconix_shortcodes;
+	add_action( 'init', 'register_scripts' );
+	add_action( 'wp_enqueue_scripts', 'enqueue_css' );
+        add_action( 'init', 'register_shortcodes' );
+        add_action( 'wp_dashboard_setup', 'register_dashboard_widget' );
+
+	add_filter( 'widget_text', 'do_shortcode' );
+        
+        require_once( ACS_INCLUDES_DIR . 'shortcodes.php' );
+        require_once( ACS_INCLUDES_DIR . 'functions.php' );
+        
+        if( is_admin() )
+            require_once( ACS_INCLUDES_DIR . 'admin.php' );
+
     }
 }
 
-add_action( 'after_setup_theme', 'arconix_shortcodes_init' );
-/**
- * Initializes the plugin
- * Includes the libraries, defines global variables, instantiates the class
- *
- * @since 1.0
- */
-function arconix_shortcodes_init() {
-    global $_arconix_shortcodes;
-
-    define( 'ACS_URL', plugin_dir_url( __FILE__ ) );
-    define( 'ACS_VERSION', '1.0.3' );
-
-    /** Includes **/
-    require_once( dirname( __FILE__ ) . '/includes/class-shortcodes.php' );
-
-    /** Instantiate **/
-    $_arconix_shortcodes = new Arconix_Shortcodes;
-
-}
+new Arconix_Shortcodes;
 ?>
