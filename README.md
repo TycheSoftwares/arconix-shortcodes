@@ -4,8 +4,11 @@
 John Gardner ( [@j_gardner](http://twitter.com/j_gardner) / [arconixpc.com](http://arconixpc.com) )
 
 **Version**: 1.1.0-dev
+
 **Requires at least**: 3.1
+
 **Tested up to**: 3.4.1
+
 **License**: GPLv2
 
 ## Description
