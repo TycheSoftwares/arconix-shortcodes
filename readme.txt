@@ -3,7 +3,7 @@ Contributors: jgardner03
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.0.4
+Stable tag: 1.1.0
 
 Arconix Shortcodes provides a number of useful design elements to compliment any website.
 
@@ -49,8 +49,9 @@ I can certainly look into it. Contact me through [Twitter](http://arcnx.co/twitt
 
 == Changelog ==
 
-= 1.1-dev =
+= 1.1.0 =
 * Add support for compatibility mode which will prevent collisions with other shortcodes using the same name
+* Add support for overrides for the jQuery Tools registration which will allow the user to override which version of jQuery tools is loaded without modifying core plugin code.
 
 = 1.0.4 =
 * fixed a bug with the accordion script
