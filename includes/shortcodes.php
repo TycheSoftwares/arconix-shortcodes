@@ -31,7 +31,7 @@ function register_shortcodes() {
     }
     
     /* Loop through each shortcode */
-    foreach( (array ) $shortcodes as $shortcode ) {
+    foreach( (array) $shortcodes as $shortcode ) {
         add_shortcode( 
             $_prefix . $shortcode, 
             str_replace( '-', '_', $shortcode )  . '_shortcode' 
