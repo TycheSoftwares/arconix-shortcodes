@@ -1,8 +1,9 @@
 === Arconix Shortcodes ===
 Contributors: jgardner03
+Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
-Requires at least: 3.1
-Tested up to: 3.3.1
+Requires at least: 3.4
+Tested up to: 3.4.2
 Stable tag: 1.1.0
 
 Arconix Shortcodes provides a number of useful design elements to compliment any website.
@@ -35,11 +36,11 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 = I have a problem or a bug =
 
-* Check out the WordPress [support forum](http://arcnx.co/ashelp)
+* Check out the WordPress [support forum](http://arcnx.co/ashelp) or the [Issues section on Github](https://github.com/j-gardner/arconix-shortcodes/issues)
 
-= Can you add this shortcode or that option? =
+= I have a great idea for your plugin! =
 
-I can certainly look into it. Contact me through [Twitter](http://arcnx.co/twitter), [Facebook](http://arcnx.co/facebook) or my [Website](http://arcnx.co/1 "Arconix Computers").
+That's fantastic! Feel free to submit a pull request over at [Github](http://arcnx.co/assource), or you can contact me through [Twitter](http://arcnx.co/twitter), [Facebook](http://arcnx.co/facebook) or my [Website](http://arcnx.co/1).
 
 == Screenshots ==
 1. Buttons, buttons everywhere
