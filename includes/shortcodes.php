@@ -19,7 +19,7 @@ function register_shortcodes() {
         'one-half',
         'one-third', 'two-thirds',
         'one-fourth', 'two-fourths', 'three-fourths',
-        'one-fifth', 'two-fifths', 'three-fifths', 'four-fifths'        
+        'one-fifth', 'two-fifths', 'three-fifths', 'four-fifths'
     );
     
     /* Check for defined var and add prefix for compatibility mode */
@@ -209,25 +209,25 @@ function box_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to produce a styled button
  *
- * @param type $atts
- * @param type $content
- * @return type
+ * @param array $atts
+ * @param string $content
+ * @return string
  *
  * @since 0.9
- * @version 1.0.2
+ * @version 1.1.0
  */
-function button_shortcode( $atts, $content = null ) {
+function button_shortcode( $atts, $content ) {
     /*
       Supported Attributes
       size    =>  large, medium, small
       color   =>  black, blue, green, grey, orange, pink, red, white
-      target  =>  _self, _blank
+      target  =>  {nothing}, _blank
      */
     $defaults = apply_filters( 'arconix_button_shortcode_args', array(
         'size' => 'medium',
         'color' => 'white',
         'url' => '#',
-        'target' => '_self',
+        'target' => '',
         'rel' => ''
     ) );
     extract( shortcode_atts( $defaults, $atts ) );
@@ -235,27 +235,25 @@ function button_shortcode( $atts, $content = null ) {
     switch( $target ) {
         case "_blank":
         case "blank":
-            $target = "_blank";
+            $target = ' target="_blank" ';
             break;
-        case "_self":
-        case "self":
         default:
-            $target = "_self";
+            $target = '';
             break;
     }
 
-    if( $rel )
+    if( $rel ) 
         $rel = ' rel="' . $rel . '"';
 
-    return '<a target="' . $target . '" class="arconix-button arconix-button-' . $size . ' arconix-button-' . $color . '" href="' . $url . '"' . $rel . '>' . $content . '</a>';
+    return '<a' . $target . '"class="arconix-button arconix-button-' . $size . ' arconix-button-' . $color . '" href="' . esc_url( $url ) . '"' . $rel . '>' . $content . '</a>';
 }
 
 /**
  * Shortcode to highlight text
  *
- * @param type $atts
- * @param type $content
- * @return type
+ * @param array $atts
+ * @param string $content
+ * @return string
  *
  * @since 0.9
  * @example [highlight]my content[/highlight]
