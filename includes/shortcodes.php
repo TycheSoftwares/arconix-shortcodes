@@ -24,7 +24,7 @@ function register_shortcodes() {
     
     /* Check for defined var and add prefix for compatibility mode */
     if( defined( 'ACS_COMPAT' ) ) {
-        $_prefix = 'acs-';
+        $_prefix = 'ac-';
     }
     else {
         $_prefix = '';
