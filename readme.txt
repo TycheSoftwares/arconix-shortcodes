@@ -29,6 +29,10 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Frequently Asked Questions ==
 
+= How do I use compatibility mode? =
+
+* Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', 'true' );`
+
 = Where can I find more information on how to use the shortcodes?  =
 
 * Visit the plugin's [Wiki Page](http://arcnx.co/aswiki "Arconix Shortcodes Wiki") for documentation on all the shortcodes
