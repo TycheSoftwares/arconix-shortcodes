@@ -38,6 +38,10 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 * Visit the plugin's [Wiki Page](http://arcnx.co/aswiki "Arconix Shortcodes Wiki") for documentation on all the shortcodes
 * Tutorials on advanced plugin usage can be found at [Arconix Computers](http://arconixpc.com/tag/arconix-shortcodes)
 
+= How can I collapse all the accordions? =
+
+* While you can set the accordions to all collapse on load, the jQuery Tools script that powers these accordions does not support closing all the accordions once one has been opened.
+
 = I have a problem or a bug =
 
 * Check out the WordPress [support forum](http://arcnx.co/ashelp) or the [Issues section on Github](https://github.com/j-gardner/arconix-shortcodes/issues)
