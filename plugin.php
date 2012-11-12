@@ -23,9 +23,9 @@ class Arconix_Shortcodes {
      */
     function __construct() {
         define( 'ACS_VERSION', '1.1.0' );
-        define( 'ACS_URL', plugin_dir_url( __FILE__ ) );
-        define( 'ACS_INCLUDES_URL', ACS_URL . 'includes' );
-        define( 'ACS_IMAGES_URL', ACS_URL . 'images' );
+        define( 'ACS_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+        define( 'ACS_INCLUDES_URL', trailingslashit( ACS_URL . 'includes' ) );
+        define( 'ACS_IMAGES_URL', trailingslashit( ACS_URL . 'images' ) );
         define( 'ACS_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
         define( 'ACS_INCLUDES_DIR', trailingslashit( ACS_DIR . 'includes' ) );
         
