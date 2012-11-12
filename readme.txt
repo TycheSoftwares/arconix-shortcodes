@@ -29,13 +29,17 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Frequently Asked Questions ==
 
+= What is compatibility mode? =
+
+* Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[button]` or `[box]`)
+
 = How do I use compatibility mode? =
 
-* Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', 'true' );`
+* Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', 'true' ); // Arconix Shortcodes Compatibility Mode`
 
 = Where can I find more information on how to use the shortcodes?  =
 
-* Visit the plugin's [Wiki Page](http://arcnx.co/aswiki "Arconix Shortcodes Wiki") for documentation on all the shortcodes
+* Visit the plugin's [Wiki Page](http://arcnx.co/aswiki) for documentation on all the shortcodes
 * Tutorials on advanced plugin usage can be found at [Arconix Computers](http://arconixpc.com/tag/arconix-shortcodes)
 
 = How can I collapse all the accordions? =
