@@ -39,9 +39,9 @@ class Arconix_Shortcodes {
      */
     function hooks() {
 
-	add_action( 'init', 'register_scripts' );
-	add_action( 'wp_enqueue_scripts', 'enqueue_css' );
-        add_action( 'init', 'register_shortcodes' );
+	add_action( 'init', 'register_shortcodes' );	
+        add_action( 'init', 'register_javascript' );
+        add_action( 'wp_enqueue_scripts', 'enqueue_css' );
         add_action( 'wp_dashboard_setup', 'register_dashboard_widget' );
 
 	add_filter( 'widget_text', 'do_shortcode' );
@@ -51,8 +51,8 @@ class Arconix_Shortcodes {
         
         if( is_admin() )
             require_once( ACS_INCLUDES_DIR . 'admin.php' );
-
     }
+    
 }
 
 new Arconix_Shortcodes;

@@ -7,7 +7,7 @@
  * @since 0.9
  * @version 1.1.0
  */
-function register_script() {
+function register_javascript() {
     /* Provide script registration args so they can be filtered if necessary */
     $script_args = apply_filters( 'arconix_jquerytools_reg', array(
         'url' => 'http://cdn.jquerytools.org/1.2.7/tiny/jquery.tools.min.js',
