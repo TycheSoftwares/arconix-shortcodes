@@ -12,6 +12,7 @@
      * Output for the dashboard widget
      *
      * @since 1.0
+     * @version 1.1.0
      */
     function dashboard_widget_output() {
         echo '<div class="rss-widget">';
@@ -40,7 +41,7 @@
             #ac-shortcodes .acs-widget-bottom { border-top: 1px solid #ddd; padding-top: 10px; text-align: center; }
             #ac-shortcodes .acs-widget-bottom ul { list-style: none; }
             #ac-shortcodes .acs-widget-bottom ul li { display: inline; padding-right: 20px; }
-            #ac-shortcodes .acs-widget-bottom img { padding-right: 3px; vertical-align: middle; }
+            #ac-shortcodes .acs-widget-bottom img { padding-right: 3px; vertical-align: top; }
         </style>';
     }
 ?>
