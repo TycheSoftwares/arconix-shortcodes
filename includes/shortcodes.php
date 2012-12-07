@@ -1,13 +1,13 @@
 <?php
 /**
- * Register all the shortcodes
+ * Returns an array of shortcodes that have passed through a compatibility mode check
  *
- * @since 0.9
- * @version 1.1.0
+ * @since 1.1.0
+ * @return array $new_shortcodes
  */
-function register_shortcodes() {
+function get_arconix_shortcode_list() {
     /* List all shortcodes in an array to run through compatibility check */
-    $shortcodes = array(
+    $shortcodes = apply_filters( 'arconix_shortcodes_list', array(
         'loginout', 'map', 'site-link', 'the-year', 'wp-link',
         'abbr', 'highlight',
         'accordions', 'accordion',
@@ -20,30 +20,45 @@ function register_shortcodes() {
         'one-third', 'two-thirds',
         'one-fourth', 'two-fourths', 'three-fourths',
         'one-fifth', 'two-fifths', 'three-fifths', 'four-fifths'
-    );
-    
+    ) );
+
     /* Check for defined var and add prefix for compatibility mode */
-    if( defined( 'ACS_COMPAT' ) ) {
-        $_prefix = 'ac-';
+    defined( 'ACS_COMPAT' ) ? $prefix = 'ac-' : $prefix = '';
+
+    /* Will store our new shortcode array */
+    $new_shortcodes = array();
+
+    /* Loop through each shortcode and append the prefix as necessary, then add it to  */
+    foreach( (array) $shortcodes as $shortcode ) {
+        $new_shortcodes[] = $prefix . $shortcode;
     }
-    else {
-        $_prefix = '';
-    }
-    
+
+    return $new_shortcodes;
+}
+
+/**
+ * Register all the shortcodes
+ *
+ * @since 0.9
+ * @version 1.1.0
+ */
+function register_shortcodes() {
+    $shortcodes = get_arconix_shortcode_list();
+
     /* Loop through each shortcode */
     foreach( (array) $shortcodes as $shortcode ) {
-        add_shortcode( 
-            $_prefix . $shortcode, 
-            str_replace( '-', '_', $shortcode )  . '_shortcode' 
-        );        
-    }    
+        /* Remove the prefix so it doesn't muck up the function call */
+        if( defined( 'ACS_COMPAT' ) )
+            $shortcode = substr( $shortcode, 3 );
+
+        add_shortcode( $shortcode , str_replace( '-', '_', $shortcode )  . '_shortcode' );
+    }
 }
 
 /**
  * Shortcode to display a login link or logout link.
  *
  * @return string
- *
  * @since 0.9
  */
 function loginout_shortcode() {
@@ -59,9 +74,8 @@ function loginout_shortcode() {
 /**
  * Shortcode a Google Map based on the URL provided
  *
- * @param type $atts
- * @return type
- *
+ * @param array $atts
+ * @return string
  * @since 0.9
  * @example [map w="640" h="400" url="htp://..."]
  */
@@ -80,25 +94,37 @@ function googlemap_shortcode( $atts ) {
 /**
  * Shortcode to display a link back to the site.
  *
- * @since   0.9
+ * @since 0.9
  */
 function site_link_shortcode() {
     return '<a class="arconix-site-link" href="' . home_url() . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home"><span>' . get_bloginfo( 'name' ) . '</span></a>';
 }
 
 /**
- * Shortcode to display the current 4-digit year.
+ * Shortcode to display the current 4-digit year with optional before, start and after
  *
- * @since   0.9
+ * @param array $atts
+ * @return string
+ * @since 0.9
  */
-function the_year_shortcode() {
-    return '<span class="arconix-the-year">' . date( 'Y' ) . '</span>';
+function the_year_shortcode( $atts ) {
+    $defaults = apply_filters( 'arconix_the_year_shortcode_args', array(
+        'before' => '',
+        'start' => '',
+        'after' => ''
+    ) );
+
+    if( $before ) $before = esc_html( $before ) . ' ';
+    if( $start ) $start = absint( $start ) . ' - ';
+    if( $after ) $after = ' ' . esc_html( $after );
+
+    return '<span class="arconix-the-year">' . $before . $start . date( 'Y' ) . $after . '</span>';
 }
 
 /**
  * Shortcode to return a link to WordPress.org.
  *
- * @since   0.9
+ * @since 0.9
  */
 function wp_link_shortcode() {
     return '<a class="arconix-wp-link" href="http://wordpress.org" title="' . esc_attr__( 'This site is powered by WordPress', 'arconix-shortcodes' ) . '"><span>' . __( 'WordPress', 'arconix-shortcodes' ) . '</span></a>';
@@ -107,13 +133,11 @@ function wp_link_shortcode() {
 /**
  * Shortcode to handle abbreviations
  *
- * @param type $atts
- * @param type $content
- * @return type
- *
+ * @param array $atts
+ * @return string
  * @since 0.9
  */
-function abbr_shortcode( $atts, $content = null ) {
+function abbr_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
     extract( shortcode_atts( $defaults, $atts ) );
 
@@ -123,14 +147,12 @@ function abbr_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to produce jQuery-powered accordion group
  *
- * @param type $atts
- * @param type $content
- * @return type
- *
+ * @param array $atts
+ * @return string
  * @since 0.9
  * @version 1.1.0
  */
-function accordions_shortcode( $atts, $content = null ) {
+function accordions_shortcode( $atts ) {
     wp_enqueue_script( 'jquery-tools' );
 
     /*
@@ -242,7 +264,7 @@ function button_shortcode( $atts, $content ) {
             break;
     }
 
-    if( $rel ) 
+    if( $rel )
         $rel = ' rel="' . $rel . '"';
 
     return '<a' . $target . '"class="arconix-button arconix-button-' . $size . ' arconix-button-' . $color . '" href="' . esc_url( $url ) . '"' . $rel . '>' . $content . '</a>';
