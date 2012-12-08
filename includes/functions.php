@@ -46,7 +46,11 @@ function enqueue_css() {
 /**
  * Remove automatic <p></p> and <br /> tags from content
  *
- * @param type $content
+ * @link Codex reference: do_shortcode()
+ * @link Codex reference: shortcode_unautop()
+ * @link PHP reference: preg_replace()
+ *
+ * @param string $content
  * @return string
  *
  * @since 0.9
@@ -65,13 +69,12 @@ function remove_wpautop( $content ) {
  * @return string
  *
  * @since 1.0.4
+ * @version 1.1.0
  */
 function clearfloat( $last ) {
-    $return = '';
+    if( ! $last )
+        return;
 
-    if( $last )
-        $return = '<div style="clear:both;"></div>';
-
-    return $return;
+   return '<div style="clear:both;"></div>';
 }
 ?>
