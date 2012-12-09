@@ -3,7 +3,7 @@ Contributors: jgardner03
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.4
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: 1.1.0
 
 Arconix Shortcodes provides a number of useful design elements to compliment any website.
@@ -31,11 +31,11 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 = What is compatibility mode? =
 
-* Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[button]` or `[box]`)
+Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[button]` or `[box]`)
 
 = How do I use compatibility mode? =
 
-* Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', 'true' ); // Arconix Shortcodes Compatibility Mode`
+Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', 'true' ); // Arconix Shortcodes Compatibility Mode`. Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
 
 = Where can I find more information on how to use the shortcodes?  =
 
@@ -44,11 +44,11 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 = How can I collapse all the accordions? =
 
-* While you can set the accordions to all collapse on load, the jQuery Tools script that powers these accordions does not support closing all the accordions once one has been opened.
+While you can set the accordions to all collapse on load, the jQuery Tools script that powers these accordions does not support closing all the accordions once one has been opened.
 
 = I have a problem or a bug =
 
-* Check out the WordPress [support forum](http://arcnx.co/ashelp) or the [Issues section on Github](https://github.com/j-gardner/arconix-shortcodes/issues)
+Check out the WordPress [support forum](http://arcnx.co/ashelp) or the [Issues section on Github](https://github.com/j-gardner/arconix-shortcodes/issues)
 
 = I have a great idea for your plugin! =
 
@@ -63,8 +63,10 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 == Changelog ==
 
 = 1.1.0 =
-* Add support for compatibility mode which will prevent collisions with other shortcodes using the same name
-* Add support for overrides for the jQuery Tools registration which will allow the user to override which version of jQuery tools is loaded without modifying core plugin code.
+* Added support for compatibility mode which will prevent collisions with other shortcodes using the same name.
+* Added support for overrides for the jQuery Tools registration which will allow the user to override which version of jQuery tools is loaded without modifying core plugin code.
+* Added a meta box to the post and page screens that list all the shortcodes as well as a link to the documentation. Should help with trying to remember the shortcode names
+* Improved inline documentation in the code
 
 = 1.0.4 =
 * fixed a bug with the accordion script
@@ -74,7 +76,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 = 1.0.3 =
 * Fixed a bug in the output script for the Google Map shortcode
 * Tabs in prior tab groups will no longer show up in subsequent tab groups on the same page
-* A floated image in a tab will now stay in its tab container properly 
+* A floated image in a tab will now stay in its tab container properly
 * Updated to v1.2.7 of the jQuery Tools library
 
 = 1.0.2 =
