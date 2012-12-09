@@ -42,6 +42,10 @@ function get_arconix_shortcode_list() {
 /**
  * Register the plugin shortcodes
  *
+ * Assigns the shortcode list to an array and then loops through, adding the shortcode to WP for use.
+ * In the event the user has enabled compatibility mode, we have to remove the prefix (1st 3 chars)
+ * so it doesn't foul up the callback function.
+ *
  * @link Codex reference add_shortcode()
  * @link PHP reference: defined()
  * @link PHP reference: substr()
@@ -52,16 +56,14 @@ function get_arconix_shortcode_list() {
  * @since 0.9
  * @version 1.1.0
  */
-function register_shortcodes() {
+function acs_register_shortcodes() {
     $shortcodes = get_arconix_shortcode_list();
 
-    /* Loop through each shortcode */
     foreach( (array) $shortcodes as $shortcode ) {
-        /* Remove the prefix so it doesn't muck up the function call */
-        if( defined( 'ACS_COMPAT' ) )
-            $shortcode = substr( $shortcode, 3 );
+        /* If compatibility mode is enabled, remove the prefix for the function call, otherwise the function call is the shortcode name */
+        defined( 'ACS_COMPAT' ) ? $shortcode_func = substr( $shortcode, 3 ) : $shortcode_func = $shortcode;
 
-        add_shortcode( $shortcode , str_replace( '-', '_', $shortcode )  . '_shortcode' );
+        add_shortcode( $shortcode , str_replace( '-', '_', $shortcode_func )  . '_shortcode' );
     }
 }
 
@@ -79,7 +81,7 @@ function register_shortcodes() {
  * @since 0.9
  */
 function loginout_shortcode() {
-    $textdomain = 'arconix-shortcodes';
+    $textdomain = 'acs';
     if( is_user_logged_in() )
         $return = '<a class="arconix-logout-link" href="' . esc_url( wp_logout_url( site_url( $SERVER['REQUEST_URI'] ) ) ) . '" title="' . esc_attr__( 'Log out of this site', $textdomain ) . '">' . __( 'Log out', $textdomain ) . '</a>';
     else
