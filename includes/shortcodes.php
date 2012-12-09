@@ -211,7 +211,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @version 1.1.0
  */
 function accordions_shortcode( $atts, $content = null ) {
-    wp_enqueue_script( 'jquery-tools' );
+    wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_accordions_shortcode_args', array(
         'type' => 'vertical',
@@ -437,7 +437,7 @@ function list_shortcode( $atts, $content = null ) {
  * @version 1.1.0
  */
 function tabs_shortcode( $atts, $content = null ) {
-    wp_enqueue_script( 'jquery-tools' );
+    wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_tabs_shortcode_args', array(
         'style' => 'horizontal',
@@ -530,7 +530,7 @@ function tab_shortcode( $atts, $content = null ) {
  * @version 1.1.0
  */
 function toggle_shortcode( $atts, $content = null ) {
-    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_toggle_shortcode_args', array(
         'title' => '',
