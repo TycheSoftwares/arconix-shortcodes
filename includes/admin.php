@@ -4,12 +4,12 @@
  *
  * @since 1.1.0
  */
-function add_custom_meta_box() {
+function acs_add_custom_meta_box() {
     /* Allow a theme or plugin to filter the list of post types this meta box is added to */
     $post_types = apply_filters( 'arconix_shortcodes_meta_box_post_types', array( 'post', 'page' ) );
 
     foreach( (array) $post_types as $post_type ) {
-        add_meta_box( 'ac_shortcodes', __( 'Shortcode List', 'acs' ), 'shortcodes_box', $post_type, 'side' );
+        add_meta_box( 'ac_shortcodes', __( 'Arconix Shortcode List', 'acs' ), 'shortcodes_box', $post_type, 'side' );
     }
 }
 
@@ -19,7 +19,18 @@ function add_custom_meta_box() {
  * @since 1.1.0
  */
 function shortcodes_box() {
+    $shortcodes = get_arconix_shortcode_list();
 
+    if( ! $shortcodes or ! is_array( $shortcodes ) )
+        return;
+
+    $return = '<p><a href="http://arcnx.co/aswiki"><img style="padding-right: 3px; vertical-align: top;" src="' . ACS_ADMIN_IMAGES_URL . 'page-16x16.png">Documentation</a><ul>';
+    foreach( (array) $shortcodes as $shortcode ) {
+        $return .= '<li>' . $shortcode . '</li>';
+    }
+    $return .= '</ul>';
+
+    echo $return;
 }
 
 /**
@@ -27,8 +38,8 @@ function shortcodes_box() {
  *
  * @since 1.0
  */
-function register_dashboard_widget() {
-    wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', 'dashboard_widget_output' );
+function acs_register_shortcode_dash_widget() {
+    wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', 'acs_dash_widget' );
 }
 
 /**
@@ -37,7 +48,7 @@ function register_dashboard_widget() {
  * @since 1.0
  * @version 1.1.0
  */
-function dashboard_widget_output() {
+function acs_dash_widget() {
     echo '<div class="rss-widget">';
 
     wp_widget_rss_output( array(
