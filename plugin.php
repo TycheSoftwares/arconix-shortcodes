@@ -4,7 +4,7 @@
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 1.1.0-dev
+ * Version: 1.1.0
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -24,6 +24,7 @@ class Arconix_Shortcodes {
     function __construct() {
         $this->constants();
         $this->hooks();
+        $this->includes();
     }
 
     /**
@@ -47,14 +48,20 @@ class Arconix_Shortcodes {
      * @since 1.1.0
      */
     function hooks() {
+        add_action( 'init', 'acs_register_shortcodes' );
+        add_action( 'add_meta_boxes', 'acs_add_custom_meta_box' );
+        add_action( 'wp_enqueue_scripts', 'acs_load_scripts' );
+        add_action( 'wp_dashboard_setup', 'acs_register_shortcode_dash_widget' );
 
-	add_action( 'init', array( $this, 'register_shortcodes' ) );
-        add_action( 'add_meta_boxes', array( $this, 'add_custom_meta_box' ) );
-        add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
-        add_action( 'wp_dashboard_setup', array( $this, 'register_dashboard_widget' ) );
+        add_filter( 'widget_text', 'do_shortcode' );
+    }
 
-	add_filter( 'widget_text', 'do_shortcode' );
-
+    /**
+     * Load necessary plugin files
+     *
+     * @since 1.1.0
+     */
+    function includes() {
         require_once( ACS_INCLUDES_DIR . 'shortcodes.php' );
         require_once( ACS_INCLUDES_DIR . 'functions.php' );
 
