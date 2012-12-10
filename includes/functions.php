@@ -16,6 +16,7 @@ function acs_load_scripts() {
 
     wp_register_script( 'jquery-tools', $script_args['url'], array( $script_args['dep'] ), $script_args['ver'], true );
 
+    /* Register the javascript - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file */
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
         wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
@@ -23,6 +24,7 @@ function acs_load_scripts() {
     else
         wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
 
+    /* Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file */
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
         wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', array(), ACS_VERSION );
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
