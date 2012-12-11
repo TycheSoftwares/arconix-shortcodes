@@ -46,12 +46,12 @@ function get_arconix_shortcode_list() {
  * In the event the user has enabled compatibility mode, we have to remove the prefix (1st 3 chars)
  * so it doesn't foul up the callback function.
  *
- * @link Codex reference add_shortcode()
+ * @link Codex reference: add_shortcode()
  * @link PHP reference: defined()
  * @link PHP reference: substr()
  * @link PHP reference: str_replace()
  *
- * @uses get_arconix_shortcode_list() Defined in this file
+ * @uses get_arconix_shortcode_list()   Defined in this file
  *
  * @since 0.9
  * @version 1.1.0
@@ -204,7 +204,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in /includes/functions.php
  *
  * @param array $atts
  * @return string
