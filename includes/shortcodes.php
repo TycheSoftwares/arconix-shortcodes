@@ -2,6 +2,9 @@
 /**
  * Returns an array of shortcodes that have passed through a compatibility mode check
  *
+ * While the list is filterable, it's suggested to only filter the list if shortcodes will be removed.
+ * Adding shortcodes in this manner will likely fail as the callback function will not exist in the class.
+ *
  * @link Codex reference: apply_filters()
  *
  * @return array $new_shortcodes
@@ -31,7 +34,7 @@ function get_arconix_shortcode_list() {
     /* Will store our new shortcode array */
     $new_shortcodes = array();
 
-    /* Loop through each shortcode and append the prefix as necessary, then add it to  */
+    /* Loop through each shortcode and append the prefix as necessary, then add it to the array  */
     foreach( (array) $shortcodes as $shortcode ) {
         $new_shortcodes[] = $prefix . $shortcode;
     }
@@ -42,7 +45,7 @@ function get_arconix_shortcode_list() {
 /**
  * Register the plugin shortcodes
  *
- * Assigns the shortcode list to an array and then loops through, adding the shortcode to WP for use.
+ * Stores the shortcode list in an array and then loops through, adding the shortcode to WP for use.
  * In the event the user has enabled compatibility mode, we have to remove the prefix (1st 3 chars)
  * so it doesn't foul up the callback function.
  *
@@ -225,7 +228,7 @@ function accordions_shortcode( $atts, $content = null ) {
     if( $load == "none" )
         $load = 0; // for backwards compatibility
 
-    if( $css != '' )
+    if( $css )
         $css = ' ' . $css;
 
     return '<div class="arconix-accordions arconix-accordions-' . $type . ' arconix-accordions-' . $load . $css . '">' . remove_wpautop( $content ) . '</div>';
