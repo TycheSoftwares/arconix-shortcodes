@@ -1,6 +1,8 @@
 <?php
 /**
- * Adds a meta box to the sidebar column on the Post and Page edit screens
+ * Adds a meta box to the sidebar column on the Post and Page edit screens.
+ *
+ * The list of available post_types is filterable for themes and plugins, but hopefully just plugins ;)
  *
  * @since 1.1.0
  */
@@ -24,7 +26,7 @@ function shortcodes_box() {
     if( ! $shortcodes or ! is_array( $shortcodes ) )
         return;
 
-    $return = '<p><a href="http://arcnx.co/aswiki"><img style="padding-right: 3px; vertical-align: top;" src="' . ACS_ADMIN_IMAGES_URL . 'page-16x16.png">Documentation</a><ul>';
+    $return = '<p><a href="http://arcnx.co/aswiki"><img style="padding-right: 3px; vertical-align: top;" src="' . ACS_ADMIN_IMAGES_URL . 'page-16x16.png">Documentation</a></p><ul>';
     foreach( (array) $shortcodes as $shortcode ) {
         $return .= '<li>' . $shortcode . '</li>';
     }
@@ -44,6 +46,10 @@ function acs_register_shortcode_dash_widget() {
 
 /**
  * Output for the dashboard widget
+ *
+ * @link Codex reference: wp_widget_rss_output()
+ *
+ * @see ACS_ADMIN_IMAGES_URL    Defined in /plugin.php
  *
  * @since 1.0
  * @version 1.1.0
