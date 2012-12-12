@@ -6,7 +6,7 @@ Requires at least: 3.4
 Tested up to: 3.5
 Stable tag: 1.1.0
 
-Arconix Shortcodes provides a number of useful design elements to compliment any website.
+Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
 
 == Description ==
 
@@ -25,7 +25,7 @@ Activate Arconix-Shortcodes in the "Plugins" admin panel using the "Activate" li
 
 == Upgrade Notice ==
 
-Upgrade normally via your Wordpress admin -> Plugins panel.
+Upgrade normally via your WordPress admin -> Plugins panel.
 
 == Frequently Asked Questions ==
 
@@ -48,7 +48,7 @@ While you can set the accordions to all collapse on load, the jQuery Tools scrip
 
 = I have a problem or a bug =
 
-Check out the WordPress [support forum](http://arcnx.co/ashelp) or the [Issues section on Github](https://github.com/j-gardner/arconix-shortcodes/issues)
+Check out the WordPress [support forum](http://arcnx.co/ashelp) or the [Issues section on Github](http://arcnx.co/asissues)
 
 = I have a great idea for your plugin! =
 
@@ -63,8 +63,8 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 == Changelog ==
 
 = 1.1.0 =
-* Added support for compatibility mode which will prevent collisions with other shortcodes using the same name.
-* Added support for overrides for the jQuery Tools registration which will allow the user to override which version of jQuery tools is loaded without modifying core plugin code.
+* Added support for compatibility mode which should eliminate collisions with other shortcodes using the same name.
+* Added support for overriding the jQuery Tools registration which will allow the user to override which version of jQuery Tools is loaded without modifying core plugin code.
 * Added a meta box to the post and page screens that list all the shortcodes as well as a link to the documentation. Should help with trying to remember the shortcode names
 * Improved inline documentation in the code
 
