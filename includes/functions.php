@@ -26,11 +26,11 @@ function acs_load_scripts() {
 
     /* Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file */
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
-        wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', array(), ACS_VERSION );
+        wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
-        wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', array(), ACS_VERSION );
+        wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
     else
-        wp_enqueue_style( 'arconix-shortcodes', ACS_INCLUDES_URL . 'shortcodes.css', array(), ACS_VERSION );
+        wp_enqueue_style( 'arconix-shortcodes', ACS_INCLUDES_URL . 'shortcodes.css', false, ACS_VERSION );
 }
 
 /**
