@@ -11,12 +11,14 @@ function acs_add_custom_meta_box() {
     $post_types = apply_filters( 'arconix_shortcodes_meta_box_post_types', array( 'post', 'page' ) );
 
     foreach( (array) $post_types as $post_type ) {
-        add_meta_box( 'ac_shortcodes', __( 'Arconix Shortcode List', 'acs' ), 'shortcodes_box', $post_type, 'side' );
+        add_meta_box( 'ac-shortcode-list', __( 'Arconix Shortcode List', 'acs' ), 'shortcodes_box', $post_type, 'side' );
     }
 }
 
 /**
  * Callback to display the meta box content
+ *
+ * @uses get_arconix_shortcode_list()   Defined in /includes/shortcodes.php
  *
  * @since 1.1.0
  */
@@ -26,9 +28,9 @@ function shortcodes_box() {
     if( ! $shortcodes or ! is_array( $shortcodes ) )
         return;
 
-    $return = '<p><a href="http://arcnx.co/aswiki"><img style="padding-right: 3px; vertical-align: top;" src="' . ACS_ADMIN_IMAGES_URL . 'page-16x16.png">Documentation</a></p><ul>';
+    $return = '<p><a href="http://arcnx.co/aswiki"><img src="' . ACS_ADMIN_IMAGES_URL . 'page-16x16.png">Documentation</a></p><ul>';
     foreach( (array) $shortcodes as $shortcode ) {
-        $return .= '<li>' . $shortcode . '</li>';
+        $return .= '<li>[' . $shortcode . ']</li>';
     }
     $return .= '</ul>';
 
@@ -37,6 +39,8 @@ function shortcodes_box() {
 
 /**
  * Adds a news widget to the dashboard.
+ *
+ * @link Codex reference: wp_add_dashboard_widget()
  *
  * @since 1.0
  */
@@ -66,7 +70,6 @@ function acs_dash_widget() {
         'show_date' => 1 // 1 = display post date
     ) );
     ?>
-
     <div class="acs-widget-bottom">
         <ul>
             <li><a href="http://arcnx.co/aswiki"><img src="<?php echo ACS_ADMIN_IMAGES_URL . 'page-16x16.png'; ?>">Documentation</a></li>
@@ -75,15 +78,13 @@ function acs_dash_widget() {
             <li><a href="http://arcnx.co/assource"><img src="<?php echo ACS_ADMIN_IMAGES_URL . 'github-16x16.png'; ?>">Source Code</a></li>
         </ul>
     </div></div>
-
     <?php
-    // handle the styling
-    echo '<style type="text/css">
-            #ac-shortcodes .rsssummary { display: block; }
-            #ac-shortcodes .acs-widget-bottom { border-top: 1px solid #ddd; padding-top: 10px; text-align: center; }
-            #ac-shortcodes .acs-widget-bottom ul { list-style: none; }
-            #ac-shortcodes .acs-widget-bottom ul li { display: inline; padding-right: 20px; }
-            #ac-shortcodes .acs-widget-bottom img { padding-right: 3px; vertical-align: top; }
-        </style>';
+}
+
+/**
+ * Includes admin css
+ */
+function acs_admin_css() {
+    wp_enqueue_style( 'arconix-shortcodes-admin', ACS_INCLUDES_URL . 'admin.css', false, ACS_VERSION );
 }
 ?>

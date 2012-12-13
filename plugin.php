@@ -52,6 +52,7 @@ class Arconix_Shortcodes {
         add_action( 'add_meta_boxes', 'acs_add_custom_meta_box' );
         add_action( 'wp_enqueue_scripts', 'acs_load_scripts' );
         add_action( 'wp_dashboard_setup', 'acs_register_shortcode_dash_widget' );
+        add_action( 'admin_enqueue_scripts', 'acs_admin_css' );
 
         add_filter( 'widget_text', 'do_shortcode' );
     }

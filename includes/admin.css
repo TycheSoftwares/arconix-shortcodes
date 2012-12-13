@@ -1,0 +1,17 @@
+/* This stylesheet is loaded on the backed to help style the dashboard widget and the shortcode metabox list */
+
+/* Dashboard Widget */
+#ac-shortcodes .rsssummary { display: block; }
+#ac-shortcodes .acs-widget-bottom { border-top: 1px solid #ddd; padding-top: 10px; text-align: center; }
+#ac-shortcodes .acs-widget-bottom ul { list-style: none; }
+#ac-shortcodes .acs-widget-bottom ul li { display: inline; padding-right: 20px; }
+#ac-shortcodes .acs-widget-bottom img { padding-right: 3px; vertical-align: top; }
+
+/* Post Metabox */
+#ac-shortcode-list img { padding-right: 3px; vertical-align: top; }
+
+/* Sidebar */
+/* #side-sortables */
+
+/* Main column */
+#normal-sortables #ac-shortcode-list ul li { display: inline; padding-right: 10px; }
