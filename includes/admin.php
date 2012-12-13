@@ -2,7 +2,10 @@
 /**
  * Adds a meta box to the sidebar column on the Post and Page edit screens.
  *
- * The list of available post_types is filterable for themes and plugins, but hopefully just plugins ;)
+ * The list of available post_types is filterable for themes and plugins
+ *
+ * @link Codex reference: apply_filters()
+ * @link Codex reference: add_meta_box()
  *
  * @since 1.1.0
  */
@@ -19,6 +22,8 @@ function acs_add_custom_meta_box() {
  * Callback to display the meta box content
  *
  * @uses get_arconix_shortcode_list()   Defined in /includes/shortcodes.php
+ *
+ * @see ACS_ADMIN_IMAGES_URL    Defined in /plugin.php
  *
  * @since 1.1.0
  */
@@ -83,6 +88,13 @@ function acs_dash_widget() {
 
 /**
  * Includes admin css
+ *
+ * @link Codex reference: wp_enqueue_style()
+ *
+ * @see ACS_INCLUDES_URL    Defined in /plugin.php
+ * @see ACS_VERSION         Defined in /plugin.php
+ *
+ * @since 1.1.0
  */
 function acs_admin_css() {
     wp_enqueue_style( 'arconix-shortcodes-admin', ACS_INCLUDES_URL . 'admin.css', false, ACS_VERSION );
