@@ -3,6 +3,18 @@
  * Register the necessary javascript, which can be overriden by creating your own file and
  * placing it in the root of your theme's folder
  *
+ * @link Codex reference: apply_filters()
+ * @link Codex reference: wp_register_script()
+ * @link Codex reference: get_stylesheet_directory()
+ * @link Codex reference: get_stylesheet_directory_uri()
+ * @link Codex reference: get_template_directory()
+ * @link Codex reference: get_template_directory_uri()
+ * @link Codex reference: wp_enqueue_style()
+ *
+ * @see ACS_INCLUDES_URL    Defined in /plugin.php
+ * @see ACS_CSS_URL         Defined in /plugin.php
+ * @see ACS_VERSION         Defined in /plugin.php
+ *
  * @since 0.9
  * @version 1.1.0
  */
@@ -14,7 +26,7 @@ function acs_load_scripts() {
         'dep' => 'jquery'
     ) );
 
-    wp_register_script( 'jquery-tools', $script_args['url'], array( $script_args['dep'] ), $script_args['ver'], true );
+    wp_register_script( 'jquery-tools', esc_url( $script_args['url'] ), array( $script_args['dep'] ), $script_args['ver'], true );
 
     /* Register the javascript - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file */
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
@@ -30,7 +42,7 @@ function acs_load_scripts() {
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
         wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
     else
-        wp_enqueue_style( 'arconix-shortcodes', ACS_INCLUDES_URL . 'shortcodes.css', false, ACS_VERSION );
+        wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . 'shortcodes.css', false, ACS_VERSION );
 }
 
 /**

@@ -91,12 +91,12 @@ function acs_dash_widget() {
  *
  * @link Codex reference: wp_enqueue_style()
  *
- * @see ACS_INCLUDES_URL    Defined in /plugin.php
- * @see ACS_VERSION         Defined in /plugin.php
+ * @see ACS_CSS_URL     Defined in /plugin.php
+ * @see ACS_VERSION     Defined in /plugin.php
  *
  * @since 1.1.0
  */
 function acs_admin_css() {
-    wp_enqueue_style( 'arconix-shortcodes-admin', ACS_INCLUDES_URL . 'admin.css', false, ACS_VERSION );
+    wp_enqueue_style( 'arconix-shortcodes-admin', ACS_CSS_URL . 'admin.css', false, ACS_VERSION );
 }
 ?>

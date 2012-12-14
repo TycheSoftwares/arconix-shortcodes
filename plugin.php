@@ -36,6 +36,7 @@ class Arconix_Shortcodes {
         define( 'ACS_VERSION', '1.1.0' );
         define( 'ACS_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
         define( 'ACS_INCLUDES_URL', trailingslashit( ACS_URL . 'includes' ) );
+        define( 'ACS_CSS_URL', trailingslashit( ACS_INCLUDES_URL . 'css' ) );
         define( 'ACS_IMAGES_URL', trailingslashit( ACS_URL . 'images' ) );
         define( 'ACS_ADMIN_IMAGES_URL', trailingslashit( ACS_IMAGES_URL . 'admin' ) );
         define( 'ACS_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );

@@ -50,7 +50,6 @@ function get_arconix_shortcode_list() {
  * so it doesn't foul up the callback function.
  *
  * @link Codex reference: add_shortcode()
- * @link PHP reference: defined()
  * @link PHP reference: substr()
  * @link PHP reference: str_replace()
  *
