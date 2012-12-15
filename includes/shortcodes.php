@@ -417,7 +417,7 @@ function list_shortcode( $atts, $content = null ) {
  *
  * The tab title (for styling and linking can be set up by name or number. Read the following link for more information.
  *
- * @link http://arconixpc.com/2012/progress-report-tab-linking
+ * @tutorial http://arconixpc.com/2012/progress-report-tab-linking
  *
  * @example [tabs][tab title="Tab 1"]My tab 1 content[/tab][tab title="Tab 2"]My tab 2 content[/tab][/tabs]
  *
