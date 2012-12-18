@@ -64,8 +64,8 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 = 1.1.0 =
 * Added support for compatibility mode which will eliminate collisions with other shortcodes using the same name.
-* Added support for overriding the jQuery Tools registration which will allow the user to override which version of jQuery Tools is loaded without modifying core plugin code.
 * Added a meta box to the post and page screens that list all the shortcodes as well as a link to the documentation. Should help with trying to remember the shortcode names
+* Added support for overriding the jQuery Tools registration which will allow the user to override which version of jQuery Tools is loaded without modifying core plugin code.
 * Improved inline documentation in the code
 
 = 1.0.4 =
