@@ -35,7 +35,7 @@ Compatibility mode adds a prefix to all the plugin's shortcodes. This was put in
 
 = How do I use compatibility mode? =
 
-Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', 'true' ); // Arconix Shortcodes Compatibility Mode`. Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
+Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', true ); // Arconix Shortcodes Compatibility Mode`. Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
 
 = Where can I find more information on how to use the shortcodes?  =
 
