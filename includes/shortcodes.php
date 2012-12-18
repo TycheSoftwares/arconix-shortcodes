@@ -193,7 +193,7 @@ function abbr_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
     extract( shortcode_atts( $defaults, $atts ) );
 
-    return '<abbr class="arconix-abbr" title="' . $title . '">' . $content . '</abbr>';
+    return '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . $content . '</abbr>';
 }
 
 /**
@@ -228,9 +228,9 @@ function accordions_shortcode( $atts, $content = null ) {
         $load = 0; // for backwards compatibility
 
     if( $css )
-        $css = ' ' . $css;
+        $css = ' ' . esc_attr( $css );
 
-    return '<div class="arconix-accordions arconix-accordions-' . $type . ' arconix-accordions-' . $load . $css . '">' . remove_wpautop( $content ) . '</div>';
+    return '<div class="arconix-accordions arconix-accordions-' . esc_attr( $type ) . ' arconix-accordions-' . esc_attr( $load ) . $css . '">' . remove_wpautop( $content ) . '</div>';
 }
 
 /**
@@ -296,7 +296,7 @@ function box_shortcode( $atts, $content = null ) {
     ) );
     extract( shortcode_atts( $defaults, $atts ) );
 
-    return '<div class="arconix-box arconix-box-' . $style . '">' . remove_wpautop( $content ) . '</div>';
+    return '<div class="arconix-box arconix-box-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
 }
 
 /**
@@ -344,7 +344,7 @@ function button_shortcode( $atts, $content = null ) {
     if( $rel )
         $rel = ' rel="' . $rel . '"';
 
-    return '<a' . $target . '"class="arconix-button arconix-button-' . esc_attr( $size ) . ' arconix-button-' . esc_attr( $color ) . '" href="' . esc_url( $url ) . '"' . $rel . '>' . $content . '</a>';
+    return '<a' . $target . '"class="arconix-button arconix-button-' . esc_attr( $size ) . ' arconix-button-' . esc_attr( $color ) . '" href="' . esc_url( $url ) . '"' . esc_attr( $rel ) . '>' . $content . '</a>';
 }
 
 /**
@@ -370,7 +370,7 @@ function highlight_shortcode( $atts, $content = null ) {
 
     extract( shortcode_atts( $defaults, $atts ) );
 
-    return '<span class="arconix-highlight arconix-highlight-' . $color . '">' . do_shortcode( $content ) . '</span>';
+    return '<span class="arconix-highlight arconix-highlight-' . esc_attr( $color ) . '">' . do_shortcode( $content ) . '</span>';
 }
 
 /**
@@ -409,7 +409,7 @@ function list_shortcode( $atts, $content = null ) {
 
     extract( shortcode_atts( $defaults, $atts ) );
 
-    return '<div class="arconix-list arconix-list-' . $style . '">' . remove_wpautop( $content ) . '</div>';
+    return '<div class="arconix-list arconix-list-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
 }
 
 /**
@@ -476,7 +476,7 @@ function tabs_shortcode( $atts, $content = null ) {
             $tabs[] = '<li class="arconix-tab tab-' . sanitize_title( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
             $panes[] = '<div class="arconix-pane pane-' . sanitize_title( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
-        $return = "\n" . '<div class="arconix-tabs-' . $style . $css . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
+        $return = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ). '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
     }
 
     /* Reset the variables in the event we use multiple tabs on single page */
@@ -547,7 +547,7 @@ function toggle_shortcode( $atts, $content = null ) {
     $css_end = '</div>';
 
     if( $css )
-        $return = $css_start . $return . $css_end;
+        $return = esc_attr( $css_start ) . $return . $css_end;
 
     return $return;
 }
