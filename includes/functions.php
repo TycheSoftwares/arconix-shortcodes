@@ -1,7 +1,12 @@
 <?php
 /**
- * Register the necessary javascript, which can be overriden by creating your own file and
- * placing it in the root of your theme's folder
+ * Register the necessary javascript, which can be overridden in up to 2 different ways.
+ * If you'd like to use a different version of the jQuery Tools script {@link http://jquerytools.org/download/}
+ * you can add a filter that overrides the the url, version and dependency.
+ * If you'd like to modify the javascript that is used by the shortcodes, you can copy the shortcodes.js
+ * file to the root of your theme's folder and rename it to arconix-shortcodes.js. That will be loaded
+ * in place of the plugin's version, which means you can modify it to your heart's content and know
+ * the file will be safe when the plugin is updated in the future.
  *
  * @link Codex reference: apply_filters()
  * @link Codex reference: wp_register_script()
