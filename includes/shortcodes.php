@@ -319,7 +319,7 @@ function box_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.1.1
  */
 function button_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_button_shortcode_args', array(
@@ -342,9 +342,14 @@ function button_shortcode( $atts, $content = null ) {
     }
 
     if( $rel )
-        $rel = ' rel="' . $rel . '"';
+        $rel = ' rel="' . esc_attr( $rel ) . '"';
 
-    return '<a' . $target . '"class="arconix-button arconix-button-' . esc_attr( $size ) . ' arconix-button-' . esc_attr( $color ) . '" href="' . esc_url( $url ) . '"' . esc_attr( $rel ) . '>' . $content . '</a>';
+    /* Properly escape our data */
+    $url = esc_url( $url );
+    $size = esc_attr( $size );
+    $color = esc_attr( $color );
+
+    return "<a href='{$url}' class='arconix-button arconix-button-{$size} arconix-button-{$color}'{$rel}{$target}>{$content}</a>";
 }
 
 /**
