@@ -10,7 +10,7 @@
  * @since 1.1.0
  */
 function acs_add_custom_meta_box() {
-    /* Allow a theme or plugin to filter the list of post types this meta box is added to */
+    // Allow a theme or plugin to filter the list of post types this meta box is added to
     $post_types = apply_filters( 'arconix_shortcodes_meta_box_post_types', array( 'post', 'page' ) );
 
     foreach( (array) $post_types as $post_type ) {

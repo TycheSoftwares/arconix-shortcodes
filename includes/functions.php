@@ -24,7 +24,7 @@
  * @version 1.1.0
  */
 function acs_load_scripts() {
-    /* Provide script registration args so they can be filtered if necessary */
+    // Provide script registration args so they can be filtered if necessary
     $script_args = apply_filters( 'arconix_jquerytools_reg', array(
         'url' => 'http://cdn.jquerytools.org/1.2.7/tiny/jquery.tools.min.js',
         'ver' => '1.2.7',
@@ -33,7 +33,7 @@ function acs_load_scripts() {
 
     wp_register_script( 'jquery-tools', esc_url( $script_args['url'] ), array( $script_args['dep'] ), $script_args['ver'], true );
 
-    /* Register the javascript - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file */
+    // Register the javascript - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
         wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
@@ -41,7 +41,7 @@ function acs_load_scripts() {
     else
         wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
 
-    /* Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file */
+    // Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
         wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )

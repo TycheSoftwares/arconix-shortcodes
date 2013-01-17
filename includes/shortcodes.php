@@ -12,7 +12,7 @@
  * @since 1.1.0
  */
 function get_arconix_shortcode_list() {
-    /* List all shortcodes in an array to run through compatibility check */
+    // List all shortcodes in an array to run through compatibility check
     $shortcodes = apply_filters( 'arconix_shortcodes_list', array(
         'loginout', 'map', 'site-link', 'the-year', 'wp-link',
         'abbr', 'highlight',
@@ -28,13 +28,13 @@ function get_arconix_shortcode_list() {
         'one-fifth', 'two-fifths', 'three-fifths', 'four-fifths'
     ) );
 
-    /* Check for defined var and add prefix for compatibility mode */
+    // Check for defined var and add prefix for compatibility mode
     defined( 'ACS_COMPAT' ) ? $prefix = 'ac-' : $prefix = '';
 
-    /* Will store our new shortcode array */
+    // Will store our new shortcode array
     $new_shortcodes = array();
 
-    /* Loop through each shortcode and append the prefix as necessary, then add it to the array  */
+    // Loop through each shortcode and append the prefix as necessary, then add it to the array
     foreach( (array) $shortcodes as $shortcode ) {
         $new_shortcodes[] = $prefix . $shortcode;
     }
@@ -62,7 +62,7 @@ function acs_register_shortcodes() {
     $shortcodes = get_arconix_shortcode_list();
 
     foreach( (array) $shortcodes as $shortcode ) {
-        /* If compatibility mode is enabled, remove the prefix for the function call, otherwise the function call is the shortcode name */
+        // If compatibility mode is enabled, remove the prefix for the function call, otherwise the function call is the shortcode name
         defined( 'ACS_COMPAT' ) ? $shortcode_func = substr( $shortcode, 3 ) : $shortcode_func = $shortcode;
 
         add_shortcode( $shortcode , str_replace( '-', '_', $shortcode_func )  . '_shortcode' );
@@ -110,7 +110,6 @@ function loginout_shortcode() {
  * @example [map w="640" h="400" url="htp://..."]
  */
 function googlemap_shortcode( $atts ) {
-
     $defaults = apply_filters( 'arconix_googlemap_shortcode_args', array(
         'w' => '640',
         'h' => '400',
@@ -344,7 +343,7 @@ function button_shortcode( $atts, $content = null ) {
     if( $rel )
         $rel = ' rel="' . esc_attr( $rel ) . '"';
 
-    /* Properly escape our data */
+    // Properly escape our data
     $url = esc_url( $url );
     $size = esc_attr( $size );
     $color = esc_attr( $color );
@@ -466,7 +465,7 @@ function tabs_shortcode( $atts, $content = null ) {
     if( is_array( $GLOBALS['tabs'] ) ) {
         foreach( $GLOBALS['tabs'] as $tab ) {
 
-            /* Set up tabid based on the id defined above */
+            // Set up tabid based on the id defined above
             switch( $id ) {
                 case "name":
                     $tabid = sanitize_title( $tab['title'] );
@@ -484,7 +483,7 @@ function tabs_shortcode( $atts, $content = null ) {
         $return = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ). '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
     }
 
-    /* Reset the variables in the event we use multiple tabs on single page */
+    // Reset the variables in the event we use multiple tabs on single page
     $GLOBALS['tabs'] = null;
     $GLOBALS['tab_count'] = 0;
 
