@@ -64,7 +64,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 = 1.1.2 =
 * Added a color spec to the button hover code for more consistent behavior
-* Improved the plugin's ability to control for theme's which force bullet points on list items
+* Improved the plugin's ability to control for themes which force bullet points on list items
 
 = 1.1.1 =
 * Fixed a bug in the button code
