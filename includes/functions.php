@@ -39,7 +39,8 @@ function acs_load_scripts() {
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
         wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
     else
-        wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+        if( apply_filters( 'pre_register_arconix_shortcodes_js', true ) )
+            wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
 
     // Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
     if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
@@ -47,7 +48,8 @@ function acs_load_scripts() {
     elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
         wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
     else
-        wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . 'shortcodes.css', false, ACS_VERSION );
+        if( apply_filters( 'pre_register_arconix_shortcodes_css', true ) )
+            wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . 'shortcodes.css', false, ACS_VERSION );
 }
 
 /**
