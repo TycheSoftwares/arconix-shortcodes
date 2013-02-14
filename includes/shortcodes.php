@@ -205,7 +205,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @return string
@@ -240,7 +240,7 @@ function accordions_shortcode( $atts, $content = null ) {
  * @link Codex reference: sanitize_title()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -280,7 +280,7 @@ function accordion_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -311,7 +311,7 @@ function box_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -399,7 +399,7 @@ function highlight_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -435,7 +435,7 @@ function list_shortcode( $atts, $content = null ) {
  * @link PHP reference: extract()
  * @link PHP reference: implode()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -501,7 +501,7 @@ function tabs_shortcode( $atts, $content = null ) {
  * @link PHP reference: extract()
  * @link PHP reference: sprintf()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -528,7 +528,7 @@ function tab_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link Codex reference: do_shortcode()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -562,8 +562,8 @@ function toggle_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -592,8 +592,8 @@ function one_half_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -622,8 +622,8 @@ function one_third_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -652,8 +652,8 @@ function two_thirds_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -682,8 +682,8 @@ function one_fourth_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -712,8 +712,8 @@ function two_fourths_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -742,8 +742,8 @@ function three_fourths_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -772,8 +772,8 @@ function one_fifth_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -802,8 +802,8 @@ function two_fifths_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -832,8 +832,8 @@ function three_fifths_shortcode( $atts, $content = null ) {
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
- * @uses remove_wpautop()   Defined in /includes/functions.php
- * @uses clearfloat()       Defined in /includes/functions.php
+ * @uses remove_wpautop()   Defined in this file
+ * @uses clearfloat()       Defined in this file
  *
  * @param array $atts
  * @param string $content
@@ -856,4 +856,37 @@ function four_fifths_shortcode( $atts, $content = null ) {
     return $return;
 }
 
-?>
+/**
+     * Remove automatic <p></p> and <br /> tags from content
+     *
+     * @link Codex reference: do_shortcode()
+     * @link Codex reference: shortcode_unautop()
+     * @link PHP reference: preg_replace()
+     *
+     * @param string $content
+     * @return string
+     *
+     * @since 0.9
+     */
+    function remove_wpautop( $content ) {
+        $content = do_shortcode( shortcode_unautop( $content ) );
+        $content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content );
+
+        return $content;
+    }
+
+    /**
+     * Properly clear our floats after the columns
+     *
+     * @param string $last
+     * @return string
+     *
+     * @since 1.0.4
+     * @version 1.1.0
+     */
+    function clearfloat( $last ) {
+        if( ! $last )
+            return;
+
+       return '<div style="clear:both;"></div>';
+    }
