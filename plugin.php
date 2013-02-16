@@ -159,7 +159,7 @@ class Arconix_Shortcodes {
      * @since 1.0
      */
     function dashboard_widget() {
-        wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', 'acs_dash_widget' );
+        wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', array( $this, 'acs_dash_widget' ) );
     }
 
     /**
