@@ -41,14 +41,14 @@ class Arconix_Shortcodes {
      * @since 1.1.0
      */
     function constants() {
-        define( 'ACS_VERSION', '1.2.0' );
-        define( 'ACS_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
-        define( 'ACS_INCLUDES_URL', trailingslashit( ACS_URL . 'includes' ) );
-        define( 'ACS_CSS_URL', trailingslashit( ACS_INCLUDES_URL . 'css' ) );
-        define( 'ACS_IMAGES_URL', trailingslashit( ACS_URL . 'images' ) );
-        define( 'ACS_ADMIN_IMAGES_URL', trailingslashit( ACS_IMAGES_URL . 'admin' ) );
-        define( 'ACS_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-        define( 'ACS_INCLUDES_DIR', trailingslashit( ACS_DIR . 'includes' ) );
+        define( 'ACS_VERSION',              '1.2.0' );
+        define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
+        define( 'ACS_INCLUDES_URL',         trailingslashit( ACS_URL . 'includes' ) );
+        define( 'ACS_CSS_URL',              trailingslashit( ACS_INCLUDES_URL . 'css' ) );
+        define( 'ACS_IMAGES_URL',           trailingslashit( ACS_URL . 'images' ) );
+        define( 'ACS_ADMIN_IMAGES_URL',     trailingslashit( ACS_IMAGES_URL . 'admin' ) );
+        define( 'ACS_DIR',                  trailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'ACS_INCLUDES_DIR',         trailingslashit( ACS_DIR . 'includes' ) );
     }
 
     /**
@@ -123,7 +123,7 @@ class Arconix_Shortcodes {
         $post_types = apply_filters( 'arconix_shortcodes_meta_box_post_types', array( 'post', 'page' ) );
 
         foreach( (array) $post_types as $post_type ) {
-            add_meta_box( 'ac-shortcode-list', __( 'Arconix Shortcode List', 'acs' ), 'shortcodes_box', $post_type, 'side' );
+            add_meta_box( 'ac-shortcode-list', __( 'Arconix Shortcode List', 'acs' ), array( $this, 'shortcodes_box' ), $post_type, 'side' );
         }
     }
 
