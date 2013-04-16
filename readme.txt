@@ -16,6 +16,7 @@ With this plugin you can easily add various kinds of styled boxes, buttons, tabs
 * 8 style shortcodes (accordions, boxes, tabs, toggles, etc...)
 * 5 utility shortcodes (login-logout, google-map, etc...)
 * Support for up to 5 columns
+* Has a Compatibility Mode available to help prevent shortcode name conflicts
 
 == Installation ==
 
@@ -35,7 +36,11 @@ Compatibility mode adds a prefix to all the plugin's shortcodes. This was put in
 
 = How do I use compatibility mode? =
 
-Place the following code in your theme's `functions.php` file: `define( 'ACS_COMPAT', true ); // Arconix Shortcodes Compatibility Mode`. Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
+Place the following code in your theme's `functions.php` file: 
+`
+define( 'ACS_COMPAT', true ); // Arconix Shortcodes Compatibility Mode
+` 
+Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
 
 = Where can I find more information on how to use the shortcodes?  =
 
@@ -45,6 +50,11 @@ Place the following code in your theme's `functions.php` file: `define( 'ACS_COM
 = How can I collapse all the accordions? =
 
 While you can set the accordions to all collapse on load, the jQuery Tools script that powers these accordions does not support closing all the accordions once one has been opened.
+
+= The Accordions/Tabs/Toggles isn't working =
+While you can certainly start a thread in the [support forum](http://arcnx.co/ashelp), there are some troubleshooting steps you can take beforehand to help speed up the process.
+1. Check to make sure the javascripts are loading correctly. Load the page with the malfunctioning shortcode in your browser and view your page's source (usually CTRL + U). Look for jQuery, jQuery Tools and Arconix Shortcodes JS files there. If you don't see jQuery Tools or the Arconix scripts at all (they're somewhere near the bottom of the page), then your theme's `footer.php` file is likely missing `<?php wp_footer(); ?>`, which is neccessary for the operation of mine and many other plugins. If you're unable or unwilling to resolve the issue yourself, contact the theme developer for assistance.
+2. Check to make sure only one copy of jQuery is being loaded. Many times conflicts arise when themes or plugins load jQuery incorrectly, causing it to be loaded multiple times in multiple versions. In order to find the offending item, start by disabling your plugins one by one until you find the problem. If you've disabled all your plugins and the issue still persists, try switching to a different them, such as twentyten or twentytwelve to see if the problem is with your theme. Once you've found the problem, contact the developer for assistance getting the issue resolved.
 
 = I have a problem or a bug =
 
