@@ -62,6 +62,9 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 == Changelog ==
 
+= 1.2.0 =
+* Added a filter to more easily prevent the dashboard widget from loading
+
 = 1.1.2 =
 * Added a color spec to the button hover code for more consistent behavior
 * Improved the plugin's ability to control for themes which force bullet points on list items
