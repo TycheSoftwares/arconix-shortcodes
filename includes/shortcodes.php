@@ -130,7 +130,7 @@ function googlemap_shortcode( $atts ) {
  * @since 0.9
  */
 function site_link_shortcode() {
-    return '<a class="arconix-site-link" href="' . home_url() . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home"><span>' . get_bloginfo( 'name' ) . '</span></a>';
+    return '<a class="arconix-site-link" href="' . home_url() . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home"><span>' . esc_attr( get_bloginfo( 'name' ) ) . '</span></a>';
 }
 
 /**
@@ -211,7 +211,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.2.0
  */
 function accordions_shortcode( $atts, $content = null ) {
     wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -227,9 +227,9 @@ function accordions_shortcode( $atts, $content = null ) {
         $load = 0; // for backwards compatibility
 
     if( $css )
-        $css = ' ' . esc_attr( $css );
+        $css = ' ' . sanitize_html_class( $css );
 
-    return '<div class="arconix-accordions arconix-accordions-' . esc_attr( $type ) . ' arconix-accordions-' . esc_attr( $load ) . $css . '">' . remove_wpautop( $content ) . '</div>';
+    return '<div class="arconix-accordions arconix-accordions-' . esc_attr( $type ) . ' arconix-accordions-' . esc_attr( $load ) . esc_attr( $css ) . '">' . remove_wpautop( $content ) . '</div>';
 }
 
 /**
@@ -442,7 +442,7 @@ function list_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.2.0
  */
 function tabs_shortcode( $atts, $content = null ) {
     wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -455,7 +455,7 @@ function tabs_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( $defaults, $atts ) );
 
     if( $css )
-        $css = ' ' . $css;
+        $css = ' ' . sanitize_html_class( $css );
 
     $GLOBALS['tab_count'] = 0;
     $tabid = 0;
@@ -480,7 +480,7 @@ function tabs_shortcode( $atts, $content = null ) {
             $tabs[] = '<li class="arconix-tab tab-' . sanitize_title( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
             $panes[] = '<div class="arconix-pane pane-' . sanitize_title( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
-        $return = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ). '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
+        $return = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ) . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
     }
 
     // Reset the variables in the event we use multiple tabs on single page
@@ -535,7 +535,7 @@ function tab_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.2.0
  */
 function toggle_shortcode( $atts, $content = null ) {
     wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -546,12 +546,10 @@ function toggle_shortcode( $atts, $content = null ) {
     ) );
     extract( shortcode_atts( $defaults, $atts ) );
 
-    $return = '<div class="arconix-toggle-wrap"><div class="arconix-toggle-title">' . $title . '</div><div class="arconix-toggle-content">' . remove_wpautop( $content ) . '</div></div>';
-    $css_start = '<div class="' . $css . '">';
-    $css_end = '</div>';
-
     if( $css )
-        $return = esc_attr( $css_start ) . $return . $css_end;
+        $css = ' ' . sanitize_html_class( $css );
+
+    $return = '<div class="arconix-toggle-wrap' . esc_attr( $css ) . '"><div class="arconix-toggle-title">' . esc_attr( $title ) . '</div><div class="arconix-toggle-content">' . remove_wpautop( $content ) . '</div></div>';
 
     return $return;
 }
@@ -856,7 +854,7 @@ function four_fifths_shortcode( $atts, $content = null ) {
     return $return;
 }
 
-/**
+    /**
      * Remove automatic <p></p> and <br /> tags from content
      *
      * @link Codex reference: do_shortcode()
