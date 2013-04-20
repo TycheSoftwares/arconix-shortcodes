@@ -4,7 +4,7 @@ Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
 
@@ -74,6 +74,9 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 = 1.2.0 =
 * Added a filter to more easily prevent the dashboard widget from loading
+* Fixed a bug in the output of custom toggle CSS
+* Improve the JS and CSS file overrides
+* Other small fixes and improvements
 
 = 1.1.2 =
 * Added a color spec to the button hover code for more consistent behavior
