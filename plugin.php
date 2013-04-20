@@ -52,7 +52,7 @@ class Arconix_Shortcodes {
     }
 
     /**
-     * Register the necessary Javascript and CSS, which can be overridden in up to 2 different ways.
+     * Register the necessary Javascript and CSS, which can be overridden in 3 different ways.
      * If you'd like to use a different version of the jQuery Tools script {@link http://jquerytools.org/download/}
      * you can add a filter that overrides the the url, version and dependency.
      *
@@ -77,7 +77,7 @@ class Arconix_Shortcodes {
      * @see ACS_VERSION         Defined in this file
      *
      * @since 0.9
-     * @version 1.1.0
+     * @version 1.2.0
      */
     function scripts() {
         // Provide script registration args so they can be filtered if necessary
@@ -90,22 +90,25 @@ class Arconix_Shortcodes {
         wp_register_script( 'jquery-tools', esc_url( $script_args['url'] ), array( $script_args['dep'] ), $script_args['ver'], true );
 
         // Register the javascript - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
-        if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
-            wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
-        elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
-            wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
-        else
-            if( apply_filters( 'pre_register_arconix_shortcodes_js', true ) )
+        if( apply_filters( 'pre_register_arconix_shortcodes_js', true ) ) {
+            if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
+                wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+            elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
+                wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+            else
                 wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+        }        
 
         // Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
-        if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
-            wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
-        elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
-            wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
-        else
-            if( apply_filters( 'pre_register_arconix_shortcodes_css', true ) )
+        if( apply_filters( 'pre_register_arconix_shortcodes_css', true ) ) {
+            if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
+                wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
+            elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
+                wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
+            else
                 wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . 'arconix-shortcodes.css', false, ACS_VERSION );
+        }
+        
     }
 
     /**
@@ -163,7 +166,7 @@ class Arconix_Shortcodes {
      * @version 1.2.0
      */
     function dashboard_widget() {
-        if( apply_filters( 'pre_register_arconix_dashboard_widget', true ) )
+        if( apply_filters( 'pre_register_arconix_shortcodes_dashboard_widget', true ) )
             wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', array( $this, 'acs_dash_widget' ) );
     }
 
