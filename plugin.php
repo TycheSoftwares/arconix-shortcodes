@@ -24,15 +24,15 @@ class Arconix_Shortcodes {
     function __construct() {
         $this->constants();
 
-        add_action( 'init', 'acs_register_shortcodes' );
-        add_action( 'add_meta_boxes', array( $this, 'metabox' ) );
-        add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
-        add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
-        add_action( 'wp_dashboard_setup', array( $this, 'dashboard_widget' ) );        
+        add_action( 'init',                     'acs_register_shortcodes' );
+        add_action( 'add_meta_boxes',           array( $this, 'metabox' ) );
+        add_action( 'wp_enqueue_scripts',       array( $this, 'scripts' ) );
+        add_action( 'admin_enqueue_scripts',    array( $this, 'admin_css' ) );
+        add_action( 'wp_dashboard_setup',       array( $this, 'dashboard_widget' ) );
 
-        add_filter( 'widget_text', 'do_shortcode' );
+        add_filter( 'widget_text',              'do_shortcode' );
 
-        include_once( ACS_INCLUDES_DIR . 'shortcodes.php' );
+        include_once( ACS_INCLUDES_DIR .        'shortcodes.php' );
     }
 
     /**
