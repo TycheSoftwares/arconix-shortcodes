@@ -32,7 +32,7 @@ Upgrade normally via your WordPress admin -> Plugins panel.
 
 = What is compatibility mode? =
 
-Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[button]` or `[box]`)
+Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[ button ]` or `[ box ]`)
 
 = How do I use compatibility mode? =
 
@@ -40,7 +40,7 @@ Place the following code in your theme's `functions.php` file:
 `
 define( 'ACS_COMPAT', true ); // Arconix Shortcodes Compatibility Mode
 ` 
-Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
+Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ ac-box ]content[ /ac-box ]`
 
 = Where can I find more information on how to use the shortcodes?  =
 
@@ -73,7 +73,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 == Changelog ==
 
 = 1.2.0 =
-* Added a filter to more easily prevent the dashboard widget from loading
+* Added a filter to simplify prevention of the dashboard widget from loading
 * Fixed a bug in the output of custom toggle CSS
 * Improve the JS and CSS file overrides
 * Other small fixes and improvements
