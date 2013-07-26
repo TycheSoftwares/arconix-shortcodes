@@ -4,14 +4,15 @@ jQuery(document).ready( function(){
     //Hide (Collapse) the toggle containers on load
     jQuery(".arconix-toggle-content").hide();
 
-    //Switch the "Open" and "Close" state per click
-    jQuery(".arconix-toggle-title").toggle(function(){
-        jQuery(this).addClass("active");
-        }, function () {
-        jQuery(this).removeClass("active");
-    });
-    //Slide up and down on click
-    jQuery(".arconix-toggle-title").click(function(){
+    //Switch the "Open" and "Close" state per click and slide
+    jQuery('.arconix-toggle-title').click( function(){
+        if( jQuery('.arconix-toggle-title').hasClass('active')) {
+            jQuery('.arconix-toggle-title').removeClass('active');
+        }
+        else {
+            jQuery('.arconix-toggle-title').addClass('active');
+        }
+        //Slide up and down on click
         jQuery(this).next(".arconix-toggle-content").slideToggle();
     });
 
