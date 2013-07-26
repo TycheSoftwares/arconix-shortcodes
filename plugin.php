@@ -157,16 +157,19 @@ class Arconix_Shortcodes {
     /**
      * Adds a news widget to the dashboard.
      *
-     * If the filter is returned false, it will prevent the dashboard widget from loading. It's a little
-     * cleaner than other solutions available.
+     * If the filter is returned false or the logged in user isn't an Admin user, it will prevent the dashboard widget 
+     * from loading. It's a little cleaner than other solutions available.
+     *
+     * @example add_filter( 'pre_register_arconix_shortcodes_dashboard_widget', '__return_false' );
      *
      * @link Codex reference: wp_add_dashboard_widget()
+     * @link Codex reference: current_user_can()
      *
      * @since 1.0
      * @version 1.2.0
      */
     function dashboard_widget() {
-        if( apply_filters( 'pre_register_arconix_shortcodes_dashboard_widget', true ) )
+        if( apply_filters( 'pre_register_arconix_shortcodes_dashboard_widget', true ) and current_user_can( 'manage_options ' ) )
             wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', array( $this, 'acs_dash_widget' ) );
     }
 
