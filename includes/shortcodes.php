@@ -202,6 +202,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * Right now that's accordion 0-5
  *
  * @link Codex reference: apply_filters()
+ * @link Codex reference: wp_script_is()
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -214,7 +215,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @version 1.2.0
  */
 function accordions_shortcode( $atts, $content = null ) {
-    wp_enqueue_script( 'arconix-shortcodes-js' );
+    if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_accordions_shortcode_args', array(
         'type' => 'vertical',
@@ -429,6 +430,7 @@ function list_shortcode( $atts, $content = null ) {
  *
  * @link Codex reference: wp_enqueue_script()
  * @link Codex reference: apply_filters()
+ * @link Codex reference: wp_script_is()
  * @link Codex reference: shortcode_atts()
  * @link Codex reference: do_shortcode()
  * @link Codex reference: sanitize_title()
@@ -445,7 +447,7 @@ function list_shortcode( $atts, $content = null ) {
  * @version 1.2.0
  */
 function tabs_shortcode( $atts, $content = null ) {
-    wp_enqueue_script( 'arconix-shortcodes-js' );
+    if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_tabs_shortcode_args', array(
         'style' => 'horizontal',
