@@ -544,14 +544,18 @@ function toggle_shortcode( $atts, $content = null ) {
 
     $defaults = apply_filters( 'arconix_toggle_shortcode_args', array(
         'title' => '',
+        'load' => 'closed',
         'css' => ''
     ) );
     extract( shortcode_atts( $defaults, $atts ) );
 
+    $load == 'open' ? $load = ' toggle-open' : $load = ' toggle-closed';
+
+
     if( $css )
         $css = ' ' . sanitize_html_class( $css );
 
-    $return = '<div class="arconix-toggle-wrap' . esc_attr( $css ) . '"><div class="arconix-toggle-title">' . esc_attr( $title ) . '</div><div class="arconix-toggle-content">' . remove_wpautop( $content ) . '</div></div>';
+    $return = '<div class="arconix-toggle-wrap'. esc_attr( $css ) . '"><div class="arconix-toggle-title' . esc_attr( $load ) . '">' . esc_attr( $title ) . '</div><div class="arconix-toggle-content' . esc_attr( $load ) . '">' . remove_wpautop( $content ) . '</div></div>';
 
     return $return;
 }

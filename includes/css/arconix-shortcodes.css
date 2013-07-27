@@ -530,7 +530,7 @@ in order to for the files to be displayed.
     position: relative;
 }
 
-.arconix-toggle-title.active { background: url(../../images/toggle-close.png) no-repeat left transparent; }
+.arconix-toggle-title.toggle-open { background: url(../../images/toggle-close.png) no-repeat left transparent; }
 
 .arconix-toggle-content {
     margin-left: 10px;
