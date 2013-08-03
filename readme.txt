@@ -73,8 +73,8 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 == Changelog ==
 
 = 1.2.0 =
-* Updated toggle shortcode to be compatible with WordPress 3.6
-* Allow the user to set the initial state of the toggle (closed or open)
+* Updated toggle shortcode to be compatible with jQuery 1.9+
+* Added shortcode parameter to allow the user to set the initial state of the toggle (closed or open)
 * Restricted the dashboard widget to only show up for administrator users
 * Added a filter to simplify prevention of the dashboard widget from loading at all
 * Fixed a bug in the output of custom toggle CSS
