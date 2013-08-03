@@ -3,7 +3,7 @@ Contributors: jgardner03
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.4
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: 1.2.0
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -74,6 +74,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 = 1.2.0 =
 * Updated toggle shortcode to be compatible with WordPress 3.6
+* Allow the user to set the initial state of the toggle (closed or open)
 * Restricted the dashboard widget to only show up for administrator users
 * Added a filter to simplify prevention of the dashboard widget from loading at all
 * Fixed a bug in the output of custom toggle CSS
