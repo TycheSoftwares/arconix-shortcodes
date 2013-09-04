@@ -58,6 +58,8 @@ class Arconix_Shortcodes {
      *
      * If you would like to bundle the Javacsript or CSS funtionality into another file and prevent either of those files
      * from loading at all, return false to the pre_register filters
+     *
+     * @example add_filter( 'pre_register_arconix_shortcodes_js', '__return_false' );
      * 
      * If you'd like to modify the Javascript or CSS that is used by the shortcodes, you can copy the arconix-shortcodes.js
      * or arconix-shortcodes.css files to the root of your theme's folder. That will be loaded in place of the plugin's 
@@ -89,7 +91,7 @@ class Arconix_Shortcodes {
 
         wp_register_script( 'jquery-tools', esc_url( $script_args['url'] ), array( $script_args['dep'] ), $script_args['ver'], true );
 
-        // Register the javascript - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
+        // Register the javascript - Check the child theme directory first, the parent theme second, otherwise load the plugin version
         if( apply_filters( 'pre_register_arconix_shortcodes_js', true ) ) {
             if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
                 wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
@@ -99,7 +101,7 @@ class Arconix_Shortcodes {
                 wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
         }        
 
-        // Load the CSS - Check the theme directory first, the parent theme (if applicable) second, otherwise load the plugin file
+        // Load the CSS - Check the child theme directory first, the parent theme second, otherwise load the plugin version
         if( apply_filters( 'pre_register_arconix_shortcodes_css', true ) ) {
             if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
                 wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );

@@ -34,7 +34,7 @@ Upgrade normally via your WordPress admin -> Plugins panel.
 
 Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[ button ]` or `[ box ]`)
 
-= How do I use compatibility mode? =
+= How do I enable compatibility mode? =
 
 Place the following code in your theme's `functions.php` file: 
 `
