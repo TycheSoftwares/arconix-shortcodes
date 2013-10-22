@@ -16,7 +16,7 @@ would have to be changed to
 
     'url(../../plugins/arconix-shortcodes/images ...'
 
-in order to for the files to be displayed.
+in order to for the images to be displayed.
 */
 
 /* Abbreviation Styling
@@ -189,7 +189,8 @@ in order to for the files to be displayed.
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
 }
 
-.arconix-button:hover {
+.arconix-button:hover,
+.arconix-button:visited {
     color: #fff;
     text-decoration: none;
 }
@@ -377,7 +378,8 @@ in order to for the files to be displayed.
 
 /* White
 ------------------------------------------------------------ */
-.arconix-button-white {
+.arconix-button-white,
+.arconix-button-white:visited {
     color: #606060 !important;
     border: solid 1px #b7b7b7;
     background: #fff;
@@ -516,7 +518,7 @@ in order to for the files to be displayed.
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;
-    background:	none repeat scroll 0 0 #fbfbfb;
+    background: none repeat scroll 0 0 #fbfbfb;
     clear: both;
     border: 1px solid #ddd;
     margin: 10px inherit;
