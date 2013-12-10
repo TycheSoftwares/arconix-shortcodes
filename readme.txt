@@ -32,7 +32,7 @@ Upgrade normally via your WordPress admin -> Plugins panel.
 
 = What is compatibility mode? =
 
-Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[ button ]` or `[ box ]`)
+Compatibility mode adds a prefix to all the plugin's shortcodes. This was put into place to help avoid conflicts with other themes or plugins that used the same shortcode (like `[button]` or `[box]`)
 
 = How do I enable compatibility mode? =
 
@@ -40,7 +40,7 @@ Place the following code in your theme's `functions.php` file:
 `
 define( 'ACS_COMPAT', true ); // Arconix Shortcodes Compatibility Mode
 ` 
-Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ ac-box ]content[ /ac-box ]`
+Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
 
 = Where can I find more information on how to use the shortcodes?  =
 
@@ -49,7 +49,7 @@ Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ ac-box ]co
 
 = How can I collapse all the accordions? =
 
-While you can set the accordions to all collapse on load, the jQuery Tools script that powers these accordions does not support closing all the accordions once one has been opened.
+While you can set the accordions to all collapse when the page is first loaded, the jQuery Tools script that powers these accordions does not support closing all the accordions once one has been opened.
 
 = The Accordions/Tabs/Toggles isn't working =
 While you can certainly start a thread in the [support forum](http://arcnx.co/ashelp), there are some troubleshooting steps you can take beforehand to help speed up the process.

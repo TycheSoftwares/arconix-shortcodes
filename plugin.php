@@ -56,8 +56,8 @@ class Arconix_Shortcodes {
      * If you'd like to use a different version of the jQuery Tools script {@link http://jquerytools.org/download/}
      * you can add a filter that overrides the the url, version and dependency.
      *
-     * If you would like to bundle the Javacsript or CSS funtionality into another file and prevent either of those files
-     * from loading at all, return false to the pre_register filters
+     * If you would like to bundle the Javacsript or CSS funtionality into another file and prevent either of the plugin files
+     * from loading at all, return false to the desired pre_register filters
      *
      * @example add_filter( 'pre_register_arconix_shortcodes_js', '__return_false' );
      * 
