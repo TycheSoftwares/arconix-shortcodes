@@ -44,7 +44,7 @@ Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]cont
 
 = Where can I find more information on how to use the shortcodes?  =
 
-* Visit the plugin's [Wiki Page](http://arcnx.co/aswiki) for documentation on all the shortcodes
+* Visit the plugin's [Documentation](http://arcnx.co/aswiki) for explanations on all the shortcodes
 * Tutorials on advanced plugin usage can be found at [Arconix Computers](http://arconixpc.com/tag/arconix-shortcodes)
 
 = How can I collapse all the accordions? =
