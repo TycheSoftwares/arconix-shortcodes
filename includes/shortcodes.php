@@ -105,7 +105,7 @@ function loginout_shortcode() {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.3.0
  *
  * @example [map w="640" h="400" url="htp://..."]
  */
@@ -115,9 +115,11 @@ function googlemap_shortcode( $atts ) {
         'h' => '400',
         'url' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_googlemap' ) );
 
-    return '<iframe width="' . absint( $w ) . '" height="' . absint( $h ) . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . esc_url( $url ) . '&amp;output=embed"></iframe>';
+    $r = '<iframe width="' . absint( $w ) . '" height="' . absint( $h ) . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . esc_url( $url ) . '&amp;output=embed"></iframe>';
+
+    return apply_filters( 'arconix_googlemap_return', $r );
 }
 
 /**
@@ -147,7 +149,7 @@ function site_link_shortcode() {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.3.0
  */
 function the_year_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_the_year_shortcode_args', array(
@@ -156,13 +158,15 @@ function the_year_shortcode( $atts ) {
         'after' => ''
     ) );
 
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_the_year' ) );
 
     if( $before ) $before = esc_html( $before ) . ' ';
     if( $start ) $start = absint( $start ) . ' - ';
     if( $after ) $after = ' ' . esc_html( $after );
 
-    return '<span class="arconix-the-year">' . $before . $start . date( 'Y' ) . $after . '</span>';
+    $r = '<span class="arconix-the-year">' . $before . $start . date( 'Y' ) . $after . '</span>';
+
+    return apply_filters( 'arconix_the_year_return', $r );
 }
 
 /**
@@ -187,12 +191,15 @@ function wp_link_shortcode() {
  * @return string
  *
  * @since 0.9
+ * @version  1.3.0
  */
 function abbr_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_abbr' ) );
 
-    return '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . $content . '</abbr>';
+    $r '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . $content . '</abbr>';
+
+    return apply_filters( 'arconix_abbr_return', $r )
 }
 
 /**
@@ -212,7 +219,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.2.0
+ * @version 1.3.0
  */
 function accordions_shortcode( $atts, $content = null ) {
     if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -222,7 +229,7 @@ function accordions_shortcode( $atts, $content = null ) {
         'load' => '1',
         'css' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_accordions' ) );
 
     if( $load == "none" )
         $load = 0; // for backwards compatibility
@@ -230,7 +237,9 @@ function accordions_shortcode( $atts, $content = null ) {
     if( $css )
         $css = ' ' . sanitize_html_class( $css );
 
-    return '<div class="arconix-accordions arconix-accordions-' . esc_attr( $type ) . ' arconix-accordions-' . esc_attr( $load ) . esc_attr( $css ) . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-accordions arconix-accordions-' . esc_attr( $type ) . ' arconix-accordions-' . esc_attr( $load ) . esc_attr( $css ) . '">' . remove_wpautop( $content ) . '</div>';
+
+    return apply_filters( 'arconix_accordions_return', $r );
 }
 
 /**
@@ -248,22 +257,22 @@ function accordions_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.3.0
  */
 function accordion_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_accordion_shortcode_args', array(
         'title' => '',
         'last' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_accordion' ) );
 
     if( $last )
         $last = ' arconix-accordion-last';
 
-    $return = '<div class="arconix-accordion-title accordion-' . sanitize_title( $title ) . $last . '">' . $title . '</div>';
-    $return .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-accordion-title accordion-' . sanitize_title( $title ) . $last . '">' . $title . '</div>';
+    $r .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
-    return $return;
+    return apply_filters( 'arconix_accordions_return', $r );
 }
 
 /**
@@ -288,15 +297,17 @@ function accordion_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.3.0
  */
 function box_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_box_shortcode_args', array(
         'style' => 'grey'
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_box' ) );
 
-    return '<div class="arconix-box arconix-box-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-box arconix-box-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+
+    return apply_filters( 'arconix_box_return', $r );
 }
 
 /**
@@ -319,7 +330,7 @@ function box_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.1
+ * @version 1.3.0
  */
 function button_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_button_shortcode_args', array(
@@ -329,7 +340,7 @@ function button_shortcode( $atts, $content = null ) {
         'target' => '',
         'rel' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_button' ) );
 
     switch( $target ) {
         case "_blank":
@@ -349,7 +360,9 @@ function button_shortcode( $atts, $content = null ) {
     $size = esc_attr( $size );
     $color = esc_attr( $color );
 
-    return "<a href='{$url}' class='arconix-button arconix-button-{$size} arconix-button-{$color}'{$rel}{$target}>{$content}</a>";
+    $r = "<a href='{$url}' class='arconix-button arconix-button-{$size} arconix-button-{$color}'{$rel}{$target}>{$content}</a>";
+
+    return apply_filters( 'arconix_button_return', $r );
 }
 
 /**
@@ -369,13 +382,16 @@ function button_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
+ * @version  1.3.0
  */
 function highlight_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_highlight_shortcode_args', array( 'color' => 'yellow' ) );
 
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_highlight' ) );
 
-    return '<span class="arconix-highlight arconix-highlight-' . esc_attr( $color ) . '">' . do_shortcode( $content ) . '</span>';
+    $r '<span class="arconix-highlight arconix-highlight-' . esc_attr( $color ) . '">' . do_shortcode( $content ) . '</span>';
+
+    return apply_filters( 'arconix_highlight_return', $r );
 }
 
 /**
@@ -407,14 +423,16 @@ function highlight_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.1.0
+ * @version 1.3.0
  */
 function list_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_list_shortcode_args', array( 'style' => 'arrow-white' ) );
 
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_list' ) );
 
-    return '<div class="arconix-list arconix-list-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+    $r '<div class="arconix-list arconix-list-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+
+    return apply_filters( 'arconix_list_return', $r );
 }
 
 /**
@@ -444,7 +462,7 @@ function list_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.2.0
+ * @version 1.3.0
  */
 function tabs_shortcode( $atts, $content = null ) {
     if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -454,7 +472,7 @@ function tabs_shortcode( $atts, $content = null ) {
         'id' => 'name',
         'css' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_tabs' ) );
 
     if( $css )
         $css = ' ' . sanitize_html_class( $css );
@@ -482,14 +500,14 @@ function tabs_shortcode( $atts, $content = null ) {
             $tabs[] = '<li class="arconix-tab tab-' . sanitize_title( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
             $panes[] = '<div class="arconix-pane pane-' . sanitize_title( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
-        $return = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ) . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
+        $r = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ) . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
     }
 
     // Reset the variables in the event we use multiple tabs on single page
     $GLOBALS['tabs'] = null;
     $GLOBALS['tab_count'] = 0;
 
-    return $return;
+    return apply_filters( 'arconix_tabs_return', $r );
 }
 
 /**
@@ -509,10 +527,11 @@ function tabs_shortcode( $atts, $content = null ) {
  * @param string $content
  *
  * @since 0.9
+ * @version  1.3.0
  */
 function tab_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_tab_shortcode_args', array( 'title' => 'Tab' ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_tab' ) );
 
     $x = $GLOBALS['tab_count'];
     $GLOBALS['tabs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' => $content );
@@ -537,7 +556,7 @@ function tab_shortcode( $atts, $content = null ) {
  * @return string
  *
  * @since 0.9
- * @version 1.2.0
+ * @version 1.3.0
  */
 function toggle_shortcode( $atts, $content = null ) {
     wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -547,7 +566,7 @@ function toggle_shortcode( $atts, $content = null ) {
         'load' => 'closed',
         'css' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts ) );
+    extract( shortcode_atts( $defaults, $atts, 'arconix_toggle' ) );
 
     $load == 'open' ? $load = ' toggle-open' : $load = ' toggle-closed';
 
@@ -555,9 +574,9 @@ function toggle_shortcode( $atts, $content = null ) {
     if( $css )
         $css = ' ' . sanitize_html_class( $css );
 
-    $return = '<div class="arconix-toggle-wrap'. esc_attr( $css ) . '"><div class="arconix-toggle-title' . esc_attr( $load ) . '">' . esc_attr( $title ) . '</div><div class="arconix-toggle-content' . esc_attr( $load ) . '">' . remove_wpautop( $content ) . '</div></div>';
+    $r = '<div class="arconix-toggle-wrap'. esc_attr( $css ) . '"><div class="arconix-toggle-title' . esc_attr( $load ) . '">' . esc_attr( $title ) . '</div><div class="arconix-toggle-content' . esc_attr( $load ) . '">' . remove_wpautop( $content ) . '</div></div>';
 
-    return $return;
+    return apply_filters( 'arconix_toggle_return', $r );
 }
 
 /**
