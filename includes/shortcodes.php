@@ -14,7 +14,7 @@
 function get_arconix_shortcode_list() {
     // List all shortcodes in an array to run through compatibility check
     $shortcodes = apply_filters( 'arconix_shortcodes_list', array(
-        'loginout', 'map', 'site-link', 'the-year', 'wp-link',
+        'loginout', 'googlemap', 'site-link', 'the-year', 'wp-link',
         'abbr', 'highlight',
         'accordions', 'accordion',
         'box',
@@ -93,7 +93,7 @@ function loginout_shortcode() {
 }
 
 /**
- * Shortcode a Google Map based on the URL provided
+ * Shortcode a Google Map based on the embed URL or address provided
  *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
@@ -108,16 +108,22 @@ function loginout_shortcode() {
  * @version 1.3.0
  *
  * @example [map w="640" h="400" url="htp://..."]
+ * @example [map url="RI, USA" type="address"]
  */
 function googlemap_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_googlemap_shortcode_args', array(
         'w' => '640',
         'h' => '400',
-        'url' => ''
+        'url' => '',
+        'type' => ''
     ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_googlemap' ) );
 
     $r = '<iframe width="' . absint( $w ) . '" height="' . absint( $h ) . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . esc_url( $url ) . '&amp;output=embed"></iframe>';
+
+    // If a user enters address as the type, instead of a full url in the url param, they enter an address
+    if ( $type == "address" )
+        $r = '<iframe src="https://maps.google.com/maps?q=' . urlencode( $url ) . '&amp;output=embed" width="' . absint( $w ) . '" height="' . absint( $h ) . '" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>';
 
     return apply_filters( 'arconix_googlemap_return', $r );
 }
@@ -197,9 +203,9 @@ function abbr_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_abbr' ) );
 
-    $r '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . $content . '</abbr>';
+    $r = '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . $content . '</abbr>';
 
-    return apply_filters( 'arconix_abbr_return', $r )
+    return apply_filters( 'arconix_abbr_return', $r );
 }
 
 /**
@@ -389,7 +395,7 @@ function highlight_shortcode( $atts, $content = null ) {
 
     extract( shortcode_atts( $defaults, $atts, 'arconix_highlight' ) );
 
-    $r '<span class="arconix-highlight arconix-highlight-' . esc_attr( $color ) . '">' . do_shortcode( $content ) . '</span>';
+    $r = '<span class="arconix-highlight arconix-highlight-' . esc_attr( $color ) . '">' . do_shortcode( $content ) . '</span>';
 
     return apply_filters( 'arconix_highlight_return', $r );
 }
@@ -430,7 +436,7 @@ function list_shortcode( $atts, $content = null ) {
 
     extract( shortcode_atts( $defaults, $atts, 'arconix_list' ) );
 
-    $r '<div class="arconix-list arconix-list-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-list arconix-list-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_list_return', $r );
 }
