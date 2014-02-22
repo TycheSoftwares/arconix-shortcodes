@@ -65,7 +65,7 @@ function acs_register_shortcodes() {
         // If compatibility mode is enabled, remove the prefix for the function call, otherwise the function call is the shortcode name
         defined( 'ACS_COMPAT' ) ? $shortcode_func = substr( $shortcode, 3 ) : $shortcode_func = $shortcode;
 
-        add_shortcode( $shortcode , str_replace( '-', '_', $shortcode_func )  . '_shortcode' );
+        add_shortcode( $shortcode , str_replace( '-', '_', $shortcode_func )  . '_arconix_shortcode' );
     }
 }
 
@@ -82,7 +82,7 @@ function acs_register_shortcodes() {
  *
  * @since 0.9
  */
-function loginout_shortcode() {
+function loginout_arconix_shortcode() {
     $textdomain = 'acs';
     if( is_user_logged_in() )
         $return = '<a class="arconix-logout-link" href="' . esc_url( wp_logout_url( site_url( $SERVER['REQUEST_URI'] ) ) ) . '" title="' . esc_attr__( 'Log out of this site', $textdomain ) . '">' . __( 'Log out', $textdomain ) . '</a>';
@@ -110,7 +110,7 @@ function loginout_shortcode() {
  * @example [map w="640" h="400" url="htp://..."]
  * @example [map url="RI, USA" type="address"]
  */
-function googlemap_shortcode( $atts ) {
+function googlemap_arconix_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_googlemap_shortcode_args', array(
         'w' => '640',
         'h' => '400',
@@ -137,7 +137,7 @@ function googlemap_shortcode( $atts ) {
  *
  * @since 0.9
  */
-function site_link_shortcode() {
+function site_link_arconix_shortcode() {
     return '<a class="arconix-site-link" href="' . home_url() . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home"><span>' . esc_attr( get_bloginfo( 'name' ) ) . '</span></a>';
 }
 
@@ -157,7 +157,7 @@ function site_link_shortcode() {
  * @since 0.9
  * @version 1.3.0
  */
-function the_year_shortcode( $atts ) {
+function the_year_arconix_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_the_year_shortcode_args', array(
         'before' => '',
         'start' => '',
@@ -182,7 +182,7 @@ function the_year_shortcode( $atts ) {
  *
  * @since 0.9
  */
-function wp_link_shortcode() {
+function wp_link_arconix_shortcode() {
     return '<a class="arconix-wp-link" href="http://wordpress.org" title="' . esc_attr__( 'This site is powered by WordPress', 'acs' ) . '"><span>' . __( 'WordPress', 'acs' ) . '</span></a>';
 }
 
@@ -199,7 +199,7 @@ function wp_link_shortcode() {
  * @since 0.9
  * @version  1.3.0
  */
-function abbr_shortcode( $atts, $content = null ) {
+function abbr_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_abbr' ) );
 
@@ -227,7 +227,7 @@ function abbr_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function accordions_shortcode( $atts, $content = null ) {
+function accordions_arconix_shortcode( $atts, $content = null ) {
     if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_accordions_shortcode_args', array(
@@ -265,7 +265,7 @@ function accordions_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function accordion_shortcode( $atts, $content = null ) {
+function accordion_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_accordion_shortcode_args', array(
         'title' => '',
         'last' => ''
@@ -305,7 +305,7 @@ function accordion_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function box_shortcode( $atts, $content = null ) {
+function box_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_box_shortcode_args', array(
         'style' => 'grey'
     ) );
@@ -338,7 +338,7 @@ function box_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function button_shortcode( $atts, $content = null ) {
+function button_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_button_shortcode_args', array(
         'size' => 'medium',
         'color' => 'white',
@@ -390,7 +390,7 @@ function button_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version  1.3.0
  */
-function highlight_shortcode( $atts, $content = null ) {
+function highlight_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_highlight_shortcode_args', array( 'color' => 'yellow' ) );
 
     extract( shortcode_atts( $defaults, $atts, 'arconix_highlight' ) );
@@ -431,7 +431,7 @@ function highlight_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function list_shortcode( $atts, $content = null ) {
+function list_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_list_shortcode_args', array( 'style' => 'arrow-white' ) );
 
     extract( shortcode_atts( $defaults, $atts, 'arconix_list' ) );
@@ -470,7 +470,7 @@ function list_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function tabs_shortcode( $atts, $content = null ) {
+function tabs_arconix_shortcode( $atts, $content = null ) {
     if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_tabs_shortcode_args', array(
@@ -535,7 +535,7 @@ function tabs_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version  1.3.0
  */
-function tab_shortcode( $atts, $content = null ) {
+function tab_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_tab_shortcode_args', array( 'title' => 'Tab' ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_tab' ) );
 
@@ -564,7 +564,7 @@ function tab_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.3.0
  */
-function toggle_shortcode( $atts, $content = null ) {
+function toggle_arconix_shortcode( $atts, $content = null ) {
     wp_enqueue_script( 'arconix-shortcodes-js' );
 
     $defaults = apply_filters( 'arconix_toggle_shortcode_args', array(
@@ -601,7 +601,7 @@ function toggle_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function one_half_shortcode( $atts, $content = null ) {
+function one_half_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -631,7 +631,7 @@ function one_half_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function one_third_shortcode( $atts, $content = null ) {
+function one_third_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -661,7 +661,7 @@ function one_third_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function two_thirds_shortcode( $atts, $content = null ) {
+function two_thirds_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last)
@@ -691,7 +691,7 @@ function two_thirds_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function one_fourth_shortcode( $atts, $content = null ) {
+function one_fourth_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -721,7 +721,7 @@ function one_fourth_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function two_fourths_shortcode( $atts, $content = null ) {
+function two_fourths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -751,7 +751,7 @@ function two_fourths_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function three_fourths_shortcode( $atts, $content = null ) {
+function three_fourths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -781,7 +781,7 @@ function three_fourths_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function one_fifth_shortcode( $atts, $content = null ) {
+function one_fifth_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -811,7 +811,7 @@ function one_fifth_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function two_fifths_shortcode( $atts, $content = null ) {
+function two_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -841,7 +841,7 @@ function two_fifths_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function three_fifths_shortcode( $atts, $content = null ) {
+function three_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
@@ -871,7 +871,7 @@ function three_fifths_shortcode( $atts, $content = null ) {
  * @since 0.9
  * @version 1.1.0
  */
-function four_fifths_shortcode( $atts, $content = null ) {
+function four_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
     if( $last )
