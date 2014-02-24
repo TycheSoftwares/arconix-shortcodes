@@ -604,8 +604,7 @@ function toggle_arconix_shortcode( $atts, $content = null ) {
 function one_half_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-one-half' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -634,8 +633,7 @@ function one_half_arconix_shortcode( $atts, $content = null ) {
 function one_third_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-one-third' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -664,8 +662,7 @@ function one_third_arconix_shortcode( $atts, $content = null ) {
 function two_thirds_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last)
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-two-thirds' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -694,8 +691,7 @@ function two_thirds_arconix_shortcode( $atts, $content = null ) {
 function one_fourth_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-one-fourth' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -724,8 +720,7 @@ function one_fourth_arconix_shortcode( $atts, $content = null ) {
 function two_fourths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-two-fourths' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -754,8 +749,7 @@ function two_fourths_arconix_shortcode( $atts, $content = null ) {
 function three_fourths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-three-fourths' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -784,8 +778,7 @@ function three_fourths_arconix_shortcode( $atts, $content = null ) {
 function one_fifth_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-one-fifth' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -814,8 +807,7 @@ function one_fifth_arconix_shortcode( $atts, $content = null ) {
 function two_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-two-fifths' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -844,8 +836,7 @@ function two_fifths_arconix_shortcode( $atts, $content = null ) {
 function three_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-three-fifths' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
@@ -874,8 +865,7 @@ function three_fifths_arconix_shortcode( $atts, $content = null ) {
 function four_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
 
-    if( $last )
-        $last = ' arconix-column-last';
+    $last = ( ( isset( $atts[0] ) && trim( $atts[0] == 'last' ) ) || $last != "" ) ? ' arconix-column-last' : '';
 
     $return = '<div class="arconix-column-four-fifths' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
