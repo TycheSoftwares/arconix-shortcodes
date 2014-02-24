@@ -272,7 +272,7 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
     ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_accordion' ) );
 
-    if( ( is_array( $atts) && in_array( 'last', $atts ) && $atts['last'] != '' ) || $last != '' ) $last = ' arconix-accordion-last';
+    if( ( is_array( $atts ) && in_array( 'last', $atts ) && $atts['last'] != '' ) || $last != '' ) $last = ' arconix-accordion-last';
 
     $r = '<div class="arconix-accordion-title accordion-' . sanitize_title( $title ) . $last . '">' . $title . '</div>';
     $r .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
