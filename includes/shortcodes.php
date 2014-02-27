@@ -237,8 +237,8 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
     ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_accordions' ) );
 
-    if( $load == "none" )
-        $load = 0; // for backwards compatibility
+    if( $load == "none" || !absint( $load ) ) // for backwards compatibility
+        $load = 0; 
 
     if( $css )
         $css = ' ' . sanitize_html_class( $css );
@@ -274,7 +274,7 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
 
     if( ( is_array( $atts ) && in_array( 'last', $atts ) && $atts['last'] != '' ) || $last != '' ) $last = ' arconix-accordion-last';
 
-    $r = '<div class="arconix-accordion-title accordion-' . sanitize_title( $title ) . $last . '">' . $title . '</div>';
+    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $title . '</div>';
     $r .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
@@ -493,7 +493,7 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
             // Set up tabid based on the id defined above
             switch( $id ) {
                 case "name":
-                    $tabid = sanitize_title( $tab['title'] );
+                    $tabid = sanitize_html_class( $tab['title'] );
                     break;
                 case "number":
                     $tabid += 1;
@@ -502,8 +502,8 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
                     break;
             }
 
-            $tabs[] = '<li class="arconix-tab tab-' . sanitize_title( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
-            $panes[] = '<div class="arconix-pane pane-' . sanitize_title( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
+            $tabs[] = '<li class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
+            $panes[] = '<div class="arconix-pane pane-' . sanitize_html_class( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
         $r = "\n" . '<div class="arconix-tabs-' . esc_attr( $style ) . esc_attr( $css ) . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
     }
