@@ -31,6 +31,8 @@ function get_arconix_shortcode_list() {
     // Check for defined var and add prefix for compatibility mode
     defined( 'ACS_COMPAT' ) ? $prefix = 'ac-' : $prefix = '';
 
+    $prefix = apply_filters( 'arconix_compatibility_mode_prefix', $prefix ); // Allow prefix to be overridden
+
     // Will store our new shortcode array
     $new_shortcodes = array();
 
