@@ -7,6 +7,8 @@
  *
  * @link Codex reference: apply_filters()
  *
+ * @uses ACS_COMPAT Compatibility mode constant
+ *
  * @return array $new_shortcodes
  *
  * @since 1.1.0
@@ -28,10 +30,20 @@ function get_arconix_shortcode_list() {
         'one-fifth', 'two-fifths', 'three-fifths', 'four-fifths'
     ) );
 
-    // Check for defined var and add prefix for compatibility mode
-    defined( 'ACS_COMPAT' ) ? $prefix = 'ac-' : $prefix = '';
-
-    $prefix = apply_filters( 'arconix_compatibility_mode_prefix', $prefix ); // Allow prefix to be overridden
+    /**
+     * If a user defines the constant as true (which is what my documentation says to do)
+     * we add a standard prefix 'ac-' otherwise as an Easter Egg, the user can define their
+     * own prefix
+     */
+    if( defined( 'ACS_COMPAT' ) ) {
+        if( 1 == constant( 'ACS_COMPAT' ) ) // 1 = true
+            $prefix = 'ac-';
+        else
+            $prefix = constant( 'ACS_COMPAT' );
+    }
+    else
+        $prefix = '';
+    
 
     // Will store our new shortcode array
     $new_shortcodes = array();
