@@ -5,13 +5,13 @@
  * While the list is filterable, it's suggested to only filter the list if shortcodes will be removed.
  * Adding shortcodes in this manner will likely fail as the callback function will not exist in the class.
  *
+ * @since 1.1.0
+ *
  * @link Codex reference: apply_filters()
  *
  * @uses ACS_COMPAT Compatibility mode constant
  *
  * @return array $new_shortcodes
- *
- * @since 1.1.0
  */
 function get_arconix_shortcode_list() {
     // List all shortcodes in an array to run through compatibility check
@@ -51,6 +51,9 @@ function get_arconix_shortcode_list() {
   *
   * @since
   *
+  * @link PHP reference: defined()
+  * @link PHP reference: constant()
+  *
   * @return string Compatibility Mode prefix
   */
 function get_compatibility_prefix() {
@@ -74,6 +77,9 @@ function get_compatibility_prefix() {
  * In the event the user has enabled compatibility mode, we have to remove the prefix (1st 3 chars)
  * so it doesn't foul up the callback function.
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: add_shortcode()
  * @link PHP reference: substr()
  * @link PHP reference: str_replace()
@@ -81,8 +87,6 @@ function get_compatibility_prefix() {
  * @uses get_arconix_shortcode_list()   Defined in this file
  * @uses get_compatibility_prefix()     Defined in this file
  *
- * @since 0.9
- * @version 1.1.0
  */
 function acs_register_shortcodes() {
     $shortcodes = get_arconix_shortcode_list();
@@ -100,6 +104,8 @@ function acs_register_shortcodes() {
 /**
  * Shortcode to display a login link or logout link.
  *
+ * @since 0.9
+ *
  * @link Codex reference: is_user_logged_in()
  * @link Codex reference: esc_url()
  * @link Codex reference: esc_attr()
@@ -107,8 +113,6 @@ function acs_register_shortcodes() {
  * @link Codex reference: site_url()
  *
  * @return string
- *
- * @since 0.9
  */
 function loginout_arconix_shortcode() {
     $textdomain = 'acs';
@@ -123,6 +127,12 @@ function loginout_arconix_shortcode() {
 /**
  * Shortcode a Google Map based on the embed URL or address provided
  *
+ * @example [map w="640" h="400" url="htp://..."]
+ * @example [map url="RI, USA" type="address"]
+ *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link Codex reference: absint()
@@ -130,13 +140,8 @@ function loginout_arconix_shortcode() {
  * @link PHP reference: extract()
  *
  * @param array $atts
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
- *
- * @example [map w="640" h="400" url="htp://..."]
- * @example [map url="RI, USA" type="address"]
+ * @return string iframe link to Google map
  */
 function googlemap_arconix_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_googlemap_shortcode_args', array(
@@ -159,11 +164,11 @@ function googlemap_arconix_shortcode( $atts ) {
 /**
  * Shortcode to display a link back to the site.
  *
+ * @since 0.9
+ *
  * @link Codex reference: home_url()
  * @link Codex reference: esc_attr()
  * @link Codex reference: get_bloginfo()
- *
- * @since 0.9
  */
 function site_link_arconix_shortcode() {
     return '<a class="arconix-site-link" href="' . home_url() . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home"><span>' . esc_attr( get_bloginfo( 'name' ) ) . '</span></a>';
@@ -171,6 +176,9 @@ function site_link_arconix_shortcode() {
 
 /**
  * Shortcode to display the current 4-digit year with optional before, start and after
+ *
+ * @since 0.9
+ * @version 1.3.0
  *
  * @link Codex reference: apply_filters()
  * @link Codex reference: esc_html()
@@ -180,10 +188,8 @@ function site_link_arconix_shortcode() {
  * @link PHP reference: date()
  *
  * @param array $atts
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function the_year_arconix_shortcode( $atts ) {
     $defaults = apply_filters( 'arconix_the_year_shortcode_args', array(
@@ -206,9 +212,9 @@ function the_year_arconix_shortcode( $atts ) {
 /**
  * Shortcode to return a link to WordPress.org.
  *
- * @link Codex reference: esc_attr_()
- *
  * @since 0.9
+ *
+ * @link Codex reference: esc_attr_()
  */
 function wp_link_arconix_shortcode() {
     return '<a class="arconix-wp-link" href="http://wordpress.org" title="' . esc_attr__( 'This site is powered by WordPress', 'acs' ) . '"><span>' . __( 'WordPress', 'acs' ) . '</span></a>';
@@ -217,15 +223,15 @@ function wp_link_arconix_shortcode() {
 /**
  * Shortcode to handle abbreviations
  *
+ * @since 0.9
+ * @version  1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
  * @param array $atts
  * @return string
- *
- * @since 0.9
- * @version  1.3.0
  */
 function abbr_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
@@ -242,6 +248,9 @@ function abbr_arconix_shortcode( $atts, $content = null ) {
  * Using the 'load' parameter, the user can specify which accordion is initially shown (or entirely collapsed when '0' is passed).
  * Right now that's accordion 0-5
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: wp_script_is()
  * @link Codex reference: shortcode_atts()
@@ -250,10 +259,8 @@ function abbr_arconix_shortcode( $atts, $content = null ) {
  * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function accordions_arconix_shortcode( $atts, $content = null ) {
     if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -279,6 +286,9 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to produce jQuery-powered accordion
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link Codex reference: sanitize_title()
@@ -288,10 +298,8 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function accordion_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_accordion_shortcode_args', array(
@@ -319,6 +327,9 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
  *
  * @example [box style="comment"]my content[/box]
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
@@ -327,10 +338,8 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function box_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_box_shortcode_args', array(
@@ -352,6 +361,9 @@ function box_arconix_shortcode( $atts, $content = null ) {
  *
  * @example [button size="large" color="green" url="http://google.com"]my content[/box]
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
@@ -360,10 +372,8 @@ function box_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function button_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_button_shortcode_args', array(
@@ -403,19 +413,20 @@ function button_arconix_shortcode( $atts, $content = null ) {
  *
  * Supports yellow by default
  *
+ * @example [highlight]my content[/highlight]
+ *
+ * @since 0.9
+ * @version  1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link Codex reference: do_shortcode()
  * @link PHP reference: extract()
  *
- * @example [highlight]my content[/highlight]
- *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version  1.3.0
+ * @return string
  */
 function highlight_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_highlight_shortcode_args', array( 'color' => 'yellow' ) );
@@ -445,6 +456,9 @@ function highlight_arconix_shortcode( $atts, $content = null ) {
  *
  * @example [list style="arrow-green"]unordered list here[/list]
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
@@ -453,10 +467,8 @@ function highlight_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function list_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_list_shortcode_args', array( 'style' => 'arrow-white' ) );
@@ -479,6 +491,9 @@ function list_arconix_shortcode( $atts, $content = null ) {
  *
  * @see tab_shortcode()
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: wp_enqueue_script()
  * @link Codex reference: apply_filters()
  * @link Codex reference: wp_script_is()
@@ -492,10 +507,8 @@ function list_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function tabs_arconix_shortcode( $atts, $content = null ) {
     if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -548,6 +561,9 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
  *
  * @see tabs_shortcode()
  *
+ * @since 0.9
+ * @version  1.3.0
+ *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
  * @link Codex reference: do_shortcode()
@@ -557,10 +573,8 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
  * @uses remove_wpautop()   Defined in this file
  *
  * @param array $atts
- * @param string $content
  *
- * @since 0.9
- * @version  1.3.0
+ * @param string $content
  */
 function tab_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_tab_shortcode_args', array( 'title' => 'Tab' ) );
@@ -577,6 +591,9 @@ function tab_arconix_shortcode( $atts, $content = null ) {
  *
  * @example [toggle title="My Toggle Title"]My Toggle Content[/toggle]
  *
+ * @since 0.9
+ * @version 1.3.0
+ *
  * @link Codex reference: wp_enqueue_script()
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
@@ -586,10 +603,8 @@ function tab_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.3.0
+ * @return string
  */
 function toggle_arconix_shortcode( $atts, $content = null ) {
     wp_enqueue_script( 'arconix-shortcodes-js' );
@@ -615,6 +630,9 @@ function toggle_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 1/2 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -623,10 +641,8 @@ function toggle_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function one_half_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -644,6 +660,9 @@ function one_half_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 1/3 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -652,10 +671,8 @@ function one_half_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function one_third_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -673,6 +690,9 @@ function one_third_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 2/3 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -681,10 +701,8 @@ function one_third_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function two_thirds_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -702,6 +720,9 @@ function two_thirds_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 1/4 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -710,10 +731,8 @@ function two_thirds_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function one_fourth_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -731,6 +750,9 @@ function one_fourth_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 2/4 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -739,10 +761,8 @@ function one_fourth_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function two_fourths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -760,6 +780,9 @@ function two_fourths_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 3/4 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -768,10 +791,8 @@ function two_fourths_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function three_fourths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -789,6 +810,9 @@ function three_fourths_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 1/5 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -797,10 +821,8 @@ function three_fourths_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function one_fifth_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -818,6 +840,9 @@ function one_fifth_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 2/5 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -826,10 +851,8 @@ function one_fifth_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function two_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -847,6 +870,9 @@ function two_fifths_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 3/5 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -855,10 +881,8 @@ function two_fifths_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function three_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -876,6 +900,9 @@ function three_fifths_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to display a 4/5 column
  *
+ * @since 0.9
+ * @version 1.1.0
+ *
  * @link Codex reference: shortcode_atts()
  * @link PHP reference: extract()
  *
@@ -884,10 +911,8 @@ function three_fifths_arconix_shortcode( $atts, $content = null ) {
  *
  * @param array $atts
  * @param string $content
- * @return string
  *
- * @since 0.9
- * @version 1.1.0
+ * @return string
  */
 function four_fifths_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( array( 'last' => '' ), $atts ) );
@@ -902,37 +927,39 @@ function four_fifths_arconix_shortcode( $atts, $content = null ) {
     return $return;
 }
 
-    /**
-     * Remove automatic <p></p> and <br /> tags from content
-     *
-     * @link Codex reference: do_shortcode()
-     * @link Codex reference: shortcode_unautop()
-     * @link PHP reference: preg_replace()
-     *
-     * @param string $content
-     * @return string
-     *
-     * @since 0.9
-     */
-    function remove_wpautop( $content ) {
-        $content = do_shortcode( shortcode_unautop( $content ) );
-        $content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content );
+/**
+ * Remove automatic <p></p> and <br /> tags from content
+ *
+ * @since 0.9
+ *
+ * @link Codex reference: do_shortcode()
+ * @link Codex reference: shortcode_unautop()
+ * @link PHP reference: preg_replace()
+ *
+ * @param string $content
+ *
+ * @return string
+ */
+function remove_wpautop( $content ) {
+    $content = do_shortcode( shortcode_unautop( $content ) );
+    $content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content );
 
-        return $content;
-    }
+    return $content;
+}
 
-    /**
-     * Properly clear our floats after the columns
-     *
-     * @param string $last
-     * @return string
-     *
-     * @since 1.0.4
-     * @version 1.1.0
-     */
-    function clearfloat( $last ) {
-        if( ! $last )
-            return;
+/**
+ * Properly clear our floats after the columns
+ *
+ * @since 1.0.4
+ * @version 1.1.0
+ *
+ * @param string $last
+ *
+ * @return string
+ */
+function clearfloat( $last ) {
+    if( ! $last )
+        return;
 
-       return '<div style="clear:both;"></div>';
-    }
+   return '<div style="clear:both;"></div>';
+}
