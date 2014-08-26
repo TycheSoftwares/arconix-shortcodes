@@ -30,20 +30,7 @@ function get_arconix_shortcode_list() {
         'one-fifth', 'two-fifths', 'three-fifths', 'four-fifths'
     ) );
 
-    /**
-     * If a user defines the constant as true (which is what my documentation says to do)
-     * we add a standard prefix 'ac-' otherwise as an Easter Egg, the user can define their
-     * own prefix
-     */
-    if( defined( 'ACS_COMPAT' ) ) {
-        if( 1 == constant( 'ACS_COMPAT' ) ) // 1 = true
-            $prefix = 'ac-';
-        else
-            $prefix = constant( 'ACS_COMPAT' );
-    }
-    else
-        $prefix = '';
-    
+    $prefix = get_compatibility_prefix();
 
     // Will store our new shortcode array
     $new_shortcodes = array();
@@ -55,6 +42,30 @@ function get_arconix_shortcode_list() {
 
     return $new_shortcodes;
 }
+
+
+ /**
+  * If a user defines the constant as true (which is what my documentation says to do)
+  * we add a standard prefix 'ac-' otherwise as an Easter Egg, the user can define their
+  * own prefix
+  *
+  * @since
+  *
+  * @return string Compatibility Mode prefix
+  */
+function get_compatibility_prefix() {
+    if( defined( 'ACS_COMPAT' ) ) {
+        if( 1 == constant( 'ACS_COMPAT' ) ) // 1 = true
+            $prefix = 'ac-';
+        else
+            $prefix = constant( 'ACS_COMPAT' ) . '-';
+    }
+    else
+        $prefix = '';
+
+    return $prefix;
+}
+
 
 /**
  * Register the plugin shortcodes
@@ -68,6 +79,7 @@ function get_arconix_shortcode_list() {
  * @link PHP reference: str_replace()
  *
  * @uses get_arconix_shortcode_list()   Defined in this file
+ * @uses get_compatibility_prefix()     Defined in this file
  *
  * @since 0.9
  * @version 1.1.0
@@ -77,7 +89,9 @@ function acs_register_shortcodes() {
 
     foreach( (array) $shortcodes as $shortcode ) {
         // If compatibility mode is enabled, remove the prefix for the function call, otherwise the function call is the shortcode name
-        defined( 'ACS_COMPAT' ) ? $shortcode_func = substr( $shortcode, 3 ) : $shortcode_func = $shortcode;
+        $len = strlen( get_compatibility_prefix() );
+
+        $shortcode_func = substr( $shortcode, $len );
 
         add_shortcode( $shortcode , str_replace( '-', '_', $shortcode_func )  . '_arconix_shortcode' );
     }
@@ -252,7 +266,7 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
     extract( shortcode_atts( $defaults, $atts, 'arconix_accordions' ) );
 
     if( $load == "none" || !absint( $load ) ) // for backwards compatibility
-        $load = 0; 
+        $load = 0;
 
     if( $css )
         $css = ' ' . sanitize_html_class( $css );
