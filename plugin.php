@@ -60,9 +60,9 @@ class Arconix_Shortcodes {
      * from loading at all, return false to the desired pre_register filters
      *
      * @example add_filter( 'pre_register_arconix_shortcodes_js', '__return_false' );
-     * 
+     *
      * If you'd like to modify the Javascript or CSS that is used by the shortcodes, you can copy the arconix-shortcodes.js
-     * or arconix-shortcodes.css files to the root of your theme's folder. That will be loaded in place of the plugin's 
+     * or arconix-shortcodes.css files to the root of your theme's folder. That will be loaded in place of the plugin's
      * version, which means you can modify it to your heart's content and know the file will be safe when the plugin
      * is updated in the future.
      *
@@ -99,7 +99,7 @@ class Arconix_Shortcodes {
                 wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
             else
                 wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
-        }        
+        }
 
         // Load the CSS - Check the child theme directory first, the parent theme second, otherwise load the plugin version
         if( apply_filters( 'pre_register_arconix_shortcodes_css', true ) ) {
@@ -110,7 +110,11 @@ class Arconix_Shortcodes {
             else
                 wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . 'arconix-shortcodes.css', false, ACS_VERSION );
         }
-        
+
+        // Load the FontAwesome CSS
+        if ( apply_filters( 'pre_register_fontawesome_css', true ) )
+            wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', false, '4.2.0' );
+
     }
 
     /**
@@ -159,7 +163,7 @@ class Arconix_Shortcodes {
     /**
      * Adds a news widget to the dashboard.
      *
-     * If the filter is returned false or the logged in user isn't an Admin user, it will prevent the dashboard widget 
+     * If the filter is returned false or the logged in user isn't an Admin user, it will prevent the dashboard widget
      * from loading. It's a little cleaner than other solutions available.
      *
      * @example add_filter( 'pre_register_arconix_shortcodes_dashboard_widget', '__return_false' );
@@ -171,7 +175,7 @@ class Arconix_Shortcodes {
      * @version 1.2.0
      */
     function dashboard_widget() {
-        if( apply_filters( 'pre_register_arconix_shortcodes_dashboard_widget', true ) and 
+        if( apply_filters( 'pre_register_arconix_shortcodes_dashboard_widget', true ) and
             apply_filters( 'arconix_shortcodes_dashboard_widget_security', current_user_can( 'manage_options' ) ) )
                 wp_add_dashboard_widget( 'ac-shortcodes', 'Arconix Shortcodes', array( $this, 'acs_dash_widget' ) );
     }
