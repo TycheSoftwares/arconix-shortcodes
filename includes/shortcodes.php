@@ -389,7 +389,7 @@ function box_arconix_shortcode( $atts, $content = null ) {
     }
 
     if ( $icon )
-        $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}></i>";
+        $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}'></i>";
 
     $r = '<div class="arconix-box arconix-box-' . $color . '">' . $icon . remove_wpautop( $content ) . '</div>';
 

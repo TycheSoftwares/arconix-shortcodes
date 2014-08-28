@@ -1,0 +1,111 @@
+// Box Mixins
+//
+// @since 2.0
+//
+// @param @c - desired background color
+.shortcode-box( @c: #aaa ) {
+    background-color: @c;
+}
+
+.shortcode-box( @c: #aaa ) when ( lightness( @c ) >= 66% ) {
+    color: darken( @c, 55% );
+    
+    a { 
+        color: lighten( @c, 45% );
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.shortcode-box( @c: #aaa ) when ( lightness( @c ) < 66% ) {
+    color: #fff;
+    
+    a { 
+        color: darken( @c, 45% );
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+}
+
+/* Box Styling
+------------------------------------------------------------ */
+.arconix-box {
+    //.radius();
+    //border: 1px solid;
+    clear: both;
+    margin: 15px 0;
+}
+
+.arconix-box-blue,
+.arconix-box-green,
+.arconix-box-grey,
+.arconix-box-red,
+.arconix-box-tan,
+.arconix-box-yellow { padding: 15px; }
+
+.arconix-box-blue {
+    .shortcode-box( #214b8a );
+}
+
+.arconix-box-green {
+    .shortcode-box( #36a563 );
+}
+
+.arconix-box-grey {
+    .shortcode-box( #f2f2f2 );
+}
+
+.arconix-box-red {
+    .shortcode-box( #e5684b );
+}
+
+.arconix-box-tan {
+    .shortcode-box( #e5aC4b );
+}
+
+.arconix-box-yellow {
+    .shortcode-box( #fee975 );
+}
+/*
+.arconix-box-alert,
+.arconix-box-comment,
+.arconix-box-download,
+.arconix-box-info,
+.arconix-box-tip { padding: 15px 20px 15px 55px; }
+
+.arconix-box-alert {
+    background: #ffdfdf url(../../images/box-alert.png) no-repeat 16px;
+    border-color: #feabab;
+    color: #c31b00;
+}
+
+.arconix-box-comment {
+    background: #fef8e1 url(../../images/box-comment.png) no-repeat 16px;
+    border-color: #feebab;
+    color: #9e660d;
+}
+
+.arconix-box-download {
+    background: #f2f9e5 url(../../images/box-download.png) no-repeat 16px;
+    border-color: #ddedbc;
+    color: #5e6f33;
+}
+
+.arconix-box-info {
+    background: #dbe7f8 url(../../images/box-info.png) no-repeat 16px;
+    border-color: #b7d2f2;
+    color: #2e6093;
+}
+
+.arconix-box-tip {
+    background: #ffffd5 url(../../images/box-tip.png) no-repeat 16px;
+    border-color: #feebab;
+    color: #9e660d;
+}
+
+*/

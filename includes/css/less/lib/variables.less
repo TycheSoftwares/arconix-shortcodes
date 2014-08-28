@@ -1,0 +1,79 @@
+// Variables
+// -----------------------------------------------------------
+
+// Global
+// -------------------------
+@base:				#759b3b;        // Arconix Green
+@gradient-light:	#a3c23e;    	// Arconix Green Light
+@gradient-dark:		#79903c;     	// Arconix Green Dark
+
+
+// Links
+// -------------------------
+@link-color: 					@base;
+@link-color-hover: 				@heading-link-color;
+@heading-link-color: 			@gray-dark;
+@heading-link-color-hover: 		@link-color;
+
+
+// Typography
+// -------------------------
+@font-heading: 		'Droid Sans', sans-serif;
+@font-body: 		'Droid Serif', serif;
+@font-script:		'Rock Salt', cursive;
+
+
+// Colors
+// -----------------------------------------------------------
+
+// Grays
+// -------------------------
+@black:				#000;
+@gray-darker:		#222;
+@gray-dark:			#333;
+@gray:				#555;
+@gray-light:		#999;
+@gray-lighter:		#eee;
+@white:				#fff;
+
+
+// Accent colors
+// -------------------------
+@blue:				#049cdb;
+@blue-dark:			#0064cd;
+@green:				#46a546;
+@red:				#9d261d;
+@yellow:			#ffc40d;
+@orange:			#f89406;
+
+
+// Mono Color Scheme
+// -------------------------
+@base-dark1: darken( @base, 10% );
+@base-dark2: darken( @base, 20% );
+@base-light1: lighten( @base, 10% );
+@base-light2: lighten( @base, 20% );
+
+
+// Complement Color Scheme
+// -------------------------
+@complement: spin( @base, 180 );
+@complement-dark: darken( @complement, 10% );
+@complement-darker: darken( @complement, 20% );
+@complement-light: lighten( @complement, 10% );
+@complement-lighter: lighten( @complement, 20% );
+
+
+// Analogic Color Scheme
+// -------------------------
+@secondary: spin( @base, 55 );
+@secondary-light: lighten( @secondary, 10% );
+@secondary-lighter: lighten( @secondary, 20% );
+@secondary-dark: darken( @secondary, 10% );
+@secondary-darker: darken( @secondary, 20% );
+
+@tertiary: spin( @base, 205 );
+@tertiary-light: lighten( @tertiary, 10% );
+@tertiary-lighter: lighten( @tertiary, 20% );
+@tertiary-dark: darken( @tertiary, 10% );
+@tertiary-darker: darken( @tertiary, 20% );

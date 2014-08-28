@@ -1,0 +1,82 @@
+/* Tabs Styling
+------------------------------------------------------------ */
+
+/* Tabs - Horizontal
+------------------------------------------------------------ */
+.arconix-tabs-horizontal {
+    clear: both;
+    margin-bottom: 25px;
+}
+
+/* Tabs  */
+.arconix-tabs-horizontal ul.arconix-tabs {
+    margin: 0 !important;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+}
+
+/* Individual Tab */
+.arconix-tabs-horizontal ul.arconix-tabs li {
+    list-style: none !important;
+    float: left;
+    text-indent: 0;
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+}
+
+/* Indivdual Tab link Text */
+.arconix-tabs-horizontal ul.arconix-tabs a {
+    background-color: #eee;
+    -webkit-border-top-left-radius: 5px;
+       -moz-border-radius-topleft: 5px;
+            border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+       -moz-border-radius-topright: 5px;
+            border-top-right-radius: 5px;
+    border: 1px solid #ccc;
+    color: #333;
+    display: block;
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    min-width: 80px;
+    width: auto;
+}
+
+.arconix-tabs-horizontal ul.arconix-tabs a:active { outline: none; }
+
+/* Individual Tab :Hover state */
+.arconix-tabs-horizontal ul.arconix-tabs a:hover { background-color: #e9e9e9; }
+
+/* Active Tab */
+.arconix-tabs-horizontal ul.arconix-tabs a.current,
+.arconix-tabs-horizontal ul.arconix-tabs a.current:hover,
+.arconix-tabs-horizontal ul.arconix-tabs li.current a {
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #fbfbfb;
+    cursor: default !important;
+    color: #333 !important;
+}
+
+/* Panes */
+.arconix-tabs-horizontal .arconix-panes {
+    background-color: #fbfbfb;
+    border: 1px solid #ccc;
+    border-top: none;
+    clear: both;
+    overflow: hidden;
+    padding-bottom: 15px;
+    position: relative;
+    top: -1px;
+}
+
+.arconix-tabs-horizontal .arconix-pane { padding: 20px 15px 0; }
