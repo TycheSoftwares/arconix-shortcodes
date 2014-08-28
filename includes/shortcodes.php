@@ -276,9 +276,9 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
         $load = 0;
 
     if( $css )
-        $css = ' ' . sanitize_html_class( $css );
+        $css = ' ' . $css;
 
-    $r = '<div class="arconix-accordions arconix-accordions-' . esc_attr( $type ) . ' arconix-accordions-' . esc_attr( $load ) . esc_attr( $css ) . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-accordions arconix-accordions-' . sanitize_html_class( $type ) . ' arconix-accordions-' . sanitize_html_class( $load ) . sanitize_html_class( $css ) . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
 }
@@ -343,11 +343,55 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
  */
 function box_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_box_shortcode_args', array(
-        'style' => 'grey'
+        'style' => 'grey', // deprecated
+        'color' => 'grey',
+        'icon'  => '',
+        'icon_size' => 'fa-2x',
+        'icon_other' => 'pull-left'
     ) );
+
+    // Mass sanitization to save redoing the same code over & over
+    foreach ( $atts as $key => $value ) {
+        $value = sanitize_html_class( $value );
+    }
     extract( shortcode_atts( $defaults, $atts, 'arconix_box' ) );
 
-    $r = '<div class="arconix-box arconix-box-' . esc_attr( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+    // For backwards compatibility, convert old $style in to new params
+    switch ( $style ) {
+        case 'alert':
+            $color = 'red';
+            $icon = 'fa-exclamation-triangle';
+            break;
+
+        case 'comment':
+            $color = 'tan';
+            $icon = 'fa-comment';
+            break;
+
+        case 'download':
+            $color = 'green';
+            $icon = 'fa-download';
+            break;
+
+        case 'info':
+            $color = 'blue';
+            $icon = 'fa-info-circle';
+            break;
+
+        case 'tip':
+            $color = 'yellow';
+            $icon = 'fa-lightbulb-o';
+            break;
+
+        default:
+
+            break;
+    }
+
+    if ( $icon )
+        $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}></i>";
+
+    $r = '<div class="arconix-box arconix-box-' . $color . '">' . $icon . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_box_return', $r );
 }
