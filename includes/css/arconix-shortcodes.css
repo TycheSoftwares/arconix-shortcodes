@@ -21,21 +21,15 @@ in order to for the images to be displayed.
 */
 /* Box Styling
 ------------------------------------------------------------ */
-.arconix-box {
-  clear: both;
-  margin: 15px 0;
-}
-.arconix-box-blue,
-.arconix-box-green,
-.arconix-box-grey,
-.arconix-box-red,
-.arconix-box-tan,
-.arconix-box-yellow {
-  padding: 15px;
-}
 .arconix-box-blue {
   background-color: #214b8a;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
   color: #fff;
+}
+.arconix-box-blue i.pull-left {
+  margin-right: 0.75em;
 }
 .arconix-box-blue a {
   color: #000000;
@@ -45,7 +39,13 @@ in order to for the images to be displayed.
 }
 .arconix-box-green {
   background-color: #36a563;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
   color: #fff;
+}
+.arconix-box-green i.pull-left {
+  margin-right: 0.75em;
 }
 .arconix-box-green a {
   color: #000000;
@@ -55,7 +55,13 @@ in order to for the images to be displayed.
 }
 .arconix-box-grey {
   background-color: #f2f2f2;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
   color: #666666;
+}
+.arconix-box-grey i.pull-left {
+  margin-right: 0.75em;
 }
 .arconix-box-grey a {
   color: #ffffff;
@@ -65,7 +71,13 @@ in order to for the images to be displayed.
 }
 .arconix-box-red {
   background-color: #e5684b;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
   color: #fff;
+}
+.arconix-box-red i.pull-left {
+  margin-right: 0.75em;
 }
 .arconix-box-red a {
   color: #411409;
@@ -75,7 +87,13 @@ in order to for the images to be displayed.
 }
 .arconix-box-tan {
   background-color: #e5ac4b;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
   color: #fff;
+}
+.arconix-box-tan i.pull-left {
+  margin-right: 0.75em;
 }
 .arconix-box-tan a {
   color: #412c09;
@@ -85,7 +103,13 @@ in order to for the images to be displayed.
 }
 .arconix-box-yellow {
   background-color: #fee975;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
   color: #5a4c01;
+}
+.arconix-box-yellow i.pull-left {
+  margin-right: 0.75em;
 }
 .arconix-box-yellow a {
   color: #ffffff;
@@ -93,42 +117,51 @@ in order to for the images to be displayed.
 .arconix-box-yellow a:hover {
   text-decoration: underline;
 }
-/*
-.arconix-box-alert,
-.arconix-box-comment,
-.arconix-box-download,
-.arconix-box-info,
-.arconix-box-tip { padding: 15px 20px 15px 55px; }
-
-.arconix-box-alert {
-    background: #ffdfdf url(../../images/box-alert.png) no-repeat 16px;
-    border-color: #feabab;
-    color: #c31b00;
+.arconix-box-purple {
+  background-color: #923195;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
+  color: #fff;
 }
-
-.arconix-box-comment {
-    background: #fef8e1 url(../../images/box-comment.png) no-repeat 16px;
-    border-color: #feebab;
-    color: #9e660d;
+.arconix-box-purple i.pull-left {
+  margin-right: 0.75em;
 }
-
-.arconix-box-download {
-    background: #f2f9e5 url(../../images/box-download.png) no-repeat 16px;
-    border-color: #ddedbc;
-    color: #5e6f33;
+.arconix-box-purple a {
+  color: #000000;
 }
-
-.arconix-box-info {
-    background: #dbe7f8 url(../../images/box-info.png) no-repeat 16px;
-    border-color: #b7d2f2;
-    color: #2e6093;
+.arconix-box-purple a:hover {
+  text-decoration: underline;
 }
-
-.arconix-box-tip {
-    background: #ffffd5 url(../../images/box-tip.png) no-repeat 16px;
-    border-color: #feebab;
-    color: #9e660d;
+.arconix-box-black {
+  background-color: #333333;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
+  color: #fff;
 }
-
-*/
-/*# sourceMappingURL=arconix-shortcodes.css.map */
+.arconix-box-black i.pull-left {
+  margin-right: 0.75em;
+}
+.arconix-box-black a {
+  color: #000000;
+}
+.arconix-box-black a:hover {
+  text-decoration: underline;
+}
+.arconix-box-orange {
+  background-color: #cf5300;
+  clear: both;
+  margin: 1em 0;
+  padding: 1em;
+  color: #fff;
+}
+.arconix-box-orange i.pull-left {
+  margin-right: 0.75em;
+}
+.arconix-box-orange a {
+  color: #000000;
+}
+.arconix-box-orange a:hover {
+  text-decoration: underline;
+}

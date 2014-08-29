@@ -5,14 +5,21 @@
 // @param @c - desired background color
 .shortcode-box( @c: #aaa ) {
     background-color: @c;
+    clear: both;
+    margin: 1em 0;
+    padding: 1em;
+
+    i.pull-left {
+        margin-right: 0.75em;
+    }
 }
 
 .shortcode-box( @c: #aaa ) when ( lightness( @c ) >= 66% ) {
     color: darken( @c, 55% );
-    
-    a { 
+
+    a {
         color: lighten( @c, 45% );
-        
+
         &:hover {
             text-decoration: underline;
         }
@@ -21,33 +28,19 @@
 
 .shortcode-box( @c: #aaa ) when ( lightness( @c ) < 66% ) {
     color: #fff;
-    
-    a { 
+
+    a {
         color: darken( @c, 45% );
-        
+
         &:hover {
             text-decoration: underline;
         }
     }
-    
+
 }
 
 /* Box Styling
 ------------------------------------------------------------ */
-.arconix-box {
-    //.radius();
-    //border: 1px solid;
-    clear: both;
-    margin: 15px 0;
-}
-
-.arconix-box-blue,
-.arconix-box-green,
-.arconix-box-grey,
-.arconix-box-red,
-.arconix-box-tan,
-.arconix-box-yellow { padding: 15px; }
-
 .arconix-box-blue {
     .shortcode-box( #214b8a );
 }
@@ -71,41 +64,15 @@
 .arconix-box-yellow {
     .shortcode-box( #fee975 );
 }
-/*
-.arconix-box-alert,
-.arconix-box-comment,
-.arconix-box-download,
-.arconix-box-info,
-.arconix-box-tip { padding: 15px 20px 15px 55px; }
 
-.arconix-box-alert {
-    background: #ffdfdf url(../../images/box-alert.png) no-repeat 16px;
-    border-color: #feabab;
-    color: #c31b00;
+.arconix-box-purple {
+    .shortcode-box( #923195 );
 }
 
-.arconix-box-comment {
-    background: #fef8e1 url(../../images/box-comment.png) no-repeat 16px;
-    border-color: #feebab;
-    color: #9e660d;
+.arconix-box-black {
+    .shortcode-box( #333 );
 }
 
-.arconix-box-download {
-    background: #f2f9e5 url(../../images/box-download.png) no-repeat 16px;
-    border-color: #ddedbc;
-    color: #5e6f33;
+.arconix-box-orange {
+    .shortcode-box( #cf5300 );
 }
-
-.arconix-box-info {
-    background: #dbe7f8 url(../../images/box-info.png) no-repeat 16px;
-    border-color: #b7d2f2;
-    color: #2e6093;
-}
-
-.arconix-box-tip {
-    background: #ffffd5 url(../../images/box-tip.png) no-repeat 16px;
-    border-color: #feebab;
-    color: #9e660d;
-}
-
-*/
