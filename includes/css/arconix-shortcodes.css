@@ -33,6 +33,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-blue a {
   color: #000000;
+  text-decoration: none;
 }
 .arconix-box-blue a:hover {
   text-decoration: underline;
@@ -49,6 +50,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-green a {
   color: #000000;
+  text-decoration: none;
 }
 .arconix-box-green a:hover {
   text-decoration: underline;
@@ -64,7 +66,7 @@ in order to for the images to be displayed.
   margin-right: 0.75em;
 }
 .arconix-box-grey a {
-  color: #ffffff;
+  text-decoration: none;
 }
 .arconix-box-grey a:hover {
   text-decoration: underline;
@@ -81,6 +83,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-red a {
   color: #411409;
+  text-decoration: none;
 }
 .arconix-box-red a:hover {
   text-decoration: underline;
@@ -97,6 +100,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-tan a {
   color: #412c09;
+  text-decoration: none;
 }
 .arconix-box-tan a:hover {
   text-decoration: underline;
@@ -112,7 +116,7 @@ in order to for the images to be displayed.
   margin-right: 0.75em;
 }
 .arconix-box-yellow a {
-  color: #ffffff;
+  text-decoration: none;
 }
 .arconix-box-yellow a:hover {
   text-decoration: underline;
@@ -129,6 +133,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-purple a {
   color: #000000;
+  text-decoration: none;
 }
 .arconix-box-purple a:hover {
   text-decoration: underline;
@@ -145,6 +150,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-black a {
   color: #000000;
+  text-decoration: none;
 }
 .arconix-box-black a:hover {
   text-decoration: underline;
@@ -161,7 +167,210 @@ in order to for the images to be displayed.
 }
 .arconix-box-orange a {
   color: #000000;
+  text-decoration: none;
 }
 .arconix-box-orange a:hover {
   text-decoration: underline;
 }
+/* Button Styling
+------------------------------------------------------------ */
+.arconix-button,
+.arconix-button-flat,
+.arconix-button-clear {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  white-space: nowrap;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.arconix-button:hover,
+.arconix-button-flat:hover,
+.arconix-button-clear:hover {
+  text-decoration: none;
+}
+.arconix-button {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 1px 0 0 #cccccc;
+  -moz-box-shadow: inset 0 1px 0 0 #cccccc;
+  box-shadow: inset 0 1px 0 0 #cccccc;
+}
+i.fa {
+  margin-right: 0.3em;
+}
+.arconix-button.arconix-button-black {
+  border: solid 1px #1a1a1a;
+  background: #333333;
+  background-color: #4a4a4a;
+  background-image: -webkit-linear-gradient(top, #595959, #333333);
+  background-image: -moz-linear-gradient(top, #595959, #333333);
+  background-image: -o-linear-gradient(top, #595959, #333333);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#595959), to(#333333));
+  background-image: linear-gradient(top, #595959, #333333);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-black:hover {
+  background: #333333;
+}
+.arconix-button.arconix-button-blue {
+  border: solid 1px #173561;
+  background: #214b8a;
+  background-color: #2a5faf;
+  background-image: -webkit-linear-gradient(top, #306dc8, #214b8a);
+  background-image: -moz-linear-gradient(top, #306dc8, #214b8a);
+  background-image: -o-linear-gradient(top, #306dc8, #214b8a);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#306dc8), to(#214b8a));
+  background-image: linear-gradient(top, #306dc8, #214b8a);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-blue:hover {
+  background: #214b8a;
+}
+.arconix-button.arconix-button-green {
+  border: solid 1px #297f4c;
+  background: #36a563;
+  background-color: #4ebb7a;
+  background-image: -webkit-linear-gradient(top, #5dca89, #36a563);
+  background-image: -moz-linear-gradient(top, #5dca89, #36a563);
+  background-image: -o-linear-gradient(top, #5dca89, #36a563);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5dca89), to(#36a563));
+  background-image: linear-gradient(top, #5dca89, #36a563);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-green:hover {
+  background: #36a563;
+}
+.arconix-button.arconix-button-grey,
+.arconix-button.arconix-button-gray {
+  border: solid 1px #555555;
+  background: #6e6e6e;
+  background-color: #858585;
+  background-image: -webkit-linear-gradient(top, #949494, #6e6e6e);
+  background-image: -moz-linear-gradient(top, #949494, #6e6e6e);
+  background-image: -o-linear-gradient(top, #949494, #6e6e6e);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#949494), to(#6e6e6e));
+  background-image: linear-gradient(top, #949494, #6e6e6e);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-grey:hover,
+.arconix-button.arconix-button-gray:hover {
+  background: #6e6e6e;
+}
+.arconix-button.arconix-button-orange {
+  border: solid 1px #9c3f00;
+  background: #cf5300;
+  background-color: #ec6911;
+  background-image: -webkit-linear-gradient(top, #ff771d, #cf5300);
+  background-image: -moz-linear-gradient(top, #ff771d, #cf5300);
+  background-image: -o-linear-gradient(top, #ff771d, #cf5300);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff771d), to(#cf5300));
+  background-image: linear-gradient(top, #ff771d, #cf5300);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-orange:hover {
+  background: #cf5300;
+}
+.arconix-button.arconix-button-purple {
+  border: solid 1px #6c246f;
+  background: #923195;
+  background-color: #ae42b2;
+  background-image: -webkit-linear-gradient(top, #c14ec5, #923195);
+  background-image: -moz-linear-gradient(top, #c14ec5, #923195);
+  background-image: -o-linear-gradient(top, #c14ec5, #923195);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c14ec5), to(#923195));
+  background-image: linear-gradient(top, #c14ec5, #923195);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-purple:hover {
+  background: #923195;
+}
+.arconix-button.arconix-button-red {
+  border: solid 1px #dd4420;
+  background: #e5684b;
+  background-color: #eb8a73;
+  background-image: -webkit-linear-gradient(top, #efa08e, #e5684b);
+  background-image: -moz-linear-gradient(top, #efa08e, #e5684b);
+  background-image: -o-linear-gradient(top, #efa08e, #e5684b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#efa08e), to(#e5684b));
+  background-image: linear-gradient(top, #efa08e, #e5684b);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-red:hover {
+  background: #e5684b;
+}
+.arconix-button.arconix-button-tan {
+  border: solid 1px #dd9720;
+  background: #e5ac4b;
+  background-color: #ebbe73;
+  background-image: -webkit-linear-gradient(top, #efcb8e, #e5ac4b);
+  background-image: -moz-linear-gradient(top, #efcb8e, #e5ac4b);
+  background-image: -o-linear-gradient(top, #efcb8e, #e5ac4b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#efcb8e), to(#e5ac4b));
+  background-image: linear-gradient(top, #efcb8e, #e5ac4b);
+  background-repeat: repeat-x;
+  color: #fff !important;
+}
+.arconix-button.arconix-button-tan:hover {
+  background: #e5ac4b;
+}
+.arconix-button.arconix-button-yellow {
+  border: solid 1px #fee142;
+  background: #fee975;
+  background-color: #fef0a3;
+  background-image: -webkit-linear-gradient(top, #fff5c1, #fee975);
+  background-image: -moz-linear-gradient(top, #fff5c1, #fee975);
+  background-image: -o-linear-gradient(top, #fff5c1, #fee975);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff5c1), to(#fee975));
+  background-image: linear-gradient(top, #fff5c1, #fee975);
+  background-repeat: repeat-x;
+  color: #606060 !important;
+}
+.arconix-button.arconix-button-yellow:hover {
+  background: #fee975;
+}
+.arconix-button.arconix-button-white {
+  border: solid 1px #e6e6e6;
+  background: #ffffff;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(top, #ffffff, #ffffff);
+  background-repeat: repeat-x;
+  color: #606060 !important;
+}
+.arconix-button.arconix-button-white:hover {
+  background: #ffffff;
+}
+.arconix-button-xl {
+  font: 20px Arial, Helvetica, sans-serif;
+  padding: 12px 48px 13px;
+}
+.arconix-button-large {
+  font: 16px Arial, Helvetica, sans-serif;
+  padding: 9px 36px 10px;
+}
+.arconix-button-medium {
+  font: 13px Arial, Helvetica, sans-serif;
+  padding: 6px 24px 7px;
+}
+.arconix-button-small {
+  font: 11px Arial, Helvetica, sans-serif;
+  padding: 3px 8px 4px;
+}
+/*# sourceMappingURL=arconix-shortcodes.css.map */

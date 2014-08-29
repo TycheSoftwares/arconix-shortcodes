@@ -425,7 +425,11 @@ function button_arconix_shortcode( $atts, $content = null ) {
         'color' => 'white',
         'url' => '#',
         'target' => '',
-        'rel' => ''
+        'rel' => '',
+        'icon' => '',
+        'icon_size' => '',
+        'icon_other' => '',
+        'style' => ''
     ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_button' ) );
 
@@ -439,15 +443,27 @@ function button_arconix_shortcode( $atts, $content = null ) {
             break;
     }
 
-    if( $rel )
-        $rel = ' rel="' . esc_attr( $rel ) . '"';
+    if( $rel ) $rel = ' rel="' . esc_attr( $rel ) . '"';
+
+    if ( $icon ) $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}'></i>";
+
+    switch ( $style ) {
+        case 'flat':
+        case 'clear':
+            $button = 'arconix-button-' . $style;
+            break;
+
+        default:
+            $button = 'arconix-button';
+            break;
+    }
 
     // Properly escape our data
     $url = esc_url( $url );
-    $size = esc_attr( $size );
-    $color = esc_attr( $color );
+    $size = sanitize_html_class( $size );
+    $color = sanitize_html_class( $color );
 
-    $r = "<a href='{$url}' class='arconix-button arconix-button-{$size} arconix-button-{$color}'{$rel}{$target}>{$content}</a>";
+    $r = "<a href='{$url}' class='{$button} arconix-button-{$size} arconix-button-{$color}'{$rel}{$target}>{$icon}{$content}</a>";
 
     return apply_filters( 'arconix_button_return', $r );
 }
