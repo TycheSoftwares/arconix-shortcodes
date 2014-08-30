@@ -1,6 +1,6 @@
 // Mixins File
 // Provides LESS mixins for use in stylesheet creation
-// @version 1.4.0
+// @version 1.4.1
 // @link http://lesscss.org/
 
 
@@ -49,7 +49,7 @@
 
 // Box Sizing
 // @param @type - border-box or content-box
-// @since 1.4
+// @since 1.4.0
 .box-sizing( @type: border-box ) {
     -webkit-box-sizing: @type;
        -moz-box-sizing: @type;
@@ -149,12 +149,12 @@
 // Radius
 // @param @radius - single value applied to all 4 corners (5px), or each corner individually starting top-left and moving clockwise
 // @since 1.2.0
-// @version 1.3.0
-.radius( @radius: 5px ) {
-    -webkit-border-radius: @radius;
-       -moz-border-radius: @radius;
-         -o-border-radius: @radius;
-            border-radius: @radius;
+// @version 1.4.1
+.radius( @top-left: 5px, @top-right: 5px, @bottom-right: 5px, @bottom-left: 5px ) {
+    -webkit-border-radius: @arguments;
+       -moz-border-radius: @arguments;
+         -o-border-radius: @arguments;
+            border-radius: @arguments;
 }
 
 
