@@ -80,13 +80,16 @@
 .arconix-button-flat,
 .arconix-button-clear {
     .shortcode-button();
-}
-.arconix-button {
-    .radius( 8px );
-    .box-shadow-inset( 0, 1px, 0, 0, #ccc );
+    
+    i.fa {
+        margin-right: 0.5em;
+    }
 }
 
 .arconix-button {
+    .radius( 8px );
+    .box-shadow-inset( 0, 1px, 0, 0, #ccc );
+    
     &.arconix-button-black { .shortcode-button-color-standard( @black ); }
     &.arconix-button-blue { .shortcode-button-color-standard( @blue ); }
     &.arconix-button-green { .shortcode-button-color-standard( @green ); }
@@ -146,8 +149,4 @@
 .arconix-button-small {
     font: 11px Arial, Helvetica, sans-serif;
     padding: 3px 8px 4px;
-}
-
-i.fa {
-    margin-right: 0.5em;
 }

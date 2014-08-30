@@ -4,14 +4,7 @@
 //
 // @param @c - desired background color
 .shortcode-box( @c: #aaa ) {
-    background-color: @c;
-    clear: both;
-    margin: 1em 0;
-    padding: 1em;
-
-    i.pull-left {
-        margin-right: 0.75em;
-    }
+    background-color: @c;    
 }
 
 .shortcode-box( @c: #aaa ) when ( lightness( @c ) >= 66% ) {
@@ -43,6 +36,16 @@
 
 /* Box Styling
 ------------------------------------------------------------ */
+.arconix-box {
+    clear: both;
+    margin: 1em 0;
+    padding: 1em;
+    
+    i.pull-left {
+        margin-right: 0.75em;
+    }
+}
+
 .arconix-box-blue { 
     .shortcode-box( @blue );
 }

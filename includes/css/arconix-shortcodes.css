@@ -21,15 +21,17 @@ in order to for the images to be displayed.
 */
 /* Box Styling
 ------------------------------------------------------------ */
-.arconix-box-blue {
-  background-color: #214b8a;
+.arconix-box {
   clear: both;
   margin: 1em 0;
   padding: 1em;
-  color: #fff;
 }
-.arconix-box-blue i.pull-left {
+.arconix-box i.pull-left {
   margin-right: 0.75em;
+}
+.arconix-box-blue {
+  background-color: #214b8a;
+  color: #fff;
 }
 .arconix-box-blue a {
   color: #000000;
@@ -40,13 +42,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-green {
   background-color: #36a563;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #fff;
-}
-.arconix-box-green i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-green a {
   color: #000000;
@@ -57,13 +53,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-grey {
   background-color: #f2f2f2;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #666666;
-}
-.arconix-box-grey i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-grey a {
   text-decoration: none;
@@ -73,13 +63,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-red {
   background-color: #e5684b;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #fff;
-}
-.arconix-box-red i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-red a {
   color: #411409;
@@ -90,13 +74,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-tan {
   background-color: #e5ac4b;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #fff;
-}
-.arconix-box-tan i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-tan a {
   color: #412c09;
@@ -107,13 +85,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-yellow {
   background-color: #fee975;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #5a4c01;
-}
-.arconix-box-yellow i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-yellow a {
   text-decoration: none;
@@ -123,13 +95,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-purple {
   background-color: #923195;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #fff;
-}
-.arconix-box-purple i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-purple a {
   color: #000000;
@@ -140,13 +106,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-black {
   background-color: #333333;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #fff;
-}
-.arconix-box-black i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-black a {
   color: #000000;
@@ -157,13 +117,7 @@ in order to for the images to be displayed.
 }
 .arconix-box-orange {
   background-color: #cf5300;
-  clear: both;
-  margin: 1em 0;
-  padding: 1em;
   color: #fff;
-}
-.arconix-box-orange i.pull-left {
-  margin-right: 0.75em;
 }
 .arconix-box-orange a {
   color: #000000;
@@ -193,11 +147,16 @@ in order to for the images to be displayed.
 .arconix-button-clear:hover {
   text-decoration: none;
 }
+.arconix-button i.fa,
+.arconix-button-flat i.fa,
+.arconix-button-clear i.fa {
+  margin-right: 0.5em;
+}
 .arconix-button {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 8px 5px 5px 5px;
+  -moz-border-radius: 8px 5px 5px 5px;
+  -o-border-radius: 8px 5px 5px 5px;
+  border-radius: 8px 5px 5px 5px;
   -webkit-box-shadow: inset 0 1px 0 0 #cccccc;
   -moz-box-shadow: inset 0 1px 0 0 #cccccc;
   box-shadow: inset 0 1px 0 0 #cccccc;
@@ -491,10 +450,10 @@ in order to for the images to be displayed.
   background: #e6e6e6;
 }
 .arconix-button-clear.arconix-button-black {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #333333;
   background: transparent;
   color: #333333;
@@ -511,10 +470,10 @@ in order to for the images to be displayed.
   color: #333333;
 }
 .arconix-button-clear.arconix-button-blue {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #214b8a;
   background: transparent;
   color: #214b8a;
@@ -531,10 +490,10 @@ in order to for the images to be displayed.
   color: #214b8a;
 }
 .arconix-button-clear.arconix-button-green {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #36a563;
   background: transparent;
   color: #36a563;
@@ -552,10 +511,10 @@ in order to for the images to be displayed.
 }
 .arconix-button-clear.arconix-button-grey,
 .arconix-button-clear.arconix-button-gray {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #6e6e6e;
   background: transparent;
   color: #6e6e6e;
@@ -576,10 +535,10 @@ in order to for the images to be displayed.
   color: #6e6e6e;
 }
 .arconix-button-clear.arconix-button-orange {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #cf5300;
   background: transparent;
   color: #cf5300;
@@ -596,10 +555,10 @@ in order to for the images to be displayed.
   color: #cf5300;
 }
 .arconix-button-clear.arconix-button-purple {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #923195;
   background: transparent;
   color: #923195;
@@ -616,10 +575,10 @@ in order to for the images to be displayed.
   color: #923195;
 }
 .arconix-button-clear.arconix-button-red {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #e5684b;
   background: transparent;
   color: #e5684b;
@@ -636,10 +595,10 @@ in order to for the images to be displayed.
   color: #e5684b;
 }
 .arconix-button-clear.arconix-button-tan {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #e5ac4b;
   background: transparent;
   color: #e5ac4b;
@@ -656,10 +615,10 @@ in order to for the images to be displayed.
   color: #e5ac4b;
 }
 .arconix-button-clear.arconix-button-yellow {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #fee975;
   background: transparent;
   color: #fee975;
@@ -676,10 +635,10 @@ in order to for the images to be displayed.
   color: #fee975;
 }
 .arconix-button-clear.arconix-button-white {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #ffffff;
   background: transparent;
   color: #ffffff;
@@ -711,6 +670,81 @@ in order to for the images to be displayed.
   font: 11px Arial, Helvetica, sans-serif;
   padding: 3px 8px 4px;
 }
-i.fa {
-  margin-right: 0.5em;
+/* Tabs Styling
+------------------------------------------------------------ */
+/* Tabs - Horizontal
+------------------------------------------------------------ */
+.arconix-tabs-horizontal {
+  clear: both;
+  margin-bottom: 25px;
+  /* Tabs  */
+  /* Panes */
 }
+.arconix-tabs-horizontal ul.arconix-tabs {
+  margin: 0 !important;
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  height: 30px;
+  /* Individual Tab */
+  /* Active Tab */
+}
+.arconix-tabs-horizontal ul.arconix-tabs li {
+  list-style: none !important;
+  float: left;
+  text-indent: 0;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+  position: relative;
+  top: -1px;
+  /* Indivdual Tab link Text */
+}
+.arconix-tabs-horizontal ul.arconix-tabs li a {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  color: #333;
+  display: block;
+  font-size: 15px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  min-width: 80px;
+  width: auto;
+  /* Individual Tab Hover state */
+}
+.arconix-tabs-horizontal ul.arconix-tabs li a:active {
+  outline: none;
+}
+.arconix-tabs-horizontal ul.arconix-tabs li a:hover {
+  background-color: #e9e9e9;
+}
+.arconix-tabs-horizontal ul.arconix-tabs a.current,
+.arconix-tabs-horizontal ul.arconix-tabs a.current:hover,
+.arconix-tabs-horizontal ul.arconix-tabs li.current a {
+  background-color: #fbfbfb;
+  border-bottom: 1px solid #fbfbfb;
+  cursor: default !important;
+  color: #333 !important;
+}
+.arconix-tabs-horizontal .arconix-panes {
+  background-color: #fbfbfb;
+  border: 1px solid #ccc;
+  border-top: none;
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 15px;
+  position: relative;
+  top: -1px;
+}
+.arconix-tabs-horizontal .arconix-panes .arconix-pane {
+  padding: 20px 15px 0;
+}
+/*# sourceMappingURL=arconix-shortcodes.css.map */
