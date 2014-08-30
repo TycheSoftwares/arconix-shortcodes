@@ -1,4 +1,4 @@
-/* 
+/*
 ARCONIX SHORTCODES CSS
 -------------------------------------------
 
@@ -7,7 +7,7 @@ Instead, save a copy of this file to your theme or child theme directory. It wil
 loaded in place of the plugin's version and will maintain your changes on upgrade
 
 IMPORTANT NOTE: Since the directory structure will be changing, and image URLS are always loaded
-relative to their current path, the links to the images in this file will also need to change. 
+relative to their current path, the links to the images in this file will also need to change.
 
 For example:
 
@@ -202,9 +202,6 @@ in order to for the images to be displayed.
   -moz-box-shadow: inset 0 1px 0 0 #cccccc;
   box-shadow: inset 0 1px 0 0 #cccccc;
 }
-i.fa {
-  margin-right: 0.3em;
-}
 .arconix-button.arconix-button-black {
   border: solid 1px #1a1a1a;
   background: #333333;
@@ -219,6 +216,9 @@ i.fa {
 }
 .arconix-button.arconix-button-black:hover {
   background: #333333;
+}
+.arconix-button.arconix-button-black:visited {
+  color: #fff !important;
 }
 .arconix-button.arconix-button-blue {
   border: solid 1px #173561;
@@ -235,6 +235,9 @@ i.fa {
 .arconix-button.arconix-button-blue:hover {
   background: #214b8a;
 }
+.arconix-button.arconix-button-blue:visited {
+  color: #fff !important;
+}
 .arconix-button.arconix-button-green {
   border: solid 1px #297f4c;
   background: #36a563;
@@ -249,6 +252,9 @@ i.fa {
 }
 .arconix-button.arconix-button-green:hover {
   background: #36a563;
+}
+.arconix-button.arconix-button-green:visited {
+  color: #fff !important;
 }
 .arconix-button.arconix-button-grey,
 .arconix-button.arconix-button-gray {
@@ -267,6 +273,10 @@ i.fa {
 .arconix-button.arconix-button-gray:hover {
   background: #6e6e6e;
 }
+.arconix-button.arconix-button-grey:visited,
+.arconix-button.arconix-button-gray:visited {
+  color: #fff !important;
+}
 .arconix-button.arconix-button-orange {
   border: solid 1px #9c3f00;
   background: #cf5300;
@@ -281,6 +291,9 @@ i.fa {
 }
 .arconix-button.arconix-button-orange:hover {
   background: #cf5300;
+}
+.arconix-button.arconix-button-orange:visited {
+  color: #fff !important;
 }
 .arconix-button.arconix-button-purple {
   border: solid 1px #6c246f;
@@ -297,6 +310,9 @@ i.fa {
 .arconix-button.arconix-button-purple:hover {
   background: #923195;
 }
+.arconix-button.arconix-button-purple:visited {
+  color: #fff !important;
+}
 .arconix-button.arconix-button-red {
   border: solid 1px #dd4420;
   background: #e5684b;
@@ -311,6 +327,9 @@ i.fa {
 }
 .arconix-button.arconix-button-red:hover {
   background: #e5684b;
+}
+.arconix-button.arconix-button-red:visited {
+  color: #fff !important;
 }
 .arconix-button.arconix-button-tan {
   border: solid 1px #dd9720;
@@ -327,6 +346,9 @@ i.fa {
 .arconix-button.arconix-button-tan:hover {
   background: #e5ac4b;
 }
+.arconix-button.arconix-button-tan:visited {
+  color: #fff !important;
+}
 .arconix-button.arconix-button-yellow {
   border: solid 1px #fee142;
   background: #fee975;
@@ -341,6 +363,9 @@ i.fa {
 }
 .arconix-button.arconix-button-yellow:hover {
   background: #fee975;
+}
+.arconix-button.arconix-button-yellow:visited {
+  color: #606060 !important;
 }
 .arconix-button.arconix-button-white {
   border: solid 1px #e6e6e6;
@@ -357,13 +382,326 @@ i.fa {
 .arconix-button.arconix-button-white:hover {
   background: #ffffff;
 }
+.arconix-button.arconix-button-white:visited {
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-black {
+  background: #333333;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-black:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-black:hover {
+  background: #1a1a1a;
+}
+.arconix-button-flat.arconix-button-blue {
+  background: #214b8a;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-blue:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-blue:hover {
+  background: #173561;
+}
+.arconix-button-flat.arconix-button-green {
+  background: #36a563;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-green:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-green:hover {
+  background: #297f4c;
+}
+.arconix-button-flat.arconix-button-grey,
+.arconix-button-flat.arconix-button-gray {
+  background: #6e6e6e;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-grey:visited,
+.arconix-button-flat.arconix-button-gray:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-grey:hover,
+.arconix-button-flat.arconix-button-gray:hover {
+  background: #555555;
+}
+.arconix-button-flat.arconix-button-orange {
+  background: #cf5300;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-orange:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-orange:hover {
+  background: #9c3f00;
+}
+.arconix-button-flat.arconix-button-purple {
+  background: #923195;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-purple:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-purple:hover {
+  background: #6c246f;
+}
+.arconix-button-flat.arconix-button-red {
+  background: #e5684b;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-red:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-red:hover {
+  background: #dd4420;
+}
+.arconix-button-flat.arconix-button-tan {
+  background: #e5ac4b;
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-tan:visited {
+  color: #fff !important;
+}
+.arconix-button-flat.arconix-button-tan:hover {
+  background: #dd9720;
+}
+.arconix-button-flat.arconix-button-yellow {
+  background: #fee975;
+  border: 1px solid #fee142 !important;
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-yellow:visited {
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-yellow:hover {
+  background: #fee142;
+}
+.arconix-button-flat.arconix-button-white {
+  background: #ffffff;
+  border: 1px solid #e6e6e6 !important;
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-white:visited {
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-white:hover {
+  background: #e6e6e6;
+}
+.arconix-button-clear.arconix-button-black {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #333333;
+  background: transparent;
+  color: #333333;
+}
+.arconix-button-clear.arconix-button-black:hover {
+  background: #333333;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-black:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-black:active,
+.arconix-button-clear.arconix-button-black:visited {
+  color: #333333;
+}
+.arconix-button-clear.arconix-button-blue {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #214b8a;
+  background: transparent;
+  color: #214b8a;
+}
+.arconix-button-clear.arconix-button-blue:hover {
+  background: #214b8a;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-blue:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-blue:active,
+.arconix-button-clear.arconix-button-blue:visited {
+  color: #214b8a;
+}
+.arconix-button-clear.arconix-button-green {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #36a563;
+  background: transparent;
+  color: #36a563;
+}
+.arconix-button-clear.arconix-button-green:hover {
+  background: #36a563;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-green:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-green:active,
+.arconix-button-clear.arconix-button-green:visited {
+  color: #36a563;
+}
+.arconix-button-clear.arconix-button-grey,
+.arconix-button-clear.arconix-button-gray {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #6e6e6e;
+  background: transparent;
+  color: #6e6e6e;
+}
+.arconix-button-clear.arconix-button-grey:hover,
+.arconix-button-clear.arconix-button-gray:hover {
+  background: #6e6e6e;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-grey:hover:visited,
+.arconix-button-clear.arconix-button-gray:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-grey:active,
+.arconix-button-clear.arconix-button-gray:active,
+.arconix-button-clear.arconix-button-grey:visited,
+.arconix-button-clear.arconix-button-gray:visited {
+  color: #6e6e6e;
+}
+.arconix-button-clear.arconix-button-orange {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #cf5300;
+  background: transparent;
+  color: #cf5300;
+}
+.arconix-button-clear.arconix-button-orange:hover {
+  background: #cf5300;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-orange:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-orange:active,
+.arconix-button-clear.arconix-button-orange:visited {
+  color: #cf5300;
+}
+.arconix-button-clear.arconix-button-purple {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #923195;
+  background: transparent;
+  color: #923195;
+}
+.arconix-button-clear.arconix-button-purple:hover {
+  background: #923195;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-purple:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-purple:active,
+.arconix-button-clear.arconix-button-purple:visited {
+  color: #923195;
+}
+.arconix-button-clear.arconix-button-red {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #e5684b;
+  background: transparent;
+  color: #e5684b;
+}
+.arconix-button-clear.arconix-button-red:hover {
+  background: #e5684b;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-red:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-red:active,
+.arconix-button-clear.arconix-button-red:visited {
+  color: #e5684b;
+}
+.arconix-button-clear.arconix-button-tan {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #e5ac4b;
+  background: transparent;
+  color: #e5ac4b;
+}
+.arconix-button-clear.arconix-button-tan:hover {
+  background: #e5ac4b;
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-tan:hover:visited {
+  color: #fff !important;
+}
+.arconix-button-clear.arconix-button-tan:active,
+.arconix-button-clear.arconix-button-tan:visited {
+  color: #e5ac4b;
+}
+.arconix-button-clear.arconix-button-yellow {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #fee975;
+  background: transparent;
+  color: #fee975;
+}
+.arconix-button-clear.arconix-button-yellow:hover {
+  background: #fee975;
+  color: #606060 !important;
+}
+.arconix-button-clear.arconix-button-yellow:hover:visited {
+  color: #606060 !important;
+}
+.arconix-button-clear.arconix-button-yellow:active,
+.arconix-button-clear.arconix-button-yellow:visited {
+  color: #fee975;
+}
+.arconix-button-clear.arconix-button-white {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+}
+.arconix-button-clear.arconix-button-white:hover {
+  background: #ffffff;
+  color: #606060 !important;
+}
+.arconix-button-clear.arconix-button-white:hover:visited {
+  color: #606060 !important;
+}
+.arconix-button-clear.arconix-button-white:active,
+.arconix-button-clear.arconix-button-white:visited {
+  color: #ffffff;
+}
 .arconix-button-xl {
-  font: 20px Arial, Helvetica, sans-serif;
-  padding: 12px 48px 13px;
+  font: 24px Arial, Helvetica, sans-serif;
+  padding: 12px 38px 13px;
 }
 .arconix-button-large {
   font: 16px Arial, Helvetica, sans-serif;
-  padding: 9px 36px 10px;
+  padding: 9px 28px 10px;
 }
 .arconix-button-medium {
   font: 13px Arial, Helvetica, sans-serif;
@@ -373,4 +711,6 @@ i.fa {
   font: 11px Arial, Helvetica, sans-serif;
   padding: 3px 8px 4px;
 }
-/*# sourceMappingURL=arconix-shortcodes.css.map */
+i.fa {
+  margin-right: 0.5em;
+}

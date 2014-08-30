@@ -24,40 +24,54 @@
 // ----------------------------------------------
 .shortcode-button-color-standard( @c: #aaa ) {
     border: solid 1px darken( @c, 10% );
-    background: @c;    
+    background: @c;
     #gradient > .vertical( lighten( @c, 15% ), @c );
-    
+
     &:hover {
         background: @c;
     }
-    
+
     .shortcode-button-text-color( @c );
 }
 
 .shortcode-button-color-flat( @c: #aaa ) {
     background: @c;
+    .shortcode-button-border( @c );
     .shortcode-button-text-color( @c );
-    
+
     &:hover {
         background: darken( @c, 10% );
     }
 }
 
 .shortcode-button-color-clear ( @c: #aaa ) {
+    .radius();
     border: 1px solid @c;
     background: transparent;
     color: @c;
-    
+
     &:hover {
         background: @c;
         .shortcode-button-text-color( @c );
     }
+
+    &:active,
+    &:visited {
+        color: @c;
+    }
 }
 
 // Determines the text color based on the passed color
-.shortcode-button-text-color( @c: #aaa ) when ( lightness( @c ) >= 66% ) { color: #606060 !important; }
-.shortcode-button-text-color( @c: #aaa ) when ( lightness( @c ) < 66% ) { color: #fff !important; }
+.shortcode-button-text-color( @c: #aaa ) when ( lightness( @c ) >= 66% ) {
+    color: #606060 !important;
+    &:visited { color: #606060 !important; }
+}
+.shortcode-button-text-color( @c: #aaa ) when ( lightness( @c ) < 66% ) {
+    color: #fff !important;
+    &:visited { color: #fff !important; }
+}
 
+.shortcode-button-border( @c: #aaa ) when ( lightness( @c ) >= 66% ) { border: 1px solid darken( @c, 10% ) !important; }
 
 
 /* Button Styling
@@ -70,10 +84,6 @@
 .arconix-button {
     .radius( 8px );
     .box-shadow-inset( 0, 1px, 0, 0, #ccc );
-}
-
-i.fa {
-    margin-right: 0.3em;
 }
 
 .arconix-button {
@@ -90,14 +100,42 @@ i.fa {
     &.arconix-button-white { .shortcode-button-color-standard( @white ); }
 }
 
+.arconix-button-flat {
+    &.arconix-button-black { .shortcode-button-color-flat( @black ); }
+    &.arconix-button-blue { .shortcode-button-color-flat( @blue ); }
+    &.arconix-button-green { .shortcode-button-color-flat( @green ); }
+    &.arconix-button-grey,
+    &.arconix-button-gray { .shortcode-button-color-flat( @gray ); }
+    &.arconix-button-orange { .shortcode-button-color-flat( @orange ); }
+    &.arconix-button-purple { .shortcode-button-color-flat( @purple ); }
+    &.arconix-button-red { .shortcode-button-color-flat( @red ); }
+    &.arconix-button-tan { .shortcode-button-color-flat( @tan ); }
+    &.arconix-button-yellow { .shortcode-button-color-flat( @yellow ); }
+    &.arconix-button-white { .shortcode-button-color-flat( @white ); }
+}
+
+.arconix-button-clear {
+    &.arconix-button-black { .shortcode-button-color-clear( @black ); }
+    &.arconix-button-blue { .shortcode-button-color-clear( @blue ); }
+    &.arconix-button-green { .shortcode-button-color-clear( @green ); }
+    &.arconix-button-grey,
+    &.arconix-button-gray { .shortcode-button-color-clear( @gray ); }
+    &.arconix-button-orange { .shortcode-button-color-clear( @orange ); }
+    &.arconix-button-purple { .shortcode-button-color-clear( @purple ); }
+    &.arconix-button-red { .shortcode-button-color-clear( @red ); }
+    &.arconix-button-tan { .shortcode-button-color-clear( @tan ); }
+    &.arconix-button-yellow { .shortcode-button-color-clear( @yellow ); }
+    &.arconix-button-white { .shortcode-button-color-clear( @white ); }
+}
+
 .arconix-button-xl {
-    font: 20px Arial, Helvetica, sans-serif;
-    padding: 12px 48px 13px;
+    font: 24px Arial, Helvetica, sans-serif;
+    padding: 12px 38px 13px;
 }
 
 .arconix-button-large {
     font: 16px Arial, Helvetica, sans-serif;
-    padding: 9px 36px 10px;
+    padding: 9px 28px 10px;
 }
 
 .arconix-button-medium {
@@ -108,4 +146,8 @@ i.fa {
 .arconix-button-small {
     font: 11px Arial, Helvetica, sans-serif;
     padding: 3px 8px 4px;
+}
+
+i.fa {
+    margin-right: 0.5em;
 }
