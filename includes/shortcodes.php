@@ -310,7 +310,9 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
 
     if( ( is_array( $atts ) && in_array( 'last', $atts ) && $atts['last'] != '' ) || $last != '' ) $last = ' arconix-accordion-last';
 
-    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $title . '</div>';
+    $icon = '<i class="fa fa-caret-right"></i>';
+
+    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $icon .$title . '</div>';
     $r .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
