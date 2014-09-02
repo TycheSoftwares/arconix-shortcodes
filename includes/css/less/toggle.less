@@ -1,24 +1,23 @@
 /* Toggle Styling
 ------------------------------------------------------------ */
 .arconix-toggle-wrap {
-    -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-            border-radius: 5px;
+    .radius();
     background: none repeat scroll 0 0 #fbfbfb;
     clear: both;
-    border: 1px solid #ddd;
+    border: 1px solid #d0d0d0;
     margin: 10px inherit;
     padding: 5px 10px;
 }
 .arconix-toggle-title {
-    background: url(../../images/toggle-open.png) no-repeat left transparent;
     cursor: pointer;
     font-size: 16px;
-    padding: 0 0 0 30px;
     position: relative;
+    
+    i.fa {
+        margin-right: 15px;
+        color: #b0b0b0;
+    }
 }
-
-.arconix-toggle-title.toggle-open { background: url(../../images/toggle-close.png) no-repeat left transparent; }
 
 .arconix-toggle-content {
     margin-left: 10px;

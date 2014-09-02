@@ -676,13 +676,24 @@ function toggle_arconix_shortcode( $atts, $content = null ) {
     ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_toggle' ) );
 
-    $load == 'open' ? $load = ' toggle-open' : $load = ' toggle-closed';
+    if( $css ) $css = ' ' . sanitize_html_class( $css );
 
+    switch ( $load ) {
+        case 'open':
+            $load = 'toggle-open';
+            $i = 'fa-minus-square';
+            break;
+        case 'closed':
+        default:
+            $load = 'toggle-closed';
+            $i = 'fa-plus-square';
+            break;
+    }
 
-    if( $css )
-        $css = ' ' . sanitize_html_class( $css );
+    $icon = "<i class='fa {$i}'></i>";
 
-    $r = '<div class="arconix-toggle-wrap'. esc_attr( $css ) . '"><div class="arconix-toggle-title' . esc_attr( $load ) . '">' . esc_attr( $title ) . '</div><div class="arconix-toggle-content' . esc_attr( $load ) . '">' . remove_wpautop( $content ) . '</div></div>';
+    $r = '<div class="arconix-toggle-wrap'. $css . '">' . '<div class="arconix-toggle-title ' . $load . '">' . $icon . $title . '</div>';
+    $r .= '<div class="arconix-toggle-content">' . remove_wpautop( $content ) . '</div></div>';
 
     return apply_filters( 'arconix_toggle_return', $r );
 }

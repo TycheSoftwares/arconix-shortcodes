@@ -7,24 +7,23 @@ Instead, save a copy of this file to your theme directory. It will then be loade
 of the plugin's version and will maintain your changes on upgrade
 */
 jQuery(document).ready( function(){
-
-    // Toggle
-    jQuery('.arconix-toggle-content').each( function() {
-        // This looks at the initial state of each content area, and hide content areas that are closed
-        if( jQuery(this).hasClass('toggle-closed')) {
-            jQuery(this).hide();
-        }
-    });
-
+    
+    /** Toggle */
+    // Sets the state of the content area (and associated icon) based on the class
     jQuery('.arconix-toggle-title').each( function() {
-        // This runs when a Toggle Title is clicked. It changes the CSS and then runs the animation
-        jQuery(this).click(function() {
-            var toggleContent = jQuery(this).next('.arconix-toggle-content');
-
-            jQuery(this).toggleClass('toggle-open').toggleClass('toggle-closed');            
-            toggleContent.toggleClass('toggle-open').toggleClass('toggle-closed');
-            toggleContent.slideToggle();
+        if( jQuery(this).hasClass('toggle-closed') ) {
+            jQuery(this).next('.arconix-toggle-content').hide();
+        }
+        else if( jQuery(this).hasClass('toggle-open') ) {
+            jQuery(this).next('i.fa').toggleClass('fa-plus-square fa-minus-square');
+        }
+        
+        jQuery(this).click( function() {
+            jQuery(this).toggleClass('toggle-open').toggleClass('toggle-closed');
+            jQuery(this).find('i.fa').toggleClass('fa-plus-square fa-minus-square');
+            jQuery(this).next('.arconix-toggle-content').slideToggle();
         });
+        
     });
 
     //Tabs
