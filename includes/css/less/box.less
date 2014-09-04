@@ -9,15 +9,6 @@
 
 .shortcode-box( @c: #aaa ) when ( lightness( @c ) >= 66% ) {
     color: darken( @c, 55% );
-
-    a {
-        //color: lighten( @c, 45% );
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 }
 
 .shortcode-box( @c: #aaa ) when ( lightness( @c ) < 66% ) {
@@ -25,11 +16,6 @@
 
     a {
         color: darken( @c, 45% );
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
     }
 
 }
@@ -44,6 +30,14 @@
     i.pull-left {
         margin-right: 0.75em;
     }
+    
+    a {
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 .arconix-box-blue { 
@@ -54,7 +48,7 @@
     .shortcode-box( @green );
 }
 
-.arconix-box-grey {
+.arconix-box-gray {
     .shortcode-box( @lgray );
 }
 

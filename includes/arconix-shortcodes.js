@@ -31,10 +31,22 @@ jQuery(document).ready( function(){
 
     });
 
-    //Tabs
-    jQuery('ul.arconix-tabs').tabs('div.arconix-panes > div');
+    /** Unordered List */
+    // Adds the ul class to the 'ul' element
+    jQuery('.arconix-list ul').addClass('fa-ul');
 
-    //Accordions
+    jQuery('.arconix-list').each( function() {
+        // Extract the icon and color to be added to the 'i' element
+        var icon = jQuery(this).data('icon');
+        var color = jQuery(this).data('color');
+
+        jQuery(this).find('li').prepend('<i class="fa fa-li ' + icon + ' ' + color + '"></i>');
+    });
+
+    // Tabs
+    jQuery("ul.arconix-tabs").tabs("div.arconix-panes > div");
+
+    // Accordions
     jQuery('.arconix-accordions-0').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: null });
     jQuery('.arconix-accordions-1').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 0 });
     jQuery('.arconix-accordions-2').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 1 });

@@ -346,7 +346,7 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
 function box_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_box_shortcode_args', array(
         'style' => 'grey', // deprecated
-        'color' => 'grey',
+        'color' => 'gray',
         'icon'  => '',
         'icon_size' => 'fa-2x',
         'icon_other' => 'pull-left'
@@ -533,11 +533,59 @@ function highlight_arconix_shortcode( $atts, $content = null ) {
  * @return string
  */
 function list_arconix_shortcode( $atts, $content = null ) {
-    $defaults = apply_filters( 'arconix_list_shortcode_args', array( 'style' => 'arrow-white' ) );
+    if( wp_script_is( 'arconix-shortcodes-js', 'registered' ) ) wp_enqueue_script( 'arconix-shortcodes-js' );
+
+    $defaults = apply_filters( 'arconix_list_shortcode_args', array(
+        'style' => '', // deprecated
+        'icon' => 'fa-chevron-circle-right',
+        'icon_color' => 'black'
+    ) );
 
     extract( shortcode_atts( $defaults, $atts, 'arconix_list' ) );
 
-    $r = '<div class="arconix-list arconix-list-' . sanitize_html_class( $style ) . '">' . remove_wpautop( $content ) . '</div>';
+    switch ( $style ) {
+        case 'arrow-black':
+            $icon_color = 'black';
+            break;
+        case 'arrow-blue':
+            $icon_color = 'blue';
+            break;
+        case 'arrow-green':
+            $icon_color = 'green';
+            break;
+        case 'arrow-grey':
+        case 'arrow-gray':
+            $icon_color = 'gray';
+            break;
+        case 'arrow-orange':
+            $icon_color = 'orange';
+            break;
+        case 'arrow-pink':
+            $icon_color = 'pink';
+            break;
+        case 'arrow-red':
+            $icon_color = 'red';
+            break;
+        case 'arrow-white':
+            $icon_color = 'white';
+            break;
+        case 'check';
+            $icon_color = 'green';
+            $icon = 'fa-check';
+            break;
+        case 'close':
+            $icon_color = 'red';
+            $icon = 'fa-close';
+            break;
+        case 'star':
+            $icon_color = 'yellow';
+            $icon = 'fa-star';
+            break;
+        default:
+            break;
+}
+
+    $r = '<div class="arconix-list" data-icon="' . $icon . '" data-color="' . $icon_color . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_list_return', $r );
 }

@@ -103,7 +103,7 @@ div.arconix-accordion-title {
   letter-spacing: 1.6px;
   line-height: 21px;
   margin: 0 !important;
-  padding: 0;
+  padding: 5px;
   text-transform: uppercase;
 }
 div.arconix-accordion-title i.fa:before {
@@ -153,16 +153,18 @@ div.arconix-accordion-title:hover {
 .arconix-box i.pull-left {
   margin-right: 0.75em;
 }
+.arconix-box a {
+  text-decoration: none;
+}
+.arconix-box a:hover {
+  text-decoration: none;
+}
 .arconix-box-blue {
   background-color: #214b8a;
   color: #fff;
 }
 .arconix-box-blue a {
   color: #000000;
-  text-decoration: none;
-}
-.arconix-box-blue a:hover {
-  text-decoration: underline;
 }
 .arconix-box-green {
   background-color: #36a563;
@@ -170,20 +172,10 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-green a {
   color: #000000;
-  text-decoration: none;
 }
-.arconix-box-green a:hover {
-  text-decoration: underline;
-}
-.arconix-box-grey {
+.arconix-box-gray {
   background-color: #f2f2f2;
   color: #666666;
-}
-.arconix-box-grey a {
-  text-decoration: none;
-}
-.arconix-box-grey a:hover {
-  text-decoration: underline;
 }
 .arconix-box-red {
   background-color: #e5684b;
@@ -191,10 +183,6 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-red a {
   color: #411409;
-  text-decoration: none;
-}
-.arconix-box-red a:hover {
-  text-decoration: underline;
 }
 .arconix-box-tan {
   background-color: #e5ac4b;
@@ -202,20 +190,10 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-tan a {
   color: #412c09;
-  text-decoration: none;
-}
-.arconix-box-tan a:hover {
-  text-decoration: underline;
 }
 .arconix-box-yellow {
   background-color: #fee975;
   color: #5a4c01;
-}
-.arconix-box-yellow a {
-  text-decoration: none;
-}
-.arconix-box-yellow a:hover {
-  text-decoration: underline;
 }
 .arconix-box-purple {
   background-color: #923195;
@@ -223,10 +201,6 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-purple a {
   color: #000000;
-  text-decoration: none;
-}
-.arconix-box-purple a:hover {
-  text-decoration: underline;
 }
 .arconix-box-black {
   background-color: #333333;
@@ -234,10 +208,6 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-black a {
   color: #000000;
-  text-decoration: none;
-}
-.arconix-box-black a:hover {
-  text-decoration: underline;
 }
 .arconix-box-orange {
   background-color: #cf5300;
@@ -245,10 +215,6 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-orange a {
   color: #000000;
-  text-decoration: none;
-}
-.arconix-box-orange a:hover {
-  text-decoration: underline;
 }
 /* Button Styling
 ------------------------------------------------------------ */
@@ -896,5 +862,84 @@ div.arconix-accordion-title:hover {
 .arconix-toggle-content {
   margin-left: 10px;
   padding: 15px 20px;
+}
+/* Unordered list Styling
+------------------------------------------------------------ */
+.arconix-list ul,
+.arconix-list li {
+  list-style: none;
+}
+.arconix-list i.fa-li {
+  margin-top: 3px;
+}
+.arconix-list i.fa-li.black {
+  color: #333333;
+}
+.arconix-list i.fa-li.blue {
+  color: #214b8a;
+}
+.arconix-list i.fa-li.green {
+  color: #36a563;
+}
+.arconix-list i.fa-li.gray,
+.arconix-list i.fa-li.grey {
+  color: #f2f2f2;
+}
+.arconix-list i.fa-li.orange {
+  color: #cf5300;
+}
+.arconix-list i.fa-li.purple {
+  color: #923195;
+}
+.arconix-list i.fa-li.red {
+  color: #e5684b;
+}
+.arconix-list i.fa-li.tan {
+  color: #e5ac4b;
+}
+.arconix-list i.fa-li.white {
+  color: #ffffff;
+}
+.arconix-list i.fa-li.yellow {
+  color: #fee975;
+}
+.arconix-box-red {
+  background-color: #e5684b;
+  color: #fff;
+}
+.arconix-box-red a {
+  color: #411409;
+}
+.arconix-box-tan {
+  background-color: #e5ac4b;
+  color: #fff;
+}
+.arconix-box-tan a {
+  color: #412c09;
+}
+.arconix-box-yellow {
+  background-color: #fee975;
+  color: #5a4c01;
+}
+.arconix-box-purple {
+  background-color: #923195;
+  color: #fff;
+}
+.arconix-box-purple a {
+  color: #000000;
+}
+.arconix-box-black {
+  background-color: #333333;
+  color: #fff;
+}
+.arconix-box-black a {
+  color: #000000;
+}
+.arconix-box-orange {
+  background-color: #cf5300;
+  color: #fff;
+}
+.arconix-box-orange a {
+  color: #000000;
 }
 /*# sourceMappingURL=arconix-shortcodes.css.map */
