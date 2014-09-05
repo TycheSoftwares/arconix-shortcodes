@@ -24,7 +24,7 @@ jQuery(document).ready( function(){
 
         // Change the state of the toggle on click
         jQuery(this).click( function() {
-            jQuery(this).toggleClass('toggle-open').toggleClass('toggle-closed');
+            jQuery(this).toggleClass('toggle-open toggle-closed');
             jQuery(this).find('i.fa').toggleClass('fa-plus-square fa-minus-square');
             jQuery(this).next('.arconix-toggle-content').slideToggle();
         });
@@ -43,8 +43,20 @@ jQuery(document).ready( function(){
         jQuery(this).find('li').prepend('<i class="fa fa-li ' + icon + ' ' + color + '"></i>');
     });
 
-    // Tabs
-    jQuery("ul.arconix-tabs").tabs("div.arconix-panes > div");
+    /** Tabs */
+    // Init the Tabs
+    jQuery('ul.arconix-tabs').tabs('div.arconix-panes > div');
+    
+    // Loop through each tab title and add the icon if needed
+    jQuery('ul.arconix-tabs li').each( function() {
+        // Extract the icon and color to be added to the 'i' element
+        var icon = jQuery(this).data('icon');
+        var color = jQuery(this).data('color');
+       
+        if( icon.length > 2 ) { // Only add the icon if we have a string as the icon is optional
+         jQuery(this).find('a').prepend('<i class="fa ' + icon + ' ' + color + '"></i>');  
+       }
+    });
 
     // Accordions
     jQuery('.arconix-accordions-0').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: null });

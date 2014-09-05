@@ -555,19 +555,15 @@ function list_arconix_shortcode( $atts, $content = null ) {
             break;
         case 'arrow-grey':
         case 'arrow-gray':
+        case 'arrow-white':
             $icon_color = 'gray';
             break;
         case 'arrow-orange':
             $icon_color = 'orange';
             break;
         case 'arrow-pink':
-            $icon_color = 'pink';
-            break;
         case 'arrow-red':
             $icon_color = 'red';
-            break;
-        case 'arrow-white':
-            $icon_color = 'white';
             break;
         case 'check';
             $icon_color = 'green';
@@ -653,7 +649,7 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
                     break;
             }
 
-            $tabs[] = '<li class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
+            $tabs[] = '<li data-icon="' . $tab['icon'] . '" data-color="' . $tab['color'] . '" class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
             $panes[] = '<div class="arconix-pane pane-' . sanitize_html_class( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
         $r = "\n" . '<div class="arconix-tabs-' . sanitize_html_class( $style ) . $css . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
@@ -687,11 +683,16 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
  * @param string $content
  */
 function tab_arconix_shortcode( $atts, $content = null ) {
-    $defaults = apply_filters( 'arconix_tab_shortcode_args', array( 'title' => 'Tab' ) );
+    $defaults = apply_filters( 'arconix_tab_shortcode_args',
+        array(
+            'title' => 'Tab',
+            'icon' => ' ',
+            'icon_color' => ' '
+        ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_tab' ) );
 
     $x = $GLOBALS['tab_count'];
-    $GLOBALS['tabs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' => $content );
+    $GLOBALS['tabs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' => $content, 'icon' => $icon, 'color' => $icon_color );
 
     $GLOBALS['tab_count']++;
 }
