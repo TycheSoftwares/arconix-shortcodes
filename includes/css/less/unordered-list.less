@@ -1,12 +1,3 @@
-// Unordered List Mixins
-//
-// @since 2.0
-//
-// @param @c - desired background color
-.shortcode-list( @c: #333 ) {
-    color: @c;
-}
-
 /* Unordered list Styling
 ------------------------------------------------------------ */
 .arconix-list ul,
@@ -19,39 +10,12 @@
         &.black { color: @black; }
         &.blue { color: @blue; }
         &.green { color: @green; }
-        &.gray, &.grey { color: @lgray; }
+        &.gray, &.grey { color: @gray; }
         &.orange { color: @orange; }
         &.purple { color: @purple; }
         &.red { color: @red; }
         &.tan { color: @tan; }
         &.white { color: @white; }
         &.yellow { color: @yellow; }
-        
     }
-    
-    
-}
-
-.arconix-box-red {
-    .shortcode-box( @red );
-}
-
-.arconix-box-tan {
-    .shortcode-box( @tan );
-}
-
-.arconix-box-yellow {
-    .shortcode-box( @yellow );
-}
-
-.arconix-box-purple {
-    .shortcode-box( @purple );
-}
-
-.arconix-box-black {
-    .shortcode-box( @black );
-}
-
-.arconix-box-orange {
-    .shortcode-box( @orange );
 }
