@@ -4,7 +4,7 @@
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 1.2.0
+ * Version: 2.0.0-beta-1
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -41,7 +41,7 @@ class Arconix_Shortcodes {
      * @since 1.1.0
      */
     function constants() {
-        define( 'ACS_VERSION',              '1.2.0' );
+        define( 'ACS_VERSION',              '2.0.0' );
         define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
         define( 'ACS_INCLUDES_URL',         trailingslashit( ACS_URL . 'includes' ) );
         define( 'ACS_CSS_URL',              trailingslashit( ACS_INCLUDES_URL . 'css' ) );
@@ -79,7 +79,7 @@ class Arconix_Shortcodes {
      * @see ACS_VERSION         Defined in this file
      *
      * @since 0.9
-     * @version 1.2.0
+     * @version 2.0.0
      */
     function scripts() {
         // Provide script registration args so they can be filtered if necessary
@@ -114,7 +114,6 @@ class Arconix_Shortcodes {
         // Load the FontAwesome CSS
         if ( apply_filters( 'pre_register_fontawesome_css', true ) )
             wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', false, '4.2.0' );
-
     }
 
     /**
