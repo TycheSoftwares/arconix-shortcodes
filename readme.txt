@@ -4,18 +4,19 @@ Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.4
 Tested up to: 3.8
-Stable tag: 1.2.0
+Stable tag: 2.0.0
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
 
 == Description ==
 
 With this plugin you can easily add various kinds of styled boxes, buttons, tabs, accordions, unordered lists and more. Choose from the supplied options or advanced users can easily add their own by extending the built-in styles.
+The box, button, list and tab shortcodes support custom [FontAwesome](http://fortawesome.github.io/Font-Awesome/) icons for a flexible display
 
 = Features =
-* 8 style shortcodes (accordions, boxes, tabs, toggles, etc...)
-* 5 utility shortcodes (login-logout, google-map, etc...)
-* Support for up to 5 columns
+* 6 style shortcodes (accordions, boxes, tabs, toggles, etc...)
+* 6 utility shortcodes (login-logout, highlight, etc...)
+* Shortcodes for up to 5 column display
 * Has a Compatibility Mode available to help prevent shortcode name conflicts
 
 == Installation ==
@@ -36,10 +37,10 @@ Compatibility mode adds a prefix to all the plugin's shortcodes. This was put in
 
 = How do I enable compatibility mode? =
 
-Place the following code in your theme's `functions.php` file: 
+Place the following code in your theme's `functions.php` file:
 `
 define( 'ACS_COMPAT', true ); // Arconix Shortcodes Compatibility Mode
-` 
+`
 Now when adding a shortcode, just make sure they start `ac-` (i.e. `[ac-box]content[/ac-box]`
 
 = Where can I find more information on how to use the shortcodes?  =
@@ -71,6 +72,16 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog ==
+
+= 2.0.0 =
+* Feature - Rewrote the entire CSS file. Updated the color spectrum to be more modern and support more default colors.
+* Feature - Added support for FontAwesome icons with most shortcodes. The entire list of icons available here: http://fortawesome.github.io/Font-Awesome/icons/
+* Enhancement - Added 2 additional button styles (flat and clear) which gives users additional display options
+* Enhancement - Remove the MSIE specific filter property which now allows the CSS to pass W3C checks
+* Enhancement - Minify the CSS which improves download time and site speed
+* Enhancement - On relevant shortcodes the use of `last=y` is no longer necessary as `last` by itself will work
+* Enhancement - Improved sanitization strings which should fix broken output in certain non-English languages
+* Other - Removed the googlemap shortcode. There are other plugins that are better suited for that task
 
 = 1.2.0 =
 * Updated toggle shortcode to be compatible with jQuery 1.9+
