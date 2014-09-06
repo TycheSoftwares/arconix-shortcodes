@@ -135,6 +135,7 @@ div.arconix-accordion-title:hover {
 ------------------------------------------------------------ */
 .arconix-box {
   clear: both;
+  line-height: 1.75;
   margin: 1em 0;
   padding: 1em;
 }
@@ -931,3 +932,4 @@ div.arconix-accordion-title:hover {
 .arconix-list i.fa-li.yellow {
   color: #fee975;
 }
+/*# sourceMappingURL=arconix-shortcodes.css.map */

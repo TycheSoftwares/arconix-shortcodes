@@ -361,7 +361,7 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
  */
 function box_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_box_shortcode_args', array(
-        'style' => 'grey', // deprecated
+        'style' => '', // deprecated
         'color' => 'gray',
         'icon'  => '',
         'icon_size' => 'fa-2x',
@@ -397,7 +397,7 @@ function box_arconix_shortcode( $atts, $content = null ) {
             $icon = 'fa-lightbulb-o';
             break;
         default:
-            $color = $style;
+            if ( ! $color ) $style = color;
             break;
     }
 
