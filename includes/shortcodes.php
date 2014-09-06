@@ -16,7 +16,7 @@
 function get_arconix_shortcode_list() {
     // List all shortcodes in an array to run through compatibility check
     $shortcodes = apply_filters( 'arconix_shortcodes_list', array(
-        'loginout', /*'googlemap', */'site-link', 'the-year', 'wp-link',
+        'code', 'loginout', /*'googlemap', */'site-link', 'the-year', 'wp-link',
         'abbr', 'highlight',
         'accordions', 'accordion',
         'box',
@@ -99,6 +99,23 @@ function acs_register_shortcodes() {
 
         add_shortcode( $shortcode , str_replace( '-', '_', $shortcode_func )  . '_arconix_shortcode' );
     }
+}
+
+/**
+ * Shortcode to add code brackets around desired text
+ *
+ * @since 2.0.0
+ *
+ * @param array $atts - none
+ * @param string $content
+ *
+ * @return string Content wrapped in code brackets
+ */
+function code_arconix_shortcode( $atts, $content = null ) {
+
+    $r = '<code>' . do_shortcode( $content ) . '</code>';
+
+    return apply_filters( 'arconix_code_return', $r );
 }
 
 /**
@@ -380,6 +397,7 @@ function box_arconix_shortcode( $atts, $content = null ) {
             $icon = 'fa-lightbulb-o';
             break;
         default:
+            $color = $style;
             break;
     }
 
@@ -420,13 +438,12 @@ function box_arconix_shortcode( $atts, $content = null ) {
 function button_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_button_shortcode_args', array(
         'size' => 'medium',
-        'color' => 'white',
+        'color' => 'gray',
         'url' => '#',
         'target' => '',
         'rel' => '',
         'icon' => '',
         'icon_size' => '',
-        'icon_other' => '',
         'style' => ''
     ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_button' ) );
