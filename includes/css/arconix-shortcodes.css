@@ -162,11 +162,22 @@ div.arconix-accordion-title:hover {
 .arconix-box-green a {
   color: #fff !important;
 }
-.arconix-box-gray {
+.arconix-box-gray,
+.arconix-box-grey {
+  background-color: #6e6e6e;
+  color: #fff;
+}
+.arconix-box-gray a,
+.arconix-box-grey a {
+  color: #fff !important;
+}
+.arconix-box-lgray,
+.arconix-box-lgrey {
   background-color: #f2f2f2;
   color: #666666;
 }
-.arconix-box-gray a {
+.arconix-box-lgray a,
+.arconix-box-lgrey a {
   color: #666666 !important;
 }
 .arconix-box-red {
