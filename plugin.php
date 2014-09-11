@@ -83,13 +83,17 @@ class Arconix_Shortcodes {
      */
     function scripts() {
         // Provide script registration args so they can be filtered if necessary
-        $script_args = apply_filters( 'arconix_jquerytools_reg', array(
+        $jqt_args = apply_filters( 'arconix_jquerytools_reg', array(
             'url' => 'http://cdn.jquerytools.org/1.2.7/tiny/jquery.tools.min.js',
             'ver' => '1.2.7',
             'dep' => 'jquery'
         ) );
 
-        wp_register_script( 'jquery-tools', esc_url( $script_args['url'] ), array( $script_args['dep'] ), $script_args['ver'], true );
+        wp_register_script( 'jquery-tools', esc_url( $jqt_args['url'] ), array( $jqt_args['dep'] ), $jqt_args['ver'], true );
+
+
+        // Use the .min files if SCRIPT_DEBUG is turned off.
+        $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
         // Register the javascript - Check the child theme directory first, the parent theme second, otherwise load the plugin version
         if( apply_filters( 'pre_register_arconix_shortcodes_js', true ) ) {
@@ -98,7 +102,7 @@ class Arconix_Shortcodes {
             elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
                 wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
             else
-                wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . 'arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+                wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . "arconix-shortcodes{$suffix}.js", array( 'jquery-tools' ), ACS_VERSION, true );
         }
 
         // Load the CSS - Check the child theme directory first, the parent theme second, otherwise load the plugin version
@@ -108,12 +112,16 @@ class Arconix_Shortcodes {
             elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
                 wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
             else
-                wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . 'arconix-shortcodes.css', false, ACS_VERSION );
+                wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . "arconix-shortcodes{$suffix}.css", false, ACS_VERSION );
         }
 
-        // Load the FontAwesome CSS
-        if ( apply_filters( 'pre_register_fontawesome_css', true ) )
-            wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', false, '4.2.0' );
+        // Allow FontAwesome registration params to be filtered so different versions can be loaded if needed
+        $fa_args = apply_filters( 'arconix_fontawesome_css', array(
+            'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
+            'ver' => '4.2.0',
+        ));
+
+        wp_enqueue_style( 'font-awesome', $fa_args['url'], false, $fa_args['ver'] );
     }
 
     /**
