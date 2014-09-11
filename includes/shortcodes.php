@@ -337,8 +337,8 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
 /**
  * Shortcode to produce a styled box
  *
- * Supports 11 colors (black, blue, green, gray (grey), light gray (grey),
- * orange, purple, red, tan, yellow, white) and any fontawesome icon
+ * Supports 10 colors (black, blue, green, gray (grey), light gray (grey),
+ * orange, purple, red, tan, yellow) and any fontawesome icon
  *
  * While 'style' has been deprecated, it still functions for backwards
  * compatibility and will convert existing styles over to the new style
@@ -1124,6 +1124,9 @@ function clearfloat( $last ) {
  * @return array normalized array of atts
  */
 function normalize_empty_atts( $atts ) {
+    if ( ! is_array( $atts ) )
+        return;
+
     foreach ( $atts as $attribute => $value ) {
         if ( is_int( $attribute ) ) {
             $atts[strtolower( $value )] = true;
