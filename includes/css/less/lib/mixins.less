@@ -1,6 +1,6 @@
 // Mixins File
 // Provides LESS mixins for use in stylesheet creation
-// @version 1.4.1
+// @version 1.5.0
 // @link http://lesscss.org/
 
 
@@ -149,8 +149,8 @@
 // Radius
 // @param @radius - single value applied to all 4 corners (5px), or each corner individually starting top-left and moving clockwise
 // @since 1.2.0
-// @version 1.4.1
-.radius( @top-left: 5px, @top-right: 5px, @bottom-right: 5px, @bottom-left: 5px ) {
+// @version 1.5.0
+.radius( @top-left: 5px, @top-right: @top-left, @bottom-right: @top-left, @bottom-left: @top-left ) {
     -webkit-border-radius: @arguments;
        -moz-border-radius: @arguments;
          -o-border-radius: @arguments;
