@@ -249,10 +249,10 @@ div.arconix-accordion-title:hover {
   margin-right: 0.5em;
 }
 .arconix-button {
-  -webkit-border-radius: 8px 5px 5px 5px;
-  -moz-border-radius: 8px 5px 5px 5px;
-  -o-border-radius: 8px 5px 5px 5px;
-  border-radius: 8px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: inset 0 1px 0 0 #cccccc;
   -moz-box-shadow: inset 0 1px 0 0 #cccccc;
   box-shadow: inset 0 1px 0 0 #cccccc;
@@ -311,8 +311,8 @@ div.arconix-accordion-title:hover {
 .arconix-button.arconix-button-green:visited {
   color: #fff !important;
 }
-.arconix-button.arconix-button-grey,
-.arconix-button.arconix-button-gray {
+.arconix-button.arconix-button-gray,
+.arconix-button.arconix-button-grey {
   border: solid 1px #555555;
   background: #6e6e6e;
   background-color: #858585;
@@ -324,13 +324,34 @@ div.arconix-accordion-title:hover {
   background-repeat: repeat-x;
   color: #fff !important;
 }
-.arconix-button.arconix-button-grey:hover,
-.arconix-button.arconix-button-gray:hover {
+.arconix-button.arconix-button-gray:hover,
+.arconix-button.arconix-button-grey:hover {
   background: #6e6e6e;
 }
-.arconix-button.arconix-button-grey:visited,
-.arconix-button.arconix-button-gray:visited {
+.arconix-button.arconix-button-gray:visited,
+.arconix-button.arconix-button-grey:visited {
   color: #fff !important;
+}
+.arconix-button.arconix-button-lgray,
+.arconix-button.arconix-button-lgrey {
+  border: solid 1px #d9d9d9;
+  background: #f2f2f2;
+  background-color: #fafafa;
+  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+  background-image: linear-gradient(top, #ffffff, #f2f2f2);
+  background-repeat: repeat-x;
+  color: #606060 !important;
+}
+.arconix-button.arconix-button-lgray:hover,
+.arconix-button.arconix-button-lgrey:hover {
+  background: #f2f2f2;
+}
+.arconix-button.arconix-button-lgray:visited,
+.arconix-button.arconix-button-lgrey:visited {
+  color: #606060 !important;
 }
 .arconix-button.arconix-button-orange {
   border: solid 1px #9c3f00;
@@ -470,18 +491,32 @@ div.arconix-accordion-title:hover {
 .arconix-button-flat.arconix-button-green:hover {
   background: #297f4c;
 }
-.arconix-button-flat.arconix-button-grey,
-.arconix-button-flat.arconix-button-gray {
+.arconix-button-flat.arconix-button-gray,
+.arconix-button-flat.arconix-button-grey {
   background: #6e6e6e;
   color: #fff !important;
 }
-.arconix-button-flat.arconix-button-grey:visited,
-.arconix-button-flat.arconix-button-gray:visited {
+.arconix-button-flat.arconix-button-gray:visited,
+.arconix-button-flat.arconix-button-grey:visited {
   color: #fff !important;
 }
-.arconix-button-flat.arconix-button-grey:hover,
-.arconix-button-flat.arconix-button-gray:hover {
+.arconix-button-flat.arconix-button-gray:hover,
+.arconix-button-flat.arconix-button-grey:hover {
   background: #555555;
+}
+.arconix-button-flat.arconix-button-lgray,
+.arconix-button-flat.arconix-button-lgrey {
+  background: #f2f2f2;
+  border: 1px solid #d9d9d9 !important;
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-lgray:visited,
+.arconix-button-flat.arconix-button-lgrey:visited {
+  color: #606060 !important;
+}
+.arconix-button-flat.arconix-button-lgray:hover,
+.arconix-button-flat.arconix-button-lgrey:hover {
+  background: #d9d9d9;
 }
 .arconix-button-flat.arconix-button-orange {
   background: #cf5300;
@@ -605,8 +640,8 @@ div.arconix-accordion-title:hover {
 .arconix-button-clear.arconix-button-green:visited {
   color: #36a563;
 }
-.arconix-button-clear.arconix-button-grey,
-.arconix-button-clear.arconix-button-gray {
+.arconix-button-clear.arconix-button-gray,
+.arconix-button-clear.arconix-button-grey {
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   -o-border-radius: 5px 5px 5px 5px;
@@ -615,20 +650,45 @@ div.arconix-accordion-title:hover {
   background: transparent;
   color: #6e6e6e;
 }
-.arconix-button-clear.arconix-button-grey:hover,
-.arconix-button-clear.arconix-button-gray:hover {
+.arconix-button-clear.arconix-button-gray:hover,
+.arconix-button-clear.arconix-button-grey:hover {
   background: #6e6e6e;
   color: #fff !important;
 }
-.arconix-button-clear.arconix-button-grey:hover:visited,
-.arconix-button-clear.arconix-button-gray:hover:visited {
+.arconix-button-clear.arconix-button-gray:hover:visited,
+.arconix-button-clear.arconix-button-grey:hover:visited {
   color: #fff !important;
 }
-.arconix-button-clear.arconix-button-grey:active,
 .arconix-button-clear.arconix-button-gray:active,
-.arconix-button-clear.arconix-button-grey:visited,
-.arconix-button-clear.arconix-button-gray:visited {
+.arconix-button-clear.arconix-button-grey:active,
+.arconix-button-clear.arconix-button-gray:visited,
+.arconix-button-clear.arconix-button-grey:visited {
   color: #6e6e6e;
+}
+.arconix-button-clear.arconix-button-lgray,
+.arconix-button-clear.arconix-button-lgrey {
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #f2f2f2;
+  background: transparent;
+  color: #f2f2f2;
+}
+.arconix-button-clear.arconix-button-lgray:hover,
+.arconix-button-clear.arconix-button-lgrey:hover {
+  background: #f2f2f2;
+  color: #606060 !important;
+}
+.arconix-button-clear.arconix-button-lgray:hover:visited,
+.arconix-button-clear.arconix-button-lgrey:hover:visited {
+  color: #606060 !important;
+}
+.arconix-button-clear.arconix-button-lgray:active,
+.arconix-button-clear.arconix-button-lgrey:active,
+.arconix-button-clear.arconix-button-lgray:visited,
+.arconix-button-clear.arconix-button-lgrey:visited {
+  color: #f2f2f2;
 }
 .arconix-button-clear.arconix-button-orange {
   -webkit-border-radius: 5px 5px 5px 5px;
@@ -943,4 +1003,3 @@ div.arconix-accordion-title:hover {
 .arconix-list i.fa-li.yellow {
   color: #fee975;
 }
-/*# sourceMappingURL=arconix-shortcodes.css.map */
