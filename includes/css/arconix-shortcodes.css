@@ -134,19 +134,25 @@ div.arconix-accordion-title:hover {
 /* Box Styling
 ------------------------------------------------------------ */
 .arconix-box {
+  position: relative;
   clear: both;
-  line-height: 1.75;
   margin: 1em 0;
   padding: 1em;
 }
-.arconix-box i.pull-left {
-  margin-right: 0.75em;
+.arconix-box i.fa {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
-.arconix-box a {
+.arconix-box a,
+.arconix-box a:hover {
   text-decoration: underline;
 }
-.arconix-box a:hover {
-  text-decoration: none;
+.arconix-box .arconix-box-content {
+  margin-left: 45px;
+}
+.arconix-box .arconix-box-content p:last-child {
+  margin-bottom: 0;
 }
 .arconix-box-blue {
   background-color: #214b8a;
@@ -1003,3 +1009,4 @@ div.arconix-accordion-title:hover {
 .arconix-list i.fa-li.yellow {
   color: #fee975;
 }
+/*# sourceMappingURL=arconix-shortcodes.css.map */

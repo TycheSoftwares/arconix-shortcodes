@@ -28,20 +28,26 @@
 /* Box Styling
 ------------------------------------------------------------ */
 .arconix-box {
+    position: relative;
     clear: both;
-    line-height: 1.75;
     margin: 1em 0;
     padding: 1em;
     
-    i.pull-left {
-        margin-right: 0.75em;
+    i.fa { 
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
     }
     
-    a {
+    a, a:hover {
         text-decoration: underline;
+    }
+    
+    .arconix-box-content {
+        margin-left: 45px;
         
-        &:hover {
-            text-decoration: none;
+        p:last-child {
+            margin-bottom: 0;
         }
     }
 }

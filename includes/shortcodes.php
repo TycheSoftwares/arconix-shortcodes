@@ -404,7 +404,7 @@ function box_arconix_shortcode( $atts, $content = null ) {
     if ( $icon )
         $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}'></i>";
 
-    $r = '<div class="arconix-box arconix-box-' . $color . '">' . $icon . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-box arconix-box-' . $color . '">' . $icon . '<div class="arconix-box-content">' . remove_wpautop( $content ) . '</div></div>';
 
     return apply_filters( 'arconix_box_return', $r );
 }
