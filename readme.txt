@@ -2,22 +2,27 @@
 Contributors: jgardner03
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
-Requires at least: 3.4
-Tested up to: 3.8
+Requires at least: 3.8
+Tested up to: 4.0
 Stable tag: 2.0.0
+License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
 
 == Description ==
 
-With this plugin you can easily add various kinds of styled boxes, buttons, tabs, accordions, unordered lists and more. Choose from the supplied options or advanced users can easily add their own by extending the built-in styles.
-The box, button, list and tab shortcodes support custom [FontAwesome](http://fortawesome.github.io/Font-Awesome/) icons for a flexible display
+With this plugin you can easily add various kinds of styled boxes, buttons, tabs, accordions, unordered lists, columns and more.
+New in version 2.0, the box, button, list and tab shortcodes support custom [FontAwesome](http://fortawesome.github.io/Font-Awesome/) icons for a flexible display
 
 = Features =
 * 6 style shortcodes (accordions, boxes, tabs, toggles, etc...)
 * 6 utility shortcodes (login-logout, highlight, etc...)
 * Shortcodes for up to 5 column display
+* [FontAwesome](http://fortawesome.github.io/Font-Awesome/) support for boxes, buttons, lists, and tabs gives your interactive elements that extra pop
+* Responsive shortcode design to fit any screen
 * Has a Compatibility Mode available to help prevent shortcode name conflicts
+
+[Live Demo](http://demo.arconixpc.com/arconix-shortcodes)
 
 == Installation ==
 
@@ -27,7 +32,7 @@ Activate Arconix-Shortcodes in the "Plugins" admin panel using the "Activate" li
 
 == Upgrade Notice ==
 
-Upgrade normally via your WordPress admin -> Plugins panel.
+Version 2.0 -> Please read the Changelog before upgrading
 
 == Frequently Asked Questions ==
 
@@ -54,8 +59,9 @@ While you can set the accordions to all collapse when the page is first loaded, 
 
 = The Accordions/Tabs/Toggles isn't working =
 While you can certainly start a thread in the [support forum](http://arcnx.co/ashelp), there are some troubleshooting steps you can take beforehand to help speed up the process.
-1. Check to make sure the javascripts are loading correctly. Load the page with the malfunctioning shortcode in your browser and view your page's source (usually CTRL + U). Look for jQuery, jQuery Tools and Arconix Shortcodes JS files there. If you don't see jQuery Tools or the Arconix scripts at all (they're somewhere near the bottom of the page), then your theme's `footer.php` file is likely missing `<?php wp_footer(); ?>`, which is neccessary for the operation of mine and many other plugins. If you're unable or unwilling to resolve the issue yourself, contact the theme developer for assistance.
-2. Check to make sure only one copy of jQuery is being loaded. Many times conflicts arise when themes or plugins load jQuery incorrectly, causing it to be loaded multiple times in multiple versions. In order to find the offending item, start by disabling your plugins one by one until you find the problem. If you've disabled all your plugins and the issue still persists, try switching to a different them, such as twentyten or twentytwelve to see if the problem is with your theme. Once you've found the problem, contact the developer for assistance getting the issue resolved.
+
+1. Check to make sure the javascripts are loading correctly. Load the page with the malfunctioning shortcode in your browser and view your page's source (usually CTRL + U). Look for jQuery, jQuery Tools and Arconix Shortcodes JS files there. If you don't see jQuery Tools or the Arconix scripts at all (they're somewhere near the bottom of the page), then your theme's `footer.php` file is likely missing `<?php wp_footer(); ?>`, which is necessary for the operation of mine and many other plugins. If you're unable or unwilling to resolve the issue yourself, contact the theme developer for assistance.
+1. Check to make sure only one copy of jQuery is being loaded. Many times conflicts arise when themes or plugins load jQuery incorrectly, causing it to be loaded multiple times in multiple versions. In order to find the offending item, start by disabling your plugins one by one until you find the problem. If you've disabled all your plugins and the issue still persists, try switching to a different them, such as TwentyTen or TwentyTwelve to see if the problem is with your theme. Once you've found the problem, contact the developer for assistance getting the issue resolved.
 
 = I have a problem or a bug =
 
@@ -74,14 +80,16 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 == Changelog ==
 
 = 2.0.0 =
-* Feature - Rewrote the entire CSS file. Updated the color spectrum to be more modern and support more default colors.
+This is a large update. I tried to maintain as much backward compatibility as possible, however there may be instances where you get unexpected behavior. If possible, test this in a staging environment first, or if none available, test your site after updating the plugin and let me know of any issues.
+
+* Other - Removed the googlemap shortcode. There are other plugins available that are better for the task. If you are currently using my googlemap shortcode, please add code from [this link](https://gist.github.com/j-gardner/0f3adc735eb9ec7b5b39) to your theme's `functions.php` file to add the shortcode back in
+* Feature - Rewrote the entire CSS file using [LESS](http://lesscss.org). Updated the color spectrum to be more modern and support more default colors.
 * Feature - Added support for FontAwesome icons with most shortcodes. The entire list of icons available here: http://fortawesome.github.io/Font-Awesome/icons/
 * Enhancement - Added 2 additional button styles (flat and clear) which gives users additional display options
-* Enhancement - Remove the MSIE specific filter property which now allows the CSS to pass W3C checks
+* Enhancement - Remove the MSIE specific filter property which was preventing sites from passing a W3C check
 * Enhancement - Minify the CSS which improves download time and site speed
-* Enhancement - On relevant shortcodes the use of `last=y` is no longer necessary as `last` by itself will work
+* Enhancement - On relevant shortcodes (accordions and columns) the use of `last=y` is no longer necessary as `last` by itself will work
 * Enhancement - Improved sanitization strings which should fix broken output in certain non-English languages
-* Other - Removed the googlemap shortcode. There are other plugins that are better suited for that task
 
 = 1.2.0 =
 * Updated toggle shortcode to be compatible with jQuery 1.9+
