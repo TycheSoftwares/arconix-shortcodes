@@ -4,7 +4,7 @@ Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -12,13 +12,13 @@ Arconix Shortcodes provides a number of useful design elements like buttons, box
 == Description ==
 
 With this plugin you can easily add various kinds of styled boxes, buttons, tabs, accordions, unordered lists, columns and more.
-New in version 2.0, the box, button, list and tab shortcodes support custom [FontAwesome](http://fortawesome.github.io/Font-Awesome/) icons for a flexible display
+New in version 2.0, the box, button, list and tab shortcodes support custom [FontAwesome](http://fontawesome.github.io/Font-Awesome/) icons for a flexible display
 
 = Features =
 * 6 style shortcodes (accordions, boxes, tabs, toggles, etc...)
 * 6 utility shortcodes (login-logout, highlight, etc...)
 * Shortcodes for up to 5 column display
-* [FontAwesome](http://fortawesome.github.io/Font-Awesome/) support for boxes, buttons, lists, and tabs gives your interactive elements that extra pop
+* [FontAwesome](http://fontawesome.github.io/Font-Awesome/) support for boxes, buttons, lists, and tabs gives your interactive elements that extra pop
 * Responsive shortcode design to fit any screen
 * Has a Compatibility Mode available to help prevent shortcode name conflicts
 
@@ -32,7 +32,7 @@ Activate Arconix-Shortcodes in the "Plugins" admin panel using the "Activate" li
 
 == Upgrade Notice ==
 
-Version 2.0 -> Please read the Changelog before upgrading
+If updating from Version 1.2 or less, Please read the Changelog before upgrading
 
 == Frequently Asked Questions ==
 
@@ -79,12 +79,17 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 == Changelog ==
 
+= 2.0.1 =
+* Bug - Fixed a foreach() error that affected some users
+* Bug - Fixed the icon position in the box shortcode to reflect previous functionality
+* Enhancement - minor improvements in some shortcode CSS
+
 = 2.0.0 =
 This is a large update. I tried to maintain as much backward compatibility as possible, however there may be instances where you get unexpected behavior. If possible, test this in a staging environment first, or if none available, test your site after updating the plugin and let me know of any issues.
 
 * Other - Removed the googlemap shortcode. There are other plugins available that are better for the task. If you are currently using my googlemap shortcode, please add code from [this link](https://gist.github.com/j-gardner/0f3adc735eb9ec7b5b39) to your theme's `functions.php` file to add the shortcode back in
-* Feature - Rewrote the entire CSS file using [LESS](http://lesscss.org). Updated the color spectrum to be more modern and support more default colors.
-* Feature - Added support for FontAwesome icons with most shortcodes. The entire list of icons available here: http://fortawesome.github.io/Font-Awesome/icons/
+* Feature - Updated the color spectrum to be more modern and support more default colors.
+* Feature - Added support for FontAwesome icons with most shortcodes. The entire list of icons available here: http://fontawesome.github.io/Font-Awesome/icons/
 * Enhancement - Added 2 additional button styles (flat and clear) which gives users additional display options
 * Enhancement - Remove the MSIE specific filter property which was preventing sites from passing a W3C check
 * Enhancement - Minify the CSS which improves download time and site speed
