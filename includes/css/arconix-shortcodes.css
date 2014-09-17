@@ -124,6 +124,9 @@ div.arconix-accordion-title:hover {
   color: #333;
   font-size: 12px;
 }
+.arconix-accordion-content p:last-child {
+  margin-bottom: 0;
+}
 /* a title inside pane */
 .arconix-accordions-vertical .arconix-accordion-content h4 {
   font-weight: normal;
@@ -138,6 +141,7 @@ div.arconix-accordion-title:hover {
   clear: both;
   margin: 1em 0;
   padding: 1em;
+  /* If there is an icon in use, it will wrap the box content in a div with the following class */
 }
 .arconix-box i.fa {
   position: absolute;
@@ -943,6 +947,9 @@ div.arconix-accordion-title:hover {
 .arconix-tabs-horizontal .arconix-panes .arconix-pane {
   padding: 20px 15px 0;
 }
+.arconix-tabs-horizontal .arconix-panes .arconix-pane p:last-child {
+  margin-bottom: 0;
+}
 /* Toggle Styling
 ------------------------------------------------------------ */
 .arconix-toggle-wrap {
@@ -968,6 +975,9 @@ div.arconix-accordion-title:hover {
 .arconix-toggle-content {
   margin-left: 10px;
   padding: 15px 20px;
+}
+.arconix-toggle-content p:last-child {
+  margin-bottom: 0;
 }
 /* Unordered list Styling
 ------------------------------------------------------------ */

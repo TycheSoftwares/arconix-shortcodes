@@ -9,7 +9,7 @@
 
 .shortcode-box( @c: #aaa ) when ( lightness( @c ) >= 66% ) {
     color: darken( @c, 55% );
-    
+
     a {
         color: darken( @c, 55% ) !important;
     }
@@ -32,27 +32,28 @@
     clear: both;
     margin: 1em 0;
     padding: 1em;
-    
-    i.fa { 
+
+    i.fa {
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);
     }
-    
+
     a, a:hover {
         text-decoration: underline;
     }
-    
+
+    /* If there is an icon in use, it will wrap the box content in a div with the following class */
     .arconix-box-content {
         margin-left: 45px;
-        
+
         p:last-child {
             margin-bottom: 0;
         }
     }
 }
 
-.arconix-box-blue { 
+.arconix-box-blue {
     .shortcode-box( @blue );
 }
 

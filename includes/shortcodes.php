@@ -369,8 +369,10 @@ function box_arconix_shortcode( $atts, $content = null ) {
     ) );
 
     // Mass sanitization to save redoing the same code over & over
-    foreach ( $atts as $key => $value ) {
-        $value = sanitize_html_class( $value );
+    if ( is_array( $atts) ) {
+        foreach ( $atts as $key => $value ) {
+            $value = sanitize_html_class( $value );
+        }
     }
     extract( shortcode_atts( $defaults, $atts, 'arconix_box' ) );
 
@@ -401,10 +403,14 @@ function box_arconix_shortcode( $atts, $content = null ) {
             break;
     }
 
-    if ( $icon )
+    if ( $icon ) {
         $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}'></i>";
 
-    $r = '<div class="arconix-box arconix-box-' . $color . '">' . $icon . '<div class="arconix-box-content">' . remove_wpautop( $content ) . '</div></div>';
+        $r = '<div class="arconix-box arconix-box-' . $color . '">' . $icon . '<div class="arconix-box-content">' . remove_wpautop( $content ) . '</div></div>';
+    }
+    else {
+        $r = '<div class="arconix-box arconix-box-' . $color . '">' . remove_wpautop( $content ) . '</div>';
+    }
 
     return apply_filters( 'arconix_box_return', $r );
 }
