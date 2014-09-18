@@ -141,7 +141,6 @@ div.arconix-accordion-title:hover {
   clear: both;
   margin: 1em 0;
   padding: 1em;
-  /* If there is an icon in use, it will wrap the box content in a div with the following class */
 }
 .arconix-box i.fa {
   position: absolute;
@@ -153,10 +152,18 @@ div.arconix-accordion-title:hover {
   text-decoration: underline;
 }
 .arconix-box .arconix-box-content {
+  /* If there is an icon in use, it will wrap the box content in a div with the following class */
   margin-left: 45px;
 }
 .arconix-box .arconix-box-content p:last-child {
   margin-bottom: 0;
+}
+.arconix-box-black {
+  background-color: #333333;
+  color: #fff;
+}
+.arconix-box-black a {
+  color: #fff !important;
 }
 .arconix-box-blue {
   background-color: #214b8a;
@@ -165,12 +172,26 @@ div.arconix-accordion-title:hover {
 .arconix-box-blue a {
   color: #fff !important;
 }
+.arconix-box-lblue {
+  background-color: #dbe7f8;
+  color: #1e529c;
+}
+.arconix-box-lblue a {
+  color: #1e529c !important;
+}
 .arconix-box-green {
   background-color: #36a563;
   color: #fff;
 }
 .arconix-box-green a {
   color: #fff !important;
+}
+.arconix-box-lgreen {
+  background-color: #f2f9e5;
+  color: #75a025;
+}
+.arconix-box-lgreen a {
+  color: #75a025 !important;
 }
 .arconix-box-gray,
 .arconix-box-grey {
@@ -190,26 +211,12 @@ div.arconix-accordion-title:hover {
 .arconix-box-lgrey a {
   color: #666666 !important;
 }
-.arconix-box-red {
-  background-color: #e5684b;
+.arconix-box-orange {
+  background-color: #cf5300;
   color: #fff;
 }
-.arconix-box-red a {
+.arconix-box-orange a {
   color: #fff !important;
-}
-.arconix-box-tan {
-  background-color: #e5ac4b;
-  color: #fff;
-}
-.arconix-box-tan a {
-  color: #fff !important;
-}
-.arconix-box-yellow {
-  background-color: #fee975;
-  color: #5a4c01;
-}
-.arconix-box-yellow a {
-  color: #5a4c01 !important;
 }
 .arconix-box-purple {
   background-color: #923195;
@@ -218,19 +225,40 @@ div.arconix-accordion-title:hover {
 .arconix-box-purple a {
   color: #fff !important;
 }
-.arconix-box-black {
-  background-color: #333333;
+.arconix-box-red {
+  background-color: #e5684b;
   color: #fff;
 }
-.arconix-box-black a {
+.arconix-box-red a {
   color: #fff !important;
 }
-.arconix-box-orange {
-  background-color: #cf5300;
+.arconix-box-lred {
+  background-color: #ffdfdf;
+  color: #c50000;
+}
+.arconix-box-lred a {
+  color: #c50000 !important;
+}
+.arconix-box-tan {
+  background-color: #e5ac4b;
   color: #fff;
 }
-.arconix-box-orange a {
+.arconix-box-tan a {
   color: #fff !important;
+}
+.arconix-box-ltan {
+  background-color: #fef8e1;
+  color: #c09a06;
+}
+.arconix-box-ltan a {
+  color: #c09a06 !important;
+}
+.arconix-box-yellow {
+  background-color: #fee975;
+  color: #5a4c01;
+}
+.arconix-box-yellow a {
+  color: #5a4c01 !important;
 }
 /* Button Styling
 ------------------------------------------------------------ */
