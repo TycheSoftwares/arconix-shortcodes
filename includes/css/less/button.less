@@ -45,9 +45,7 @@
 }
 
 .shortcode-button-color-clear ( @c: #aaa ) {
-    .radius();
     border: 1px solid @c;
-    background: transparent;
     color: @c;
 
     &:hover {
@@ -86,8 +84,13 @@
     }
 }
 
+.arconix-button-clear { 
+    .radius();
+    background: transparent;
+}
+
 .arconix-button {
-    .radius( 5px );
+    .radius();
     .box-shadow-inset( 0, 1px, 0, 0, #ccc );
     
     &.arconix-button-black { .shortcode-button-color-standard( @black ); }

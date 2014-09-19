@@ -174,6 +174,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-lblue {
   background-color: #dbe7f8;
+  border: 1px solid #b0cbf0;
   color: #1e529c;
 }
 .arconix-box-lblue a {
@@ -188,6 +189,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-lgreen {
   background-color: #f2f9e5;
+  border: 1px solid #ddefbc;
   color: #75a025;
 }
 .arconix-box-lgreen a {
@@ -205,6 +207,7 @@ div.arconix-accordion-title:hover {
 .arconix-box-lgray,
 .arconix-box-lgrey {
   background-color: #f2f2f2;
+  border: 1px solid #d9d9d9;
   color: #666666;
 }
 .arconix-box-lgray a,
@@ -234,6 +237,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-lred {
   background-color: #ffdfdf;
+  border: 1px solid #ffacac;
   color: #c50000;
 }
 .arconix-box-lred a {
@@ -248,6 +252,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-ltan {
   background-color: #fef8e1;
+  border: 1px solid #fcecb0;
   color: #c09a06;
 }
 .arconix-box-ltan a {
@@ -255,6 +260,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-box-yellow {
   background-color: #fee975;
+  border: 1px solid #fee142;
   color: #5a4c01;
 }
 .arconix-box-yellow a {
@@ -285,6 +291,13 @@ div.arconix-accordion-title:hover {
 .arconix-button-flat i.fa,
 .arconix-button-clear i.fa {
   margin-right: 0.5em;
+}
+.arconix-button-clear {
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  background: transparent;
 }
 .arconix-button {
   -webkit-border-radius: 5px 5px 5px 5px;
@@ -619,12 +632,7 @@ div.arconix-accordion-title:hover {
   background: #e6e6e6;
 }
 .arconix-button-clear.arconix-button-black {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #333333;
-  background: transparent;
   color: #333333;
 }
 .arconix-button-clear.arconix-button-black:hover {
@@ -639,12 +647,7 @@ div.arconix-accordion-title:hover {
   color: #333333;
 }
 .arconix-button-clear.arconix-button-blue {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #214b8a;
-  background: transparent;
   color: #214b8a;
 }
 .arconix-button-clear.arconix-button-blue:hover {
@@ -659,12 +662,7 @@ div.arconix-accordion-title:hover {
   color: #214b8a;
 }
 .arconix-button-clear.arconix-button-green {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #36a563;
-  background: transparent;
   color: #36a563;
 }
 .arconix-button-clear.arconix-button-green:hover {
@@ -680,12 +678,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-button-clear.arconix-button-gray,
 .arconix-button-clear.arconix-button-grey {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #6e6e6e;
-  background: transparent;
   color: #6e6e6e;
 }
 .arconix-button-clear.arconix-button-gray:hover,
@@ -705,12 +698,7 @@ div.arconix-accordion-title:hover {
 }
 .arconix-button-clear.arconix-button-lgray,
 .arconix-button-clear.arconix-button-lgrey {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #f2f2f2;
-  background: transparent;
   color: #f2f2f2;
 }
 .arconix-button-clear.arconix-button-lgray:hover,
@@ -729,12 +717,7 @@ div.arconix-accordion-title:hover {
   color: #f2f2f2;
 }
 .arconix-button-clear.arconix-button-orange {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #cf5300;
-  background: transparent;
   color: #cf5300;
 }
 .arconix-button-clear.arconix-button-orange:hover {
@@ -749,12 +732,7 @@ div.arconix-accordion-title:hover {
   color: #cf5300;
 }
 .arconix-button-clear.arconix-button-purple {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #923195;
-  background: transparent;
   color: #923195;
 }
 .arconix-button-clear.arconix-button-purple:hover {
@@ -769,12 +747,7 @@ div.arconix-accordion-title:hover {
   color: #923195;
 }
 .arconix-button-clear.arconix-button-red {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #e5684b;
-  background: transparent;
   color: #e5684b;
 }
 .arconix-button-clear.arconix-button-red:hover {
@@ -789,12 +762,7 @@ div.arconix-accordion-title:hover {
   color: #e5684b;
 }
 .arconix-button-clear.arconix-button-tan {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #e5ac4b;
-  background: transparent;
   color: #e5ac4b;
 }
 .arconix-button-clear.arconix-button-tan:hover {
@@ -809,12 +777,7 @@ div.arconix-accordion-title:hover {
   color: #e5ac4b;
 }
 .arconix-button-clear.arconix-button-yellow {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #fee975;
-  background: transparent;
   color: #fee975;
 }
 .arconix-button-clear.arconix-button-yellow:hover {
@@ -829,12 +792,7 @@ div.arconix-accordion-title:hover {
   color: #fee975;
 }
 .arconix-button-clear.arconix-button-white {
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: 1px solid #ffffff;
-  background: transparent;
   color: #ffffff;
 }
 .arconix-button-clear.arconix-button-white:hover {
