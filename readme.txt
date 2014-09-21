@@ -4,7 +4,7 @@ Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -78,6 +78,9 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog ==
+
+= 2.0.2 =
+The light box colors are back. Blue, Green, Red and Tan now have light variants that match the version 1.x colors.
 
 = 2.0.1 =
 * Bug - Fixed a foreach() error that affected some users

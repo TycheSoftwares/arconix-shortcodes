@@ -4,7 +4,7 @@
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.0.1
+ * Version: 2.0.2
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -41,7 +41,7 @@ class Arconix_Shortcodes {
      * @since 1.1.0
      */
     function constants() {
-        define( 'ACS_VERSION',              '2.0.1' );
+        define( 'ACS_VERSION',              '2.0.2' );
         define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
         define( 'ACS_INCLUDES_URL',         trailingslashit( ACS_URL . 'includes' ) );
         define( 'ACS_CSS_URL',              trailingslashit( ACS_INCLUDES_URL . 'css' ) );
@@ -79,7 +79,7 @@ class Arconix_Shortcodes {
      * @see ACS_VERSION         Defined in this file
      *
      * @since 0.9
-     * @version 2.0.0
+     * @version 2.0.2
      */
     function scripts() {
         // Provide script registration args so they can be filtered if necessary
@@ -91,6 +91,13 @@ class Arconix_Shortcodes {
 
         wp_register_script( 'jquery-tools', esc_url( $jqt_args['url'] ), array( $jqt_args['dep'] ), $jqt_args['ver'], true );
 
+        // Allow FontAwesome registration params to be filtered so different versions can be loaded if needed
+        $fa_args = apply_filters( 'arconix_fontawesome_css', array(
+            'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
+            'ver' => '4.2.0',
+        ));
+
+        wp_enqueue_style( 'font-awesome', $fa_args['url'], false, $fa_args['ver'] );
 
         // Use the .min files if SCRIPT_DEBUG is turned off.
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -115,13 +122,6 @@ class Arconix_Shortcodes {
                 wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . "arconix-shortcodes{$suffix}.css", false, ACS_VERSION );
         }
 
-        // Allow FontAwesome registration params to be filtered so different versions can be loaded if needed
-        $fa_args = apply_filters( 'arconix_fontawesome_css', array(
-            'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
-            'ver' => '4.2.0',
-        ));
-
-        wp_enqueue_style( 'font-awesome', $fa_args['url'], false, $fa_args['ver'] );
     }
 
     /**
