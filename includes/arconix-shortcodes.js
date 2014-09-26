@@ -37,8 +37,8 @@ jQuery(document).ready( function(){
 
     jQuery('.arconix-list').each( function() {
         // Extract the icon and color to be added to the 'i' element
-        var icon = jQuery(this).data('icon');
-        var color = jQuery(this).data('color');
+        var icon = jQuery(this).data('arconix-icon');
+        var color = jQuery(this).data('arconix-color');
 
         jQuery(this).find('li').prepend('<i class="fa fa-li ' + icon + ' ' + color + '"></i>');
     });
@@ -50,12 +50,12 @@ jQuery(document).ready( function(){
     // Loop through each tab title and add the icon if needed
     jQuery('ul.arconix-tabs li').each( function() {
         // Extract the icon and color to be added to the 'i' element
-        var icon = jQuery(this).data('icon');
-        var color = jQuery(this).data('color');
+        var icon = jQuery(this).data('arconix-icon');
+        var color = jQuery(this).data('arconix-color');
        
         if( icon.length > 2 ) { // Only add the icon if we have a string as the icon is optional
-         jQuery(this).find('a').prepend('<i class="fa ' + icon + ' ' + color + '"></i>');  
-       }
+            jQuery(this).find('a').prepend('<i class="fa ' + icon + ' ' + color + '"></i>');  
+        }
     });
 
     // Accordions

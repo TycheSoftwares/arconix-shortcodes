@@ -606,7 +606,7 @@ function list_arconix_shortcode( $atts, $content = null ) {
             break;
 }
 
-    $r = '<div class="arconix-list" data-icon="' . $icon . '" data-color="' . $icon_color . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-list" data-arconix-icon="' . $icon . '" data-arconix-color="' . $icon_color . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_list_return', $r );
 }
@@ -674,7 +674,7 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
                     break;
             }
 
-            $tabs[] = '<li data-icon="' . $tab['icon'] . '" data-color="' . $tab['color'] . '" class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
+            $tabs[] = '<li data-arconix-icon="' . $tab['icon'] . '" data-arconix-color="' . $tab['color'] . '" class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
             $panes[] = '<div class="arconix-pane pane-' . sanitize_html_class( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
         $r = "\n" . '<div class="arconix-tabs-' . sanitize_html_class( $style ) . $css . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
