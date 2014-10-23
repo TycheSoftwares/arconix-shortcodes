@@ -142,7 +142,7 @@ div.arconix-accordion-title:hover {
   margin: 1em 0;
   padding: 1em;
 }
-.arconix-box i.fa {
+.arconix-box > i.fa {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
@@ -945,8 +945,9 @@ div.arconix-accordion-title:hover {
   border-radius: 5px 5px 5px 5px;
   background: none repeat scroll 0 0 #fbfbfb;
   clear: both;
+  color: #333333;
   border: 1px solid #d0d0d0;
-  margin: 10px inherit;
+  margin: 10px 0;
   padding: 5px 10px;
 }
 .arconix-toggle-title {
