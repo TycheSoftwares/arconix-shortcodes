@@ -734,7 +734,7 @@ function tab_arconix_shortcode( $atts, $content = null ) {
  * @example [toggle title="My Toggle Title"]My Toggle Content[/toggle]
  *
  * @since 0.9
- * @version 2.0.0
+ * @version 2.0.3
  *
  * @link Codex reference: wp_enqueue_script()
  * @link Codex reference: apply_filters()

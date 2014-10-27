@@ -4,7 +4,7 @@
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.0.2
+ * Version: 2.0.3
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -41,7 +41,7 @@ class Arconix_Shortcodes {
      * @since 1.1.0
      */
     function constants() {
-        define( 'ACS_VERSION',              '2.0.2' );
+        define( 'ACS_VERSION',              '2.0.3' );
         define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
         define( 'ACS_INCLUDES_URL',         trailingslashit( ACS_URL . 'includes' ) );
         define( 'ACS_CSS_URL',              trailingslashit( ACS_INCLUDES_URL . 'css' ) );
