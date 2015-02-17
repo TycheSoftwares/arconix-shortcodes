@@ -18,7 +18,7 @@ class Arconix_Shortcodes {
     /**
      * Construct Method
      *
-     * @since 1.0.0
+     * @since   1.0.0
      * @version 1.2.0
      */
     function __construct() {
@@ -38,7 +38,7 @@ class Arconix_Shortcodes {
     /**
      * Define plugin constants
      *
-     * @since 1.1.0
+     * @since   1.1.0
      */
     function constants() {
         define( 'ACS_VERSION',              '2.0.3' );
@@ -78,7 +78,7 @@ class Arconix_Shortcodes {
      * @see ACS_CSS_URL         Defined in this file
      * @see ACS_VERSION         Defined in this file
      *
-     * @since 0.9
+     * @since   0.9
      * @version 2.0.2
      */
     function scripts() {
@@ -132,7 +132,7 @@ class Arconix_Shortcodes {
      * @link Codex reference: apply_filters()
      * @link Codex reference: add_meta_box()
      *
-     * @since 1.1.0
+     * @since   1.1.0
      */
     function metabox() {
         // Allow a theme or plugin to filter the list of post types this meta box is added to
@@ -150,7 +150,7 @@ class Arconix_Shortcodes {
      *
      * @see ACS_ADMIN_IMAGES_URL    Defined in this file
      *
-     * @since 1.1.0
+     * @since   1.1.0
      */
     function shortcodes_box() {
         $shortcodes = get_arconix_shortcode_list();
@@ -178,7 +178,7 @@ class Arconix_Shortcodes {
      * @link Codex reference: wp_add_dashboard_widget()
      * @link Codex reference: current_user_can()
      *
-     * @since 1.0
+     * @since   1.0
      * @version 1.2.0
      */
     function dashboard_widget() {
@@ -194,7 +194,7 @@ class Arconix_Shortcodes {
      *
      * @see ACS_ADMIN_IMAGES_URL    Defined in this file
      *
-     * @since 1.0
+     * @since   1.0
      * @version 1.1.0
      */
     function acs_dash_widget() {
@@ -228,7 +228,7 @@ class Arconix_Shortcodes {
      * @see ACS_CSS_URL     Defined in this file
      * @see ACS_VERSION     Defined in this file
      *
-     * @since 1.1.0
+     * @since   1.1.0
      */
     function admin_css() {
         wp_enqueue_style( 'arconix-shortcodes-admin', ACS_CSS_URL . 'admin.css', false, ACS_VERSION );
