@@ -93,8 +93,8 @@ class Arconix_Shortcodes {
 
         // Allow FontAwesome registration params to be filtered so different versions can be loaded if needed
         $fa_args = apply_filters( 'arconix_fontawesome_css', array(
-            'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
-            'ver' => '4.2.0',
+            'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
+            'ver' => '4.6.3',
         ));
 
         wp_enqueue_style( 'font-awesome', $fa_args['url'], false, $fa_args['ver'] );
