@@ -216,8 +216,8 @@ loaded in place of the plugin's version and will maintain your changes on upgrad
   text-align: center;
   vertical-align: middle;
   background-image: none;
-  white-space: nowrap;
   line-height: 1.5;
+  max-width: 90%;
   text-decoration: none;
 }
 .arconix-button:hover,
