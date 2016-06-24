@@ -13,7 +13,28 @@
  * License URI: http://www.opensource.org/licenses/gpl-license.php
  */
 
+require_once( plugin_dir_path(__FILE__) . 'includes/shortcodes.php' );
+
+
 class Arconix_Shortcodes {
+	
+	/**
+     * Stores the current version of the plugin.
+     *
+     * @since   2.0.4
+     * @access  private
+     * @var     string		$version		Current plugin version
+     */
+    const VERSION = '2.0.4';
+
+    /**
+     * The url path to this plugin.
+     *
+     * @since   1.0.0
+     * @access  private
+     * @var     string      $url            The url path to this plugin
+     */
+    protected $url;
 
     /**
      * Construct Method
@@ -21,7 +42,9 @@ class Arconix_Shortcodes {
      * @since   1.0.0
      * @version 1.2.0
      */
-    function __construct() {
+    public function __construct() {
+        $this->url = trailingslashit( plugin_dir_url( __FILE__ ) );
+		
         $this->constants();
 
         add_action( 'init',                     'acs_register_shortcodes' );
@@ -31,9 +54,7 @@ class Arconix_Shortcodes {
         add_action( 'wp_dashboard_setup',       array( $this, 'dashboard_widget' ) );
 
         add_filter( 'widget_text',              'do_shortcode' );
-
-        include_once( ACS_INCLUDES_DIR .        'shortcodes.php' );
-    }
+	}
 
     /**
      * Define plugin constants
@@ -41,14 +62,17 @@ class Arconix_Shortcodes {
      * @since   1.1.0
      */
     function constants() {
-        define( 'ACS_VERSION',              '2.0.3' );
-        define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
+        define( 'ACS_VERSION',				self::VERSION ); // kept for backwards compatibility in case anyone else is checking or using it
+		
+        /*
+		define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
         define( 'ACS_INCLUDES_URL',         trailingslashit( ACS_URL . 'includes' ) );
         define( 'ACS_CSS_URL',              trailingslashit( ACS_INCLUDES_URL . 'css' ) );
         define( 'ACS_IMAGES_URL',           trailingslashit( ACS_URL . 'images' ) );
         define( 'ACS_ADMIN_IMAGES_URL',     trailingslashit( ACS_IMAGES_URL . 'admin' ) );
         define( 'ACS_DIR',                  trailingslashit( plugin_dir_path( __FILE__ ) ) );
         define( 'ACS_INCLUDES_DIR',         trailingslashit( ACS_DIR . 'includes' ) );
+		 */
     }
 
     /**
@@ -90,11 +114,19 @@ class Arconix_Shortcodes {
         ) );
 
         wp_register_script( 'jquery-tools', esc_url( $jqt_args['url'] ), array( $jqt_args['dep'] ), $jqt_args['ver'], true );
+		
+		
+		// Set the FontAwesome CSS version to load. Can be overridden via filter
+		$fa_version = apply_filters( 'arconix_fontawesome_version', '4.6.3' );
 
-        // Allow FontAwesome registration params to be filtered so different versions can be loaded if needed
+        /*
+		 * Allow users to override the FontAwesome CSS registration params. This is not
+		 * the recommended way of changing the version of the CSS to be loaded. To do
+		 * that, filter $fa_version above
+		 */
         $fa_args = apply_filters( 'arconix_fontawesome_css', array(
-			'url' => '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
-            'ver' => '4.6.3',
+			'url' => "//maxcdn.bootstrapcdn.com/font-awesome/{$fa_version}/css/font-awesome.min.css",
+            'ver' => $fa_version,
         ));
 
         wp_enqueue_style( 'font-awesome', $fa_args['url'], false, $fa_args['ver'] );
@@ -105,21 +137,21 @@ class Arconix_Shortcodes {
         // Register the javascript - Check the child theme directory first, the parent theme second, otherwise load the plugin version
         if( apply_filters( 'pre_register_arconix_shortcodes_js', true ) ) {
             if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.js' ) )
-                wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+                wp_register_script( 'arconix-shortcodes-js', get_stylesheet_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), self::VERSION, true );
             elseif( file_exists( get_template_directory() . '/arconix-shortcodes.js' ) )
-                wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), ACS_VERSION, true );
+                wp_register_script( 'arconix-shortcodes-js', get_template_directory_uri() . '/arconix-shortcodes.js', array( 'jquery-tools' ), self::VERSION, true );
             else
-                wp_register_script( 'arconix-shortcodes-js', ACS_INCLUDES_URL . "arconix-shortcodes{$suffix}.js", array( 'jquery-tools' ), ACS_VERSION, true );
+                wp_register_script( 'arconix-shortcodes-js', $this->url . "includes/arconix-shortcodes{$suffix}.js", array( 'jquery-tools' ), self::VERSION, true );
         }
 
         // Load the CSS - Check the child theme directory first, the parent theme second, otherwise load the plugin version
         if( apply_filters( 'pre_register_arconix_shortcodes_css', true ) ) {
             if( file_exists( get_stylesheet_directory() . '/arconix-shortcodes.css' ) )
-                wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
+                wp_enqueue_style( 'arconix-shortcodes', get_stylesheet_directory_uri() . '/arconix-shortcodes.css', false, self::VERSION );
             elseif( file_exists( get_template_directory() . '/arconix-shortcodes.css' ) )
-                wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, ACS_VERSION );
+                wp_enqueue_style( 'arconix-shortcodes', get_template_directory_uri() . '/arconix-shortcodes.css', false, self::VERSION );
             else
-                wp_enqueue_style( 'arconix-shortcodes', ACS_CSS_URL . "arconix-shortcodes{$suffix}.css", false, ACS_VERSION );
+                wp_enqueue_style( 'arconix-shortcodes', $this->url . "includes/css/arconix-shortcodes{$suffix}.css", false, self::VERSION );
         }
 
     }
@@ -158,7 +190,7 @@ class Arconix_Shortcodes {
         if( ! $shortcodes or ! is_array( $shortcodes ) )
             return;
 
-        $return = '<p><a href="http://arcnx.co/aswiki"><img src="' . ACS_ADMIN_IMAGES_URL . 'page-16x16.png">Documentation</a></p><ul>';
+        $return = '<p><a href="http://arcnx.co/aswiki"><img src="' . $this->url . 'images/admin/page-16x16.png">Documentation</a></p><ul>';
         foreach( (array) $shortcodes as $shortcode ) {
             $return .= '<li>[' . $shortcode . ']</li>';
         }
@@ -211,10 +243,9 @@ class Arconix_Shortcodes {
         ?>
         <div class="acs-widget-bottom">
             <ul>
-                <li><a href="http://arcnx.co/aswiki"><img src="<?php echo ACS_ADMIN_IMAGES_URL . 'page-16x16.png'; ?>">Documentation</a></li>
-                <li><a href="http://arcnx.co/ashelp"><img src="<?php echo ACS_ADMIN_IMAGES_URL . 'help-16x16.png'; ?>">Support Forum</a></li>
-                <li><a href="http://arcnx.co/astrello"><img src="<?php echo ACS_ADMIN_IMAGES_URL . 'trello-16x16.png'; ?>">Dev Board</a></li>
-                <li><a href="http://arcnx.co/assource"><img src="<?php echo ACS_ADMIN_IMAGES_URL . 'github-16x16.png'; ?>">Source Code</a></li>
+                <li><a href="http://arcnx.co/aswiki"><img src="<?php echo $this->url . 'images/admin/page-16x16.png'; ?>">Documentation</a></li>
+                <li><a href="http://arcnx.co/ashelp"><img src="<?php echo $this->url . 'images/admin/help-16x16.png'; ?>">Support Forum</a></li>
+                <li><a href="http://arcnx.co/assource"><img src="<?php echo $this->url . 'images/admin/github-16x16.png'; ?>">Source Code</a></li>
             </ul>
         </div></div>
         <?php
@@ -231,7 +262,7 @@ class Arconix_Shortcodes {
      * @since   1.1.0
      */
     function admin_css() {
-        wp_enqueue_style( 'arconix-shortcodes-admin', ACS_CSS_URL . 'admin.css', false, ACS_VERSION );
+        wp_enqueue_style( 'arconix-shortcodes-admin', $this->url . 'includes/css/admin.css', false, self::VERSION );
     }
 
 }
