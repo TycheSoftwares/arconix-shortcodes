@@ -2,8 +2,8 @@
 Contributors: jgardner03
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
-Requires at least: 3.8
-Tested up to: 4.0
+Requires at least: 4.3
+Tested up to: 4.5
 Stable tag: 2.0.3
 License: GPLv2 or later
 
