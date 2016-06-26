@@ -4,7 +4,7 @@
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.0.3
+ * Version: 2.0.4
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -97,10 +97,6 @@ class Arconix_Shortcodes {
      * @link Codex reference: get_template_directory()
      * @link Codex reference: get_template_directory_uri()
      * @link Codex reference: wp_enqueue_style()
-     *
-     * @see ACS_INCLUDES_URL    Defined in this file
-     * @see ACS_CSS_URL         Defined in this file
-     * @see ACS_VERSION         Defined in this file
      *
      * @since   0.9
      * @version 2.0.2
@@ -224,8 +220,6 @@ class Arconix_Shortcodes {
      *
      * @link Codex reference: wp_widget_rss_output()
      *
-     * @see ACS_ADMIN_IMAGES_URL    Defined in this file
-     *
      * @since   1.0
      * @version 1.1.0
      */
@@ -255,9 +249,6 @@ class Arconix_Shortcodes {
      * Includes admin css
      *
      * @link Codex reference: wp_enqueue_style()
-     *
-     * @see ACS_CSS_URL     Defined in this file
-     * @see ACS_VERSION     Defined in this file
      *
      * @since   1.1.0
      */
