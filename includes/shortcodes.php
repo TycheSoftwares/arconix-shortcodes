@@ -428,7 +428,7 @@ function box_arconix_shortcode( $atts, $content = null ) {
  * @example [button icon="fa-download" size="large" color="green" url="http://google.com"]my content[/box]
  *
  * @since 0.9
- * @version 2.0.0
+ * @version 2.0.4
  *
  * @link Codex reference: apply_filters()
  * @link Codex reference: shortcode_atts()
@@ -468,7 +468,7 @@ function button_arconix_shortcode( $atts, $content = null ) {
     if ( $rel ) $rel = ' rel="' . esc_attr( $rel ) . '"';
     if ( $title ) $rel = ' title="' . esc_attr ( $title ) . '"';
 
-    if ( $icon ) $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}'></i>";
+    if ( $icon ) $icon = "<i class='fa {$icon_size} {$icon}'></i>";
 
     switch ( $style ) {
         case 'flat':

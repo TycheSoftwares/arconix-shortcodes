@@ -2,9 +2,9 @@
 Contributors: jgardner03
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
-Requires at least: 3.8
-Tested up to: 4.0
-Stable tag: 2.0.3
+Requires at least: 4.3
+Tested up to: 4.5
+Stable tag: 2.0.4
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -78,6 +78,11 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog ==
+= 2.0.4 =
+* Enhancement - Updated to 4.6.3 of the FontAwesome CSS.
+* Enhancement - Added a filter to make it easier for users to [update the FontAwesome version](https://gist.github.com/j-gardner/ce417c886a29163018edada999f9c12c)
+* Bug - Fixed a PHP error notice
+
 = 2.0.3 =
 * Fixed a bug which was causing compatibility issues with some themes
 * Fixed the alignment of toggle icons when embedding them inside boxes

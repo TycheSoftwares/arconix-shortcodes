@@ -7,68 +7,6 @@ Instead, save a copy of this file to your theme or child theme directory. It wil
 loaded in place of the plugin's version and will maintain your changes on upgrade
 
 */
-/* Abbreviation Styling
------------------------------------------------------------- */
-.arconix-abbr {
-  border-bottom: 1px dotted #ccc;
-  cursor: help;
-}
-/* Column Classes
------------------------------------------------------------- */
-.arconix-column-four-fifths,
-.arconix-column-one-fifth,
-.arconix-column-one-fourth,
-.arconix-column-one-half,
-.arconix-column-one-third,
-.arconix-column-three-fifths,
-.arconix-column-three-fourths,
-.arconix-column-two-fifths,
-.arconix-column-two-fourths,
-.arconix-column-two-thirds {
-  float: left;
-  margin: 0 0 20px;
-  padding-right: 3%;
-}
-.arconix-column-one-half,
-.arconix-column-two-fourths {
-  width: 48%;
-}
-.arconix-column-one-third {
-  width: 31%;
-}
-.arconix-column-two-thirds {
-  width: 65%;
-}
-.arconix-column-one-fourth {
-  width: 22.5%;
-}
-.arconix-column-three-fourths {
-  width: 73.5%;
-}
-.arconix-column-one-fifth {
-  width: 17.4%;
-}
-.arconix-column-two-fifths {
-  width: 37.8%;
-}
-.arconix-column-three-fifths {
-  width: 58.2%;
-}
-.arconix-column-four-fifths {
-  width: 78.6%;
-}
-.arconix-column-last {
-  clear: right;
-  padding-right: 0;
-}
-/* Highlight
------------------------------------------------------------- */
-.arconix-highlight {
-  padding: 3px 4px;
-}
-.arconix-highlight-yellow {
-  background-color: #ffff33;
-}
 /* Accordion Styling
 ------------------------------------------------------------ */
 .arconix-accordions {
@@ -80,11 +18,11 @@ loaded in place of the plugin's version and will maintain your changes on upgrad
   margin: 0 .75em;
 }
 /* Accordion Title */
-div.arconix-accordion-title {
+.arconix-accordion-title {
   background-color: #e9e9e9;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #ddd;
-  color: #333 !important;
+  color: #333;
   cursor: pointer;
   font-size: 14px;
   font-weight: normal;
@@ -94,18 +32,18 @@ div.arconix-accordion-title {
   padding: 5px;
   text-transform: uppercase;
 }
-div.arconix-accordion-title i.fa:before {
+.arconix-accordion-title i.fa:before {
   content: "\f0da";
   /* fa-caret-right */
 }
-div.arconix-accordion-title.current {
+.arconix-accordion-title.current {
   background: #e9e9e9;
 }
-div.arconix-accordion-title.current i.fa:before {
+.arconix-accordion-title.current i.fa:before {
   content: "\f0d7";
   /* fa-caret-down */
 }
-div.arconix-accordion-title:hover {
+.arconix-accordion-title:hover {
   background-color: #f0f0f0;
 }
 .arconix-accordion-title.current,
@@ -278,8 +216,8 @@ div.arconix-accordion-title:hover {
   text-align: center;
   vertical-align: middle;
   background-image: none;
-  white-space: nowrap;
   line-height: 1.5;
+  max-width: 90%;
   text-decoration: none;
 }
 .arconix-button:hover,
@@ -1006,4 +944,65 @@ div.arconix-accordion-title:hover {
 .arconix-list i.fa-li.yellow {
   color: #fee975;
 }
-/*# sourceMappingURL=arconix-shortcodes.css.map */
+/* Abbreviation Styling
+------------------------------------------------------------ */
+.arconix-abbr {
+  border-bottom: 1px dotted #ccc;
+  cursor: help;
+}
+/* Column Classes
+------------------------------------------------------------ */
+.arconix-column-four-fifths,
+.arconix-column-one-fifth,
+.arconix-column-one-fourth,
+.arconix-column-one-half,
+.arconix-column-one-third,
+.arconix-column-three-fifths,
+.arconix-column-three-fourths,
+.arconix-column-two-fifths,
+.arconix-column-two-fourths,
+.arconix-column-two-thirds {
+  float: left;
+  margin: 0 0 20px;
+  padding-right: 3%;
+}
+.arconix-column-one-half,
+.arconix-column-two-fourths {
+  width: 48%;
+}
+.arconix-column-one-third {
+  width: 31%;
+}
+.arconix-column-two-thirds {
+  width: 65%;
+}
+.arconix-column-one-fourth {
+  width: 22.5%;
+}
+.arconix-column-three-fourths {
+  width: 73.5%;
+}
+.arconix-column-one-fifth {
+  width: 17.4%;
+}
+.arconix-column-two-fifths {
+  width: 37.8%;
+}
+.arconix-column-three-fifths {
+  width: 58.2%;
+}
+.arconix-column-four-fifths {
+  width: 78.6%;
+}
+.arconix-column-last {
+  clear: right;
+  padding-right: 0;
+}
+/* Highlight
+------------------------------------------------------------ */
+.arconix-highlight {
+  padding: 3px 4px;
+}
+.arconix-highlight-yellow {
+  background-color: #ffff33;
+}
