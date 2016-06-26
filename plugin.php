@@ -54,7 +54,7 @@ class Arconix_Shortcodes {
         add_action( 'wp_dashboard_setup',       array( $this, 'dashboard_widget' ) );
 
         add_filter( 'widget_text',              'do_shortcode' );
-	}
+    }
 
     /**
      * Define plugin constants
@@ -62,17 +62,17 @@ class Arconix_Shortcodes {
      * @since   1.1.0
      */
     function constants() {
-        define( 'ACS_VERSION',				self::VERSION ); // kept for backwards compatibility in case anyone else is checking or using it
+        define( 'ACS_VERSION',                  self::VERSION ); // kept for backwards compatibility in case anyone else is checking or using it
 		
         /*
-		define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
+	define( 'ACS_URL',                  trailingslashit( plugin_dir_url( __FILE__ ) ) );
         define( 'ACS_INCLUDES_URL',         trailingslashit( ACS_URL . 'includes' ) );
         define( 'ACS_CSS_URL',              trailingslashit( ACS_INCLUDES_URL . 'css' ) );
         define( 'ACS_IMAGES_URL',           trailingslashit( ACS_URL . 'images' ) );
         define( 'ACS_ADMIN_IMAGES_URL',     trailingslashit( ACS_IMAGES_URL . 'admin' ) );
         define( 'ACS_DIR',                  trailingslashit( plugin_dir_path( __FILE__ ) ) );
         define( 'ACS_INCLUDES_DIR',         trailingslashit( ACS_DIR . 'includes' ) );
-		 */
+	*/
     }
 
     /**
@@ -116,16 +116,16 @@ class Arconix_Shortcodes {
         wp_register_script( 'jquery-tools', esc_url( $jqt_args['url'] ), array( $jqt_args['dep'] ), $jqt_args['ver'], true );
 		
 		
-		// Set the FontAwesome CSS version to load. Can be overridden via filter
-		$fa_version = apply_filters( 'arconix_fontawesome_version', '4.6.3' );
+        // Set the FontAwesome CSS version to load. Can be overridden via filter
+        $fa_version = apply_filters( 'arconix_fontawesome_version', '4.6.3' );
 
         /*
-		 * Allow users to override the FontAwesome CSS registration params. This is not
-		 * the recommended way of changing the version of the CSS to be loaded. To do
-		 * that, filter $fa_version above
-		 */
+        * Allow users to override the FontAwesome CSS registration params. This is not
+        * the recommended way of changing the version of the CSS to be loaded. To do
+        * that, filter $fa_version above
+        */
         $fa_args = apply_filters( 'arconix_fontawesome_css', array(
-			'url' => "//maxcdn.bootstrapcdn.com/font-awesome/{$fa_version}/css/font-awesome.min.css",
+            'url' => "//maxcdn.bootstrapcdn.com/font-awesome/{$fa_version}/css/font-awesome.min.css",
             'ver' => $fa_version,
         ));
 
@@ -229,7 +229,7 @@ class Arconix_Shortcodes {
      * @since   1.0
      * @version 1.1.0
      */
-    function acs_dash_widget() {
+    public function acs_dash_widget() {
         echo '<div class="rss-widget">';
 
         wp_widget_rss_output( array(
