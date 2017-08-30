@@ -1,10 +1,10 @@
 === Arconix Shortcodes ===
-Contributors: jgardner03
+Contributors: jgardner03, tychesoftwares
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
-Tested up to: 4.5
-Stable tag: 2.0.4
+Tested up to: 4.8.1
+Stable tag: 2.1.0
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -23,6 +23,9 @@ New in version 2.0, the box, button, list and tab shortcodes support custom [Fon
 * Has a Compatibility Mode available to help prevent shortcode name conflicts
 
 [Live Demo](http://demo.arconixpc.com/arconix-shortcodes)
+
+> <strong>Tastes Great AND Less Filling</strong> Very effective and easy to use shortcodes help your site look sharp and saves space. Really like this plugin and recommend it to others.
+> [Jan McClintock](https://wordpress.org/support/topic/tastes-great-and-less-filling/)
 
 == Installation ==
 
@@ -77,7 +80,11 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 3. Boxes of all types
 4. Unordered list styles
 
-== Changelog ==
+== Changelog == 
+= 2.1.0 =
+* You can now close accordian without opening another accordian. 
+* Accordian title will now be indented when the title is bigger than a line.
+
 = 2.0.4 =
 * Enhancement - Updated to 4.6.3 of the FontAwesome CSS.
 * Enhancement - Added a filter to make it easier for users to [update the FontAwesome version](https://gist.github.com/j-gardner/ce417c886a29163018edada999f9c12c)
