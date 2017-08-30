@@ -31,8 +31,8 @@ jQuery(document).ready( function(){
 
     });
     jQuery('.arconix-accordion-title').click(function(){
-        jQuery(this).next('.arconix-accordion-content').slideToggle();
         if( jQuery(this).hasClass('current') ) {
+            jQuery(this).next('.arconix-accordion-content').slideToggle();
             jQuery(this).removeClass('current');
         }else{
             jQuery(this).addClass('current');
