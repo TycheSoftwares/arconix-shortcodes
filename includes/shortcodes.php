@@ -328,7 +328,7 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
 
     $icon = '<i class="fa"></i>';
 
-    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $icon .$title . '</div>';
+    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $icon .'<p>'.$title . '</p></div>';
     $r .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
