@@ -30,7 +30,14 @@ jQuery(document).ready( function(){
         });
 
     });
-
+    jQuery('.arconix-accordion-title').click(function(){
+        if( jQuery(this).hasClass('current') ) {
+            jQuery(this).next('.arconix-accordion-content').slideToggle();
+            jQuery(this).removeClass('current');
+        }else{
+            jQuery(this).addClass('current');
+        }
+    })
     /** Unordered List */
     // Adds the ul class to the 'ul' element
     jQuery('.arconix-list ul').addClass('fa-ul');
