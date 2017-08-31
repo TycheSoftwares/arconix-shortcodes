@@ -17,6 +17,13 @@ loaded in place of the plugin's version and will maintain your changes on upgrad
 .arconix-accordions i.fa {
   margin: 0 .75em;
 }
+.arconix-accordion-title p {
+  position: relative !important;
+  top: -22px !important;
+  left: 25px !important;
+  margin-bottom: -15px;
+  width: 95%;
+}
 /* Accordion Title */
 .arconix-accordion-title {
   background-color: #e9e9e9;
