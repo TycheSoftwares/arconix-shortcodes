@@ -28,16 +28,37 @@ jQuery(document).ready( function(){
             jQuery(this).find('i.fa').toggleClass('fa-plus-square fa-minus-square');
             jQuery(this).next('.arconix-toggle-content').slideToggle();
         });
-
     });
-    jQuery('.arconix-accordion-title').click(function(){
-        if( jQuery(this).hasClass('current') ) {
-            jQuery(this).next('.arconix-accordion-content').slideToggle();
-            jQuery(this).removeClass('current');
-        }else{
-            jQuery(this).addClass('current');
+    
+    jQuery('.arconix-accordion-title').click(function( e ) {
+        if(jQuery('.arconix-accordion-title').hasClass('current')){
+            if( jQuery(this).hasClass('current') ) {
+
+                jQuery(this).next('.arconix-accordion-content').slideToggle();
+                jQuery(this).removeClass('current');
+                e.preventDefault();
+            }
+        } else {
+            if( jQuery(this).hasClass('current') ) {
+
+            } else {
+
+                if(jQuery('.arconix-accordion-content').is(':visible')){
+                    jQuery(this).next('.arconix-accordion-content').slideToggle();
+                }else{
+                    if( jQuery(this).hasClass('current') ) {
+                        jQuery(this).next('.arconix-accordion-content').slideToggle();
+                    } else {
+                        jQuery(this).addClass('current');
+                        jQuery(this).next('.arconix-accordion-content').slideToggle();
+                        e.preventDefault();
+                    }
+                }
+                
+            }
         }
     })
+    
     /** Unordered List */
     // Adds the ul class to the 'ul' element
     jQuery('.arconix-list ul').addClass('fa-ul');
@@ -72,4 +93,5 @@ jQuery(document).ready( function(){
     jQuery('.arconix-accordions-3').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 2 });
     jQuery('.arconix-accordions-4').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 3 });
     jQuery('.arconix-accordions-5').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 4 });
+
 });
