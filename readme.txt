@@ -1,10 +1,10 @@
 ﻿=== Arconix Shortcodes ===
-Contributors: jgardner03, tychesoftwares
+Contributors: jgardner03, tychesoftwares, bhavik.kiri
 Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
-Tested up to: 4.8.1
-Stable tag: 2.1.1
+Tested up to: 4.9.1
+Stable tag: 2.1.3
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -23,19 +23,23 @@ New in version 2.0, the box, button, list and tab shortcodes support custom [Fon
 * Has a Compatibility Mode available to help prevent shortcode name conflicts
 
 [Live Demo](http://demo.arconixpc.com/arconix-shortcodes)
+[Documentation](https://www.tychesoftwares.com/docs/docs/shortcodes/)
 
 > <strong>Tastes Great AND Less Filling</strong> Very effective and easy to use shortcodes help your site look sharp and saves space. Really like this plugin and recommend it to others.
 > [Jan McClintock](https://wordpress.org/support/topic/tastes-great-and-less-filling/)
 
 = Some of our Pro plugins =
 
-1. **[Product Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/product-delivery-date-pro-for-woocommerce/?utm_source=wprepo&utm_medium=otherprolink&utm_campaign=Shortcodes "Product Delivery Date Pro for WooCommerce")**
+1. **[Deposits plugin for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/deposits-for-woocommerce/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Deposits plugin for WooCommerce")**
 
-2. **[Order Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/order-delivery-date-for-woocommerce-pro-21/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Order Delivery Date Pro for WooCommerce")**
+2. **[Product Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/product-delivery-date-pro-for-woocommerce/?utm_source=wprepo&utm_medium=otherprolink&utm_campaign=Shortcodes "Product Delivery Date Pro for WooCommerce")**
 
-3. **[Abandoned Cart Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-abandoned-cart-pro/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Abandoned Cart Pro for WooCommerce")**
+3. **[Order Delivery Date Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/order-delivery-date-for-woocommerce-pro-21/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Order Delivery Date Pro for WooCommerce")**
 
-4. **[Booking & Appointment Plugin for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-booking-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Booking & Appointment Plugin for WooCommerce")**
+4. **[Abandoned Cart Pro for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-abandoned-cart-pro/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Abandoned Cart Pro for WooCommerce")**
+
+5. **[Booking & Appointment Plugin for WooCommerce](https://www.tychesoftwares.com/store/premium-plugins/woocommerce-booking-plugin/?utm_source=wprepo&utm_medium=link&utm_campaign=Shortcodes "Booking & Appointment Plugin for WooCommerce")**
+
 
 = Some of our other free plugins =
 
@@ -117,6 +121,13 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog == 
+
+= 2.1.3 =
+* The plugin is now GDPR compliant.
+
+= 2.1.2 =
+* Bug Fix - The [tabs] shortcode was not working due to jQuery error. This has been fixed. It also fixes the error displayed in the console of the browser. 
+
 = 2.1.1 =
 * Bug Fix - Accordion opens only when the title is clicked twice. It does not open on single click.
 * Bug Fix - Accordion title was not intended with the icon.
