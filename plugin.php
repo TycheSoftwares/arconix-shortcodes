@@ -4,7 +4,7 @@
  * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.1.1
+ * Version: 2.1.3
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
@@ -25,7 +25,7 @@ class Arconix_Shortcodes {
      * @access  private
      * @var     string		$version		Current plugin version
      */
-    const VERSION = '2.1.1';
+    const VERSION = '2.1.3';
 
     /**
      * The url path to this plugin.
@@ -104,7 +104,7 @@ class Arconix_Shortcodes {
     function scripts() {
         // Provide script registration args so they can be filtered if necessary
         $jqt_args = apply_filters( 'arconix_jquerytools_reg', array(
-            'url' => 'http://cdn.jquerytools.org/1.2.7/tiny/jquery.tools.min.js',
+            'url' => $this->url . "includes/jquery.tools.min.js",
             'ver' => '1.2.7',
             'dep' => 'jquery'
         ) );
@@ -121,8 +121,8 @@ class Arconix_Shortcodes {
         * that, filter $fa_version above
         */
         $fa_args = apply_filters( 'arconix_fontawesome_css', array(
-            'url' => "//maxcdn.bootstrapcdn.com/font-awesome/{$fa_version}/css/font-awesome.min.css",
-            'ver' => $fa_version,
+            'url' => $this->url . "includes/css/font-awesome.min.css",
+            'ver' => '4.6.3',
         ));
 
         wp_enqueue_style( 'font-awesome', $fa_args['url'], false, $fa_args['ver'] );
