@@ -279,25 +279,25 @@ class Arconix_Shortcodes {
         $shortcodes_deactivate_questions = array(
             0 => array(
                 'id'                => 4, 
-                'text'              => __( "Font Awesome icons are not working.", "arconix-faq" ),
+                'text'              => __( "Font Awesome icons are not working.", "acs" ),
                 'input_type'        => '',
                 'input_placeholder' => ''
                 ),
             1 => array(
                 'id'                => 5,
-                'text'              => __( "Shortcode attributes does not work.", "arconix-faq" ),
+                'text'              => __( "Shortcode attributes does not work.", "acs" ),
                 'input_type'        => 'textfield',
                 'input_placeholder' => 'Which attribute?'
             ), 
             2 =>  array(
                 'id'                => 6,
-                'text'              => __( "The styling of the plugin does not work with my theme.", "arconix-faq" ),
+                'text'              => __( "The styling of the plugin does not work with my theme.", "acs" ),
                 'input_type'        => 'textfield',
                 'input_placeholder' => 'Which Theme?'
             ),
             3 => array(
                 'id'                => 7,
-                'text'              => __( "The plugin is not compatible with another plugin.", "arconix-faq" ),
+                'text'              => __( "The plugin is not compatible with another plugin.", "acs" ),
                 'input_type'        => 'textfield',
                 'input_placeholder' => 'Which plugin?'
             )
