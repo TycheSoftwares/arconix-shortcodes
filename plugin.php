@@ -8,6 +8,8 @@
  *
  * Author: John Gardner
  * Author URI: http://arconixpc.com
+ * 
+ * Text Domain: acs
  *
  * License: GNU General Public License v2.0
  * License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -54,6 +56,22 @@ class Arconix_Shortcodes {
         add_action( 'wp_dashboard_setup',       array( $this, 'dashboard_widget' ) );
 
         add_filter( 'widget_text',              'do_shortcode' );
+
+        $is_admin = is_admin();
+
+        if ( true === $is_admin ) {
+            require_once( plugin_dir_path(__FILE__) . 'includes/arconix-shortcodes-all-component.php' );
+
+            add_filter( 'ts_deativate_plugin_questions', array( $this, 'shortcodes_deactivate_add_questions' ), 10, 1 );
+
+
+            add_filter( 'ts_tracker_data',               array( $this, 'shortcodes_ts_add_plugin_tracking_data' ), 10, 1 );
+            add_filter( 'ts_tracker_opt_out_data',       array( $this, 'shortcodes_get_data_for_opt_out' ), 10, 1 );
+            
+
+
+            add_action( 'admin_init',                    array( $this, 'shortcodes_admin_actions' ) );
+        }
     }
 
     /**
@@ -254,6 +272,95 @@ class Arconix_Shortcodes {
      */
     function admin_css() {
         wp_enqueue_style( 'arconix-shortcodes-admin', $this->url . 'includes/css/admin.css', false, self::VERSION );
+    }
+
+    function shortcodes_deactivate_add_questions ( $shortcodes_deactivate_questions ) {
+
+        $shortcodes_deactivate_questions = array(
+            0 => array(
+                'id'                => 4, 
+                'text'              => __( "Font Awesome icons are not working.", "acs" ),
+                'input_type'        => '',
+                'input_placeholder' => ''
+                ),
+            1 => array(
+                'id'                => 5,
+                'text'              => __( "Shortcode attributes does not work.", "acs" ),
+                'input_type'        => 'textfield',
+                'input_placeholder' => 'Which attribute?'
+            ), 
+            2 =>  array(
+                'id'                => 6,
+                'text'              => __( "The styling of the plugin does not work with my theme.", "acs" ),
+                'input_type'        => 'textfield',
+                'input_placeholder' => 'Which Theme?'
+            ),
+            3 => array(
+                'id'                => 7,
+                'text'              => __( "The plugin is not compatible with another plugin.", "acs" ),
+                'input_type'        => 'textfield',
+                'input_placeholder' => 'Which plugin?'
+            )
+
+        );
+        return $shortcodes_deactivate_questions;
+    }
+
+    function shortcodes_admin_actions ( ) {
+        /**
+         * We need to store the plugin version in DB, so we can show the welcome page and other contents.
+         */
+        $shortcodes_version_in_db = get_option( 'shortcodes_version' ); 
+        if ( $shortcodes_version_in_db != self::VERSION ){
+            update_option( 'shortcodes_version', self::VERSION );
+        }
+    }
+
+    /**
+     * Plugin's data to be tracked when Allow option is choosed.
+     *
+     * @hook ts_tracker_data
+     *
+     * @param array $data Contains the data to be tracked.
+     *
+     * @return array Plugin's data to track.
+     * 
+     */
+
+    public static function shortcodes_ts_add_plugin_tracking_data ( $data ) {
+        if ( isset( $_GET[ 'shortcodes_tracker_optin' ] ) && isset( $_GET[ 'shortcodes_tracker_nonce' ] ) && wp_verify_nonce( $_GET[ 'shortcodes_tracker_nonce' ], 'shortcodes_tracker_optin' ) ) {
+
+            $plugin_data[ 'ts_meta_data_table_name' ] = 'ts_tracking_shortcodes_meta_data';
+            $plugin_data[ 'ts_plugin_name' ]		  = 'Arconix Shortcodes';
+            /**
+             * Add Plugin data
+             */
+            $plugin_data[ 'shortcodes_plugin_version' ]      = self::VERSION;
+            
+            $plugin_data[ 'shortcodes_allow_tracking' ]      = get_option ( 'shortcodes_allow_tracking' );
+            $data[ 'plugin_data' ]                    = $plugin_data;
+        }
+        return $data;
+    }
+    
+    /**
+     * Tracking data to send when No, thanks. button is clicked.
+     *
+     * @hook ts_tracker_opt_out_data
+     *
+     * @param array $params Parameters to pass for tracking data.
+     *
+     * @return array Data to track when opted out.
+     * 
+     */
+    public static function shortcodes_get_data_for_opt_out ( $params ) {
+        $plugin_data[ 'ts_meta_data_table_name']   = 'ts_tracking_shortcodes_meta_data';
+        $plugin_data[ 'ts_plugin_name' ]		   = 'Arconix Shortcodes';
+        
+        // Store count info
+        $params[ 'plugin_data' ]  				   = $plugin_data;
+        
+        return $params;
     }
 
 }
