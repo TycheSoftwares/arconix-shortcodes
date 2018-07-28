@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Arconix Shortcodes
- * Plugin URI: http://arconixpc.com/plugins/arconix-shortcodes
+ * Plugin URI: https://www.tychesoftwares.com/
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.1.3
+ * Version: 2.1.4
  *
- * Author: John Gardner
- * Author URI: http://arconixpc.com
+ * Author: Tyche Softwares
+ * Author URI: https://www.tychesoftwares.com/
  * 
  * Text Domain: acs
  *
@@ -27,7 +27,7 @@ class Arconix_Shortcodes {
      * @access  private
      * @var     string		$version		Current plugin version
      */
-    const VERSION = '2.1.3';
+    const VERSION = '2.1.4';
 
     /**
      * The url path to this plugin.
@@ -63,13 +63,8 @@ class Arconix_Shortcodes {
             require_once( plugin_dir_path(__FILE__) . 'includes/arconix-shortcodes-all-component.php' );
 
             add_filter( 'ts_deativate_plugin_questions', array( $this, 'shortcodes_deactivate_add_questions' ), 10, 1 );
-
-
             add_filter( 'ts_tracker_data',               array( $this, 'shortcodes_ts_add_plugin_tracking_data' ), 10, 1 );
             add_filter( 'ts_tracker_opt_out_data',       array( $this, 'shortcodes_get_data_for_opt_out' ), 10, 1 );
-            
-
-
             add_action( 'admin_init',                    array( $this, 'shortcodes_admin_actions' ) );
         }
     }
