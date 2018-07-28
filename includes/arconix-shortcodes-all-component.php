@@ -50,14 +50,12 @@ if ( ! class_exists( 'Arconix_Shortcodes_Component' ) ) {
 
                 $shortcodes_settings_page        = '';
 
-
                 new Shortcodes_TS_tracking ( $shortcodes_plugin_prefix, $shortcodes_plugin_name, $shortcodes_blog_post_link, $shortcodes_locale, $shortcodes_plugin_url, $shortcodes_settings_page, '', '', '', $shortcodes_file_name );
 
                 new Shortcodes_TS_Tracker ( $shortcodes_plugin_prefix, $shortcodes_plugin_name );
 
                 $shortcodes_deativate = new Shortcodes_TS_deactivate;
                 $shortcodes_deativate->init ( $shortcodes_file_name, $shortcodes_plugin_name );
-
                 
                 new Shortcodes_TS_Welcome ( $shortcodes_plugin_name, $shortcodes_plugin_prefix, $shortcodes_locale, $shortcodes_plugin_folder_name, $shortcodes_plugin_dir_name, $shortcodes_get_previous_version );
 

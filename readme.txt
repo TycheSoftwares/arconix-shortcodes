@@ -4,7 +4,7 @@ Donate link: http://arcnx.co/acsdonation
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
 Tested up to: 4.9.1
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -121,6 +121,9 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog == 
+
+= 2.1.4 =
+* Usage Tracking has been added in the plugin. It provides an option to allow tracking of the non-sensitive data of our plugin from the website. You can read more about it [here](https://www.tychesoftwares.com/docs/docs/shortcodes/usage-tracking/).
 
 = 2.1.3 =
 * The plugin is now GDPR compliant.
