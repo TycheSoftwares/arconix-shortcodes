@@ -57,13 +57,19 @@ if ( ! class_exists( 'Arconix_Shortcodes_Component' ) ) {
                 $shortcodes_deativate = new Shortcodes_TS_deactivate;
                 $shortcodes_deativate->init ( $shortcodes_file_name, $shortcodes_plugin_name );
                 
-                new Shortcodes_TS_Welcome ( $shortcodes_plugin_name, $shortcodes_plugin_prefix, $shortcodes_locale, $shortcodes_plugin_folder_name, $shortcodes_plugin_dir_name, $shortcodes_get_previous_version );
+                $user = wp_get_current_user();
+                
+                if ( in_array( 'administrator', (array) $user->roles ) ) {
+                    new Shortcodes_TS_Welcome ( $shortcodes_plugin_name, $shortcodes_plugin_prefix, $shortcodes_locale, $shortcodes_plugin_folder_name, $shortcodes_plugin_dir_name, $shortcodes_get_previous_version );
+                }
 
                 $ts_pro_shortcodes = self::shortcodes_get_faq ();
                 new Shortcodes_TS_Faq_Support( $shortcodes_plugin_name, $shortcodes_plugin_prefix, $shortcodes_plugins_page, $shortcodes_locale, $shortcodes_plugin_folder_name, $shortcodes_plugin_slug, $ts_pro_shortcodes, '', $shortcodes_file_name );
                 
-                $ts_pro_notices = self::shortcodes_get_notice_text ();
-				new Shortcodes_ts_pro_notices( $shortcodes_plugin_name, $shortcodes_lite_plugin_prefix, $shortcodes_plugin_prefix, $ts_pro_notices, $shortcodes_file_name, $shortcodes_pro_file_name );
+                if ( in_array('woocommerce/woocommerce.php', get_option('active_plugins') ) ) {
+                    $ts_pro_notices = self::shortcodes_get_notice_text ();
+                    new Shortcodes_ts_pro_notices( $shortcodes_plugin_name, $shortcodes_lite_plugin_prefix, $shortcodes_plugin_prefix, $ts_pro_notices, $shortcodes_file_name, $shortcodes_pro_file_name );
+                }
 
             }
         }
