@@ -4,7 +4,7 @@
  * Plugin URI: https://www.tychesoftwares.com/
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.1.4
+ * Version: 2.1.5
  *
  * Author: Tyche Softwares
  * Author URI: https://www.tychesoftwares.com/
@@ -27,7 +27,7 @@ class Arconix_Shortcodes {
      * @access  private
      * @var     string		$version		Current plugin version
      */
-    const VERSION = '2.1.4';
+    const VERSION = '2.1.5'; 
 
     /**
      * The url path to this plugin.
@@ -60,13 +60,16 @@ class Arconix_Shortcodes {
         $is_admin = is_admin();
 
         if ( true === $is_admin ) {
-            require_once( plugin_dir_path(__FILE__) . 'includes/arconix-shortcodes-all-component.php' );
-
+            add_action( 'init',                         array ($this , 'shortcodes_load_files') );
             add_filter( 'ts_deativate_plugin_questions', array( $this, 'shortcodes_deactivate_add_questions' ), 10, 1 );
             add_filter( 'ts_tracker_data',               array( $this, 'shortcodes_ts_add_plugin_tracking_data' ), 10, 1 );
             add_filter( 'ts_tracker_opt_out_data',       array( $this, 'shortcodes_get_data_for_opt_out' ), 10, 1 );
             add_action( 'admin_init',                    array( $this, 'shortcodes_admin_actions' ) );
         }
+    }
+
+    function shortcodes_load_files () {
+        require_once( plugin_dir_path(__FILE__) . 'includes/arconix-shortcodes-all-component.php' );
     }
 
     /**
@@ -199,7 +202,7 @@ class Arconix_Shortcodes {
         if( ! $shortcodes or ! is_array( $shortcodes ) )
             return;
 
-        $return = '<p><a href="http://arcnx.co/aswiki"><img src="' . $this->url . 'images/admin/page-16x16.png">Documentation</a></p><ul>';
+        $return = '<p><a href="https://www.tychesoftwares.com/docs/docs/shortcodes/shortcode-reference/"><img src="' . $this->url . 'images/admin/page-16x16.png">Documentation</a></p><ul>';
         foreach( (array) $shortcodes as $shortcode ) {
             $return .= '<li>[' . $shortcode . ']</li>';
         }
