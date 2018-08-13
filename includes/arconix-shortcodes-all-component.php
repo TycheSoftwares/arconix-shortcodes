@@ -54,8 +54,8 @@ if ( ! class_exists( 'Arconix_Shortcodes_Component' ) ) {
 
                 new Shortcodes_TS_Tracker ( $shortcodes_plugin_prefix, $shortcodes_plugin_name );
 
-                // $shortcodes_deativate = new Shortcodes_TS_deactivate;
-                // $shortcodes_deativate->init ( $shortcodes_file_name, $shortcodes_plugin_name );
+                $shortcodes_deativate = new Shortcodes_TS_deactivate;
+                $shortcodes_deativate->init ( $shortcodes_file_name, $shortcodes_plugin_name );
                 
                 $user = wp_get_current_user();
                 
