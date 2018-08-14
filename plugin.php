@@ -53,7 +53,10 @@ class Arconix_Shortcodes {
         add_action( 'add_meta_boxes',           array( $this, 'metabox' ) );
         add_action( 'wp_enqueue_scripts',       array( $this, 'scripts' ) );
         add_action( 'admin_enqueue_scripts',    array( $this, 'admin_css' ) );
-        add_action( 'wp_dashboard_setup',       array( $this, 'dashboard_widget' ) );
+        /**
+         * We have commented this, because we will create a feed from our site and then we can enable this widget.
+         */
+        //add_action( 'wp_dashboard_setup',       array( $this, 'dashboard_widget' ) );
 
         add_filter( 'widget_text',              'do_shortcode' );
 
