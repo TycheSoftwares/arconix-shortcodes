@@ -87,11 +87,13 @@ jQuery(document).ready( function(){
     });
 
     // Accordions
-    jQuery('.arconix-accordions-0').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: null });
-    jQuery('.arconix-accordions-1').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 0 });
-    jQuery('.arconix-accordions-2').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 1 });
-    jQuery('.arconix-accordions-3').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 2 });
-    jQuery('.arconix-accordions-4').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 3 });
-    jQuery('.arconix-accordions-5').tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: 4 });
+   jQuery('.arconix-accordions').each(function () {
+   		var initialIndex = parseInt(jQuery(this).data('load'));
+
+   		initialIndex = initialIndex ? initialIndex - 1 : null;
+
+		jQuery(this).tabs('div.arconix-accordion-content', {tabs: 'div.arconix-accordion-title', effect: 'slide', initialIndex: initialIndex });
+	});
+
 
 });
