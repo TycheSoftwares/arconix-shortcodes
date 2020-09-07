@@ -1,10 +1,10 @@
 ﻿=== Arconix Shortcodes ===
-Contributors: jgardner03, tychesoftwares, bhavik.kiri
+Contributors: jgardner03, tychesoftwares, shasvat
 Donate link: https://www.paypal.me/TycheSoftwares
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
-Tested up to: 4.9.8
-Stable tag: 2.1.6
+Tested up to: 5.5
+Stable tag: 2.1.7
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -121,6 +121,9 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog ==
+
+= 2.1.7 =
+* Compatibility with WordPress 5.5
 
 = 2.1.6 =
 * When using Mesmerize WordPress theme on the store, Accordion shortcode was not working. It was showing an error in the console of the browsers. It has been fixed.
