@@ -3,7 +3,7 @@ Contributors: jgardner03, tychesoftwares, shasvat
 Donate link: https://www.paypal.me/TycheSoftwares
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
-Tested up to: 5.5
+Tested up to: 5.6
 Stable tag: 2.1.7
 License: GPLv2 or later
 
