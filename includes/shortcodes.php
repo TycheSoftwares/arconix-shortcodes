@@ -134,9 +134,9 @@ function code_arconix_shortcode( $atts, $content = null ) {
 function loginout_arconix_shortcode() {
     $textdomain = 'acs';
      if( is_user_logged_in() )
-         $return = '<a class="arconix-logout-link" href="' . esc_url(wp_logout_url(get_permalink() ) ) . '" title="' . esc_attr__( 'Log out of this site', $textdomain ) . '">' . __( 'Log out', $textdomain ) . '</a>';
+         $return = '<a class="arconix-logout-link" href="' . esc_url( wp_logout_url( get_permalink() ) ) . '" title="' . esc_attr__( 'Log out of this site', $textdomain ) . '">' . __( 'Log out', $textdomain ) . '</a>';
      else
-         $return = '<a class="arconix-login-link" href="' . esc_url(wp_login_url(get_permalink() ) ) . '" title="' . esc_attr__( 'Log in to this site', $textdomain ) . '">' . __( 'Log in', $textdomain ) . '</a>'; 
+         $return = '<a class="arconix-login-link" href="' . esc_url( wp_login_url( get_permalink() ) ) . '" title="' . esc_attr__( 'Log in to this site', $textdomain ) . '">' . __( 'Log in', $textdomain ) . '</a>'; 
      return $return;
  }
 
