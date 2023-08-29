@@ -27,7 +27,7 @@ class Arconix_Shortcodes {
      * @access  private
      * @var     string		$version		Current plugin version
      */
-    const VERSION = '2.1.8'; 
+    const VERSION = '2.1.9'; 
 
     /**
      * The url path to this plugin.
