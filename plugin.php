@@ -4,7 +4,7 @@
  * Plugin URI: https://www.tychesoftwares.com/
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.1.8
+ * Version: 2.1.9
  *
  * Author: Tyche Softwares
  * Author URI: https://www.tychesoftwares.com/
