@@ -123,7 +123,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 == Changelog ==
 
 = 2.1.9 =
-* Bug Fix - Fixed an issue where output was not escaped correctly..
+* Bug Fix - Fixed an issue where output was not escaped correctly.
 
 = 2.1.8 =
 * Bug Fix - Cross site scripting vulnerability fix.
