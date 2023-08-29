@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/TycheSoftwares
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
 Tested up to: 6.3
-Stable tag: 2.1.8
+Stable tag: 2.1.9
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -121,6 +121,9 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog ==
+
+= 2.1.9 =
+* Bug Fix - Fixed an issue where output was not escaped correctly.
 
 = 2.1.8 =
 * Bug Fix - Cross site scripting vulnerability fix.
