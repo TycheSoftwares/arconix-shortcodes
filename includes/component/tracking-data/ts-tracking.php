@@ -302,12 +302,11 @@ class Shortcodes_TS_tracking {
 
     public static function ts_admin_notices() {
 		$nonce = $_POST['tracking_notice'];//phpcs:ignore
-		if ( ! wp_verify_nonce( $nonce, 'tracking_notice' ) ) {
-			return;
+		if ( is_user_logged_in() && current_user_can( 'manage_options' ) && wp_verify_nonce( $nonce, 'tracking_notice' ) ) {
+			update_option( self::$plugin_prefix . '_allow_tracking', 'dismissed' );
+			Shortcodes_TS_Tracker::ts_send_tracking_data( false );
+			die();
 		}
-        update_option( self::$plugin_prefix . '_allow_tracking', 'dismissed' );
-        Shortcodes_TS_Tracker::ts_send_tracking_data( false );
-        die();
     }
 
 	/**
