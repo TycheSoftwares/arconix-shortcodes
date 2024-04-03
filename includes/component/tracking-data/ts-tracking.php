@@ -304,8 +304,8 @@ class Shortcodes_TS_tracking {
 		$nonce = $_POST['tracking_notice'];//phpcs:ignore
 		if ( is_user_logged_in() && current_user_can( 'manage_options' ) && wp_verify_nonce( $nonce, 'tracking_notice' ) ) {
 			update_option( self::$plugin_prefix . '_allow_tracking', 'dismissed' );
-        	Shortcodes_TS_Tracker::ts_send_tracking_data( false );
-        	die();
+			Shortcodes_TS_Tracker::ts_send_tracking_data( false );
+			die();
 		}
     }
 
