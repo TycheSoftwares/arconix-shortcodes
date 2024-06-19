@@ -169,7 +169,7 @@ class Shortcodes_TS_tracking {
 	 * It will delete the tracking option from the database.
 	 */
 	public static function ts_reset_tracking_setting () {
-		$nonce = isset ( $_GET ['nonce'] ) ? $_GET['nonce'] : '';//phpcs:ignore
+		$nonce = isset( $_GET ['nonce'] ) ? $_GET['nonce'] : '';//phpcs:ignore
 		if ( is_user_logged_in() && current_user_can( 'manage_options' ) && wp_verify_nonce( $nonce, 'ts_nonce_action' ) ) {
 
 			if ( isset ( $_GET ['ts_action'] ) && 'reset_tracking' === $_GET ['ts_action'] ) {
