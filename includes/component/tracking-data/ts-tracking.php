@@ -172,7 +172,7 @@ class Shortcodes_TS_tracking {
 		$nonce = isset( $_GET ['nonce'] ) ? $_GET['nonce'] : '';//phpcs:ignore
 		if ( is_user_logged_in() && current_user_can( 'manage_options' ) && wp_verify_nonce( $nonce, 'ts_nonce_action' ) ) {
 
-			if ( isset ( $_GET ['ts_action'] ) && 'reset_tracking' === $_GET ['ts_action'] ) {
+			if ( isset( $_GET ['ts_action'] ) && 'reset_tracking' === $_GET ['ts_action'] ) {
 				delete_option( self::$plugin_prefix . '_allow_tracking' );
 				delete_option( self::$plugin_prefix . '_ts_tracker_last_send' );
 				$ts_params = array( 'ts_action', 'nonce' );
