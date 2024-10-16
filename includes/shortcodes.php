@@ -441,20 +441,23 @@ function box_arconix_shortcode( $atts, $content = null ) {
  * @return string
  */
 function button_arconix_shortcode( $atts, $content = null ) {
-    $defaults = apply_filters( 'arconix_button_shortcode_args', array(
-        'size'      => 'medium',
-        'color'     => 'gray',
-        'url'       => '#',
-        'target'    => '',
-        'rel'       => '',
-        'title'     => '',
-        'icon'      => '',
-        'icon_size' => '',
-        'style'     => ''
-    ));
+    $defaults = apply_filters(
+        'arconix_button_shortcode_args',
+        array(
+            'size'      => 'medium',
+            'color'     => 'gray',
+            'url'       => '#',
+            'target'    => '',
+            'rel'       => '',
+            'title'     => '',
+            'icon'      => '',
+            'icon_size' => '',
+            'style'     => '',
+        )
+    );
     extract( shortcode_atts( $defaults, $atts, 'arconix_button' ) );
 
-    // Sanitize input
+    // Sanitize input.
     $url       = esc_url( $url );
     $size      = sanitize_html_class( $size );
     $color     = sanitize_html_class( $color );
@@ -464,23 +467,23 @@ function button_arconix_shortcode( $atts, $content = null ) {
     $icon_size = sanitize_text_field( $icon_size );
     $style     = sanitize_text_field( $style );
 
-    // Set target attribute
+    // Set target attribute.
     switch( $target ) {
-        case "_blank":
-        case "blank":
-            $target = ' target="_blank" ';
-            break;
+        case '_blank':
+        case 'blank':
+        $target = ' target="_blank" ';
+        break;
         default:
-            $target = '';
-            break;
+        $target = '';
+        break;
     }
 
-    // Build optional attributes
+    // Build optional attributes.
     $rel   = $rel ? ' rel="' . esc_attr( $rel ) . '"' : '';
     $title = $title ? ' title="' . esc_attr( $title ) . '"' : '';
     $icon  = $icon ? "<i class='fa " . esc_attr( $icon_size ) . " " . esc_attr( $icon ) . "'></i>" : '';
 
-    // Determine button style class
+    // Determine button style class.
     switch ( $style ) {
         case 'flat':
         case 'clear':
@@ -491,7 +494,7 @@ function button_arconix_shortcode( $atts, $content = null ) {
             break;
     }
 
-    // Build the final output
+    // Build the final output.
     $r = sprintf(
         "<a href='%s' class='%s %s %s'%s%s%s>%s%s</a>",
         esc_url( $url ),
@@ -504,7 +507,6 @@ function button_arconix_shortcode( $atts, $content = null ) {
         $icon,
         esc_html( $content ) // Escaping content
     );
-
     return apply_filters( 'arconix_button_return', $r );
 }
 
