@@ -359,57 +359,68 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
  * @return string
  */
 function box_arconix_shortcode( $atts, $content = null ) {
-    $defaults = apply_filters( 'arconix_box_shortcode_args', array(
-        'style' => '', // deprecated
-        'color' => 'gray',
-        'icon'  => '',
-        'icon_size' => 'fa-2x',
-        'icon_other' => 'pull-left'
-    ) );
+    $defaults = apply_filters(
+        'arconix_box_shortcode_args',
+        array(
+            'style'      => '',
+            'color'      => 'gray',
+            'icon'       => '',
+            'icon_size'  => 'fa-2x',
+            'icon_other' => 'pull-left',
+        )
+    );
 
-    // Mass sanitization to save redoing the same code over & over
-    if ( is_array( $atts) ) {
+    if ( is_array( $atts ) ) {
         foreach ( $atts as $key => $value ) {
-            $value = sanitize_html_class( $value );
+            $atts[ $key ] = sanitize_text_field( $value );
         }
     }
+
     extract( shortcode_atts( $defaults, $atts, 'arconix_box' ) );
 
-    // For backwards compatibility, convert old $style in to new params
+    $color      = sanitize_html_class( $color );
+    $icon       = sanitize_html_class( $icon );
+    $icon_size  = sanitize_html_class( $icon_size );
+    $icon_other = sanitize_html_class( $icon_other );
+
+    // For backwards compatibility, convert old $style into new params.
     switch ( $style ) {
         case 'alert':
             $color = 'red';
-            $icon = 'fa-exclamation-triangle';
+            $icon  = 'fa-exclamation-triangle';
             break;
         case 'comment':
             $color = 'tan';
-            $icon = 'fa-comment';
+            $icon  = 'fa-comment';
             break;
         case 'download':
             $color = 'green';
-            $icon = 'fa-download';
+            $icon  = 'fa-download';
             break;
         case 'info':
             $color = 'blue';
-            $icon = 'fa-info-circle';
+            $icon  = 'fa-info-circle';
             break;
         case 'tip':
             $color = 'yellow';
-            $icon = 'fa-lightbulb-o';
+            $icon  = 'fa-lightbulb-o';
             break;
         default:
-            if ( ! $color ) $style = color;
+            if ( ! $color ) $style = sanitize_html_class( $style );
             break;
     }
 
+    // Ensure icon HTML is escaped
     if ( $icon ) {
-        $icon = "<i class='fa {$icon_size} {$icon_other} {$icon}'></i>";
+        $icon = "<i class='" . esc_attr( "fa {$icon_size} {$icon_other} {$icon}" ) . "'></i>";
+    }
 
-        $r = '<div class="arconix-box arconix-box-' . esc_attr( $color ) . '">' . $icon . '<div class="arconix-box-content">' . remove_wpautop( $content ) . '</div></div>';
+    $r = '<div class="arconix-box arconix-box-' . esc_attr( $color ) . '">';
+    if ( $icon ) {
+        $r .= $icon;
     }
-    else {
-        $r = '<div class="arconix-box arconix-box-' . esc_attr( $color ) . '">' . remove_wpautop( $content ) . '</div>';
-    }
+    $r .= '<div class="arconix-box-content">' . wp_kses_post( remove_wpautop( $content ) ) . '</div>';
+    $r .= '</div>';
 
     return apply_filters( 'arconix_box_return', $r );
 }
