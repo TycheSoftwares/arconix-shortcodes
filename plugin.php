@@ -4,7 +4,7 @@
  * Plugin URI: https://www.tychesoftwares.com/
  * Description: A handy collection of shortcodes for your site.
  *
- * Version: 2.1.13
+ * Version: 2.1.14
  *
  * Author: Tyche Softwares
  * Author URI: https://www.tychesoftwares.com/
@@ -25,9 +25,9 @@ class Arconix_Shortcodes {
      *
      * @since   2.0.4
      * @access  private
-     * @var     string		$version		Current plugin version
+     * @var string $version Current plugin version.
      */
-    const VERSION = '2.1.13';
+    const VERSION = '2.1.14';
 
     /**
      * The url path to this plugin.
