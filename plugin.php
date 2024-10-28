@@ -25,7 +25,7 @@ class Arconix_Shortcodes {
      *
      * @since   2.0.4
      * @access  private
-     * @var     string $version Current plugin version.
+     * @var string $version Current plugin version.
      */
     const VERSION = '2.1.14';
 
