@@ -638,7 +638,7 @@ function list_arconix_shortcode( $atts, $content = null ) {
             break;
 }
 
-    $r = '<div class="arconix-list" data-arconix-icon="' . $icon . '" data-arconix-color="' . $icon_color . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-list" data-arconix-icon="' . esc_attr( $icon ) . '" data-arconix-color="' . esc_attr( $icon_color ) . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_list_return', $r );
 }
