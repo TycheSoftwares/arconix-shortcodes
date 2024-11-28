@@ -291,7 +291,7 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
 
     if( $css ) $css = ' ' . sanitize_html_class( $css );
 
-    $r = '<div class="arconix-accordions arconix-accordions-' . sanitize_html_class( $type ) . ' arconix-accordions-' . $load . $css . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="arconix-accordions arconix-accordions-' . sanitize_html_class( $type ) . ' arconix-accordions-' . $load . $css . '" data-load="' . $load . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
 }
