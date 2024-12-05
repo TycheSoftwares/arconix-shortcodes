@@ -99,7 +99,7 @@ class Shortcodes_ts_pro_notices {
 			
 			if( ! get_user_meta( get_current_user_id(), self::$pro_plugin_prefix . '_first_notice_ignore' ) ) {
 				
-				$add_query_arguments = add_query_arg( self::$pro_plugin_prefix . '_first_notice_ignore', '0' );
+				$add_query_arguments = esc_url( add_query_arg( self::$pro_plugin_prefix . '_first_notice_ignore', '0' ) );
 				
 				$class = 'updated notice-info point-notice one';
 				$style = 'position:relative';
