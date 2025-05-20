@@ -3,8 +3,8 @@ Contributors: jgardner03, tychesoftwares, shasvat
 Donate link: https://www.paypal.me/TycheSoftwares
 Tags: arconix, shortcodes, tabs, toggle, buttons, accordion
 Requires at least: 4.3
-Tested up to: 6.7.1
-Stable tag: 2.1.16
+Tested up to: 6.8.1
+Stable tag: 2.1.17
 License: GPLv2 or later
 
 Arconix Shortcodes provides a number of useful design elements like buttons, boxes, tabs and toggles to help compliment any website.
@@ -121,6 +121,10 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 4. Unordered list styles
 
 == Changelog ==
+
+= 2.1.17 =
+* Fix - Cross Site Request Forgery (CSRF) vulnerability.
+* Tweak - Update for compatibility with WordPress 6.8.1.
 
 = 2.1.16 =
 * Fix - Security vulnerability in the "list" shortcode to prevent stored and reflected Cross-Site Scripting (XSS) attacks in the admin area by properly sanitizing and escaping user-supplied inputs.
