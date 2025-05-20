@@ -124,8 +124,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 = 2.1.17 =
 * Fix - Cross Site Request Forgery (CSRF) vulnerability.
-* Tweak - Update for compatibility with WordPress 6.8.1
-* Tweak - Update for compatibility with WooCommerce 9.8.5.
+* Tweak - Update for compatibility with WordPress 6.8.1.
 
 = 2.1.16 =
 * Fix - Security vulnerability in the "list" shortcode to prevent stored and reflected Cross-Site Scripting (XSS) attacks in the admin area by properly sanitizing and escaping user-supplied inputs.
