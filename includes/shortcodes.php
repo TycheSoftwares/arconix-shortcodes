@@ -284,14 +284,17 @@ function accordions_arconix_shortcode( $atts, $content = null ) {
         'load' => '1',
         'css' => ''
     ) );
-    extract( shortcode_atts( $defaults, $atts, 'arconix_accordions' ) );
+    $atts     = shortcode_atts( $defaults, $atts, 'arconix_accordions' );
 
-    if( $load == "none" || ! absint( $load ) ) // for backwards compatibility
-        $load = 0;
+    // Sanitize inputs.
+    $type = sanitize_html_class( $atts['type'] );
+    $load = ( $atts['load'] === 'none' || ! absint( $atts['load'] ) ) ? 0 : absint( $atts['load'] );
+    $css  = $atts['css'] ? ' ' . sanitize_html_class( $atts['css'] ) : '';
 
-    if( $css ) $css = ' ' . sanitize_html_class( $css );
+    // Combine safely.
+    $class_string = esc_attr( "arconix-accordions arconix-accordions-{$type} arconix-accordions-{$load}{$css}" );
 
-    $r = '<div class="arconix-accordions arconix-accordions-' . sanitize_html_class( $type ) . ' arconix-accordions-' . $load . $css . '">' . remove_wpautop( $content ) . '</div>';
+    $r = '<div class="' . $class_string . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
 }
