@@ -16,7 +16,7 @@ class Shortcodes_TS_deactivate {
 	 * @var string
 	 */
 
-	private static $api_url = 'http://tracking.tychesoftwares.com/v1/';
+	private static $api_url = 'http://tracking.tychesoftwares.com/v2/';
 
 	/**
 	* @var string Plugin name
@@ -194,10 +194,18 @@ class Shortcodes_TS_deactivate {
 	 * @since  1.1.2
 	 */
 	public static function _submit_uninstall_reason_action() {
-		if ( ! isset( $_POST[ 'reason_id' ] ) ) {
+		if ( ! isset( $_POST['ts_uninstall_nonce'] ) ) {
 			exit;
 		}
-
+		if ( ! wp_verify_nonce( $_POST['ts_uninstall_nonce'], 'ts_uninstall_action' ) ) { // phpcs:ignore
+			exit;
+		}
+		if ( ! current_user_can( 'manage_options' ) ) {
+			exit;
+		}
+		if ( ! isset( $_POST['reason_id'] ) ) {
+			exit;
+		}
 		$plugin_data = array();
 		
 		$plugin_data[ 'url' ]   = home_url();
