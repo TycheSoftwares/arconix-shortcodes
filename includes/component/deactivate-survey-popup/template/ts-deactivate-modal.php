@@ -187,6 +187,7 @@ foreach ( $reasons as $reason ) {
                 + '         <div class="ts-modal-panel active" data-panel-id="reasons"><h3><strong><?php printf( Shortcodes_TS_deactivate::load_str( 'deactivation-share-reason' ) ); ?>:</strong></h3><ul id="reasons-list">' + reasonsHtml + '</ul></div>'
                 + '     </div>'
                 + '     <div class="ts-modal-footer">'
+                + '         <input type="hidden" id="ts_uninstall_nonce" value="<?php echo wp_create_nonce( 'ts_uninstall_action' ); ?>" />'
                 + '         <a href="#" class="button button-secondary button-deactivate"></a>'
                 + '         <a href="#" class="button button-primary button-close"><?php printf( Shortcodes_TS_deactivate::load_str( 'deactivation-modal-button-cancel' ) ); ?></a>'
                 + '     </div>'
@@ -238,6 +239,7 @@ foreach ( $reasons as $reason ) {
                             'reason_text': $selected_reason.text(),
                             'reason_info': (0 !== $input.length) ? $input.val().trim() : '',
                             'plugin_basename': currentPluginName,
+                            'ts_uninstall_nonce': jQuery('#ts_uninstall_nonce').val(),
                         };
                     }
                     

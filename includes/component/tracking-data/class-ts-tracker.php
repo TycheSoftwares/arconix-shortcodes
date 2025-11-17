@@ -19,7 +19,7 @@ class Shortcodes_TS_Tracker {
 	 * @var string
 	 */
 
-	private static $api_url = 'http://tracking.tychesoftwares.com/v1/';
+	private static $api_url = 'http://tracking.tychesoftwares.com/v2/';
 
 	/**
 	* @var string Plugin prefix
