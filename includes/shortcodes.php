@@ -113,7 +113,7 @@ function acs_register_shortcodes() {
  */
 function code_arconix_shortcode( $atts, $content = null ) {
 
-    $r = '<code>' . do_shortcode( $content ) . '</code>';
+    $r = '<code>' . esc_html( do_shortcode( $content ) ) . '</code>';
 
     return apply_filters( 'arconix_code_return', $r );
 }
@@ -251,7 +251,7 @@ function abbr_arconix_shortcode( $atts, $content = null ) {
     $defaults = apply_filters( 'arconix_abbr_shortcode_args', array( 'title' => '' ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_abbr' ) );
 
-    $r = '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . $content . '</abbr>';
+    $r = '<abbr class="arconix-abbr" title="' . esc_attr( $title ) . '">' . esc_html( $content ) . '</abbr>';
 
     return apply_filters( 'arconix_abbr_return', $r );
 }
@@ -330,7 +330,7 @@ function accordion_arconix_shortcode( $atts, $content = null ) {
 
     $icon = '<i class="fa"></i>';
 
-    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $icon .'<p>'.$title . '</p></div>';
+    $r = '<div class="arconix-accordion-title accordion-' . sanitize_html_class( $title ) . $last . '">' . $icon .'<p>'.esc_html( $title ) . '</p></div>';
     $r .= '<div class="arconix-accordion-content' . $last . '">' . remove_wpautop( $content ) . '</div>';
 
     return apply_filters( 'arconix_accordions_return', $r );
@@ -549,7 +549,7 @@ function highlight_arconix_shortcode( $atts, $content = null ) {
 
     extract( shortcode_atts( $defaults, $atts, 'arconix_highlight' ) );
 
-    $r = '<span class="arconix-highlight arconix-highlight-' . sanitize_html_class( $color ) . '">' . do_shortcode( $content ) . '</span>';
+    $r = '<span class="arconix-highlight arconix-highlight-' . sanitize_html_class( $color ) . '">' . wp_kses_post( do_shortcode( $content ) ) . '</span>';
 
     return apply_filters( 'arconix_highlight_return', $r );
 }
@@ -709,7 +709,7 @@ function tabs_arconix_shortcode( $atts, $content = null ) {
                     break;
             }
 
-            $tabs[] = '<li data-arconix-icon="' . $tab['icon'] . '" data-arconix-color="' . $tab['color'] . '" class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . $tab['title'] . '</a></li>';
+            $tabs[] = '<li data-arconix-icon="' . $tab['icon'] . '" data-arconix-color="' . $tab['color'] . '" class="arconix-tab tab-' . sanitize_html_class( $tab['title'] ) . '"><a class="" href="#tab-' . $tabid . '">' . esc_html( $tab['title'] ) . '</a></li>';
             $panes[] = '<div class="arconix-pane pane-' . sanitize_html_class( $tab['title'] ) . '">' . remove_wpautop( $tab['content'] ) . '</div>';
         }
         $r = "\n" . '<div class="arconix-tabs-' . sanitize_html_class( $style ) . $css . '"><ul class="arconix-tabs">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="arconix-panes">' . implode( "\n", $panes ) . '</div></div>' . "\n";
@@ -807,7 +807,7 @@ function toggle_arconix_shortcode( $atts, $content = null ) {
 
     $icon = "<i class='fa {$i}'></i>";
 
-    $r = '<div class="arconix-toggle-wrap'. $css . '">' . '<div class="arconix-toggle-title ' . $load . '">' . $icon . $title . '</div>';
+    $r = '<div class="arconix-toggle-wrap'. $css . '">' . '<div class="arconix-toggle-title ' . $load . '">' . $icon . esc_html( $title ) . '</div>';
     $r .= '<div class="arconix-toggle-content">' . remove_wpautop( $content ) . '</div></div>';
 
     return apply_filters( 'arconix_toggle_return', $r );
