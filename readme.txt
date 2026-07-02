@@ -124,6 +124,7 @@ That's fantastic! Feel free to submit a pull request over at [Github](http://arc
 
 = 2.2.0 =
 * Fix - Cross-Site Scripting (XSS) vulnerability caused by insufficient sanitization of the icon and color shortcode attributes before output. Thanks to beetrio189 for responsibly reporting this issue.
+* Fix - Undefined global variable ($tab_count) warnings in the Tabs shortcode on PHP 8.1 and above.
 * Tweak - Update compatibility with WordPress 7.0.0
 * Tweak - Update compatibility with WooCommerce 10.9.1
 
