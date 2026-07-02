@@ -760,6 +760,13 @@ function tab_arconix_shortcode( $atts, $content = null ) {
         ) );
     extract( shortcode_atts( $defaults, $atts, 'arconix_tab' ) );
 
+    if ( ! isset( $GLOBALS['tab_count'] ) ) {
+        $GLOBALS['tab_count'] = 0;
+    }
+    if ( ! isset( $GLOBALS['tabs'] ) ) {
+        $GLOBALS['tabs'] = array();
+    }
+
     $x = $GLOBALS['tab_count'];
     $GLOBALS['tabs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' => $content, 'icon' => $icon, 'color' => $icon_color );
 
