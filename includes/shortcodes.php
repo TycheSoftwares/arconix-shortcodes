@@ -642,6 +642,11 @@ function list_arconix_shortcode( $atts, $content = null ) {
             break;
 }
 
+    // Constrain to safe class-name characters so the values are inert even when
+    // read back out via jQuery .data() and rendered client-side (see arconix-shortcodes.js).
+    $icon       = sanitize_html_class( $icon );
+    $icon_color = sanitize_html_class( $icon_color );
+
     $r = '<div class="arconix-list" data-arconix-icon="' . esc_attr( $icon ) . '" data-arconix-color="' . esc_attr( $icon_color ) . '">' . wp_kses_post( remove_wpautop( $content ) ) . '</div>';
 
     return apply_filters( 'arconix_list_return', $r );
@@ -767,6 +772,11 @@ function tab_arconix_shortcode( $atts, $content = null ) {
     if ( ! isset( $GLOBALS['tabs'] ) ) {
         $GLOBALS['tabs'] = array();
     }
+
+    // Constrain to safe class-name characters so the values are inert even when
+    // read back out via jQuery .data() and rendered client-side (see arconix-shortcodes.js).
+    $icon       = sanitize_html_class( $icon );
+    $icon_color = sanitize_html_class( $icon_color );
 
     $x = $GLOBALS['tab_count'];
     $GLOBALS['tabs'][$x] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' => $content, 'icon' => $icon, 'color' => $icon_color );

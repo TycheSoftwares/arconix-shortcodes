@@ -68,7 +68,13 @@ jQuery(document).ready( function(){
         var icon = jQuery(this).data('arconix-icon');
         var color = jQuery(this).data('arconix-color');
 
-        jQuery(this).find('li').prepend('<i class="fa fa-li ' + icon + ' ' + color + '"></i>');
+        // Build the icon via DOM construction (not string concat/innerHTML) so that
+        // icon/color values are always treated as plain text/class tokens, never as markup.
+        if ( icon && String( icon ).length > 0 ) {
+            jQuery(this).find('li').prepend(
+                jQuery('<i>').addClass('fa fa-li').addClass( icon ).addClass( color )
+            );
+        }
     });
 
     /** Tabs */
@@ -81,8 +87,10 @@ jQuery(document).ready( function(){
         var icon = jQuery(this).data('arconix-icon');
         var color = jQuery(this).data('arconix-color');
        
-        if( icon.length > 2 ) { // Only add the icon if we have a string as the icon is optional
-            jQuery(this).find('a').prepend('<i class="fa ' + icon + ' ' + color + '"></i>');  
+        if( icon && String( icon ).length > 2 ) { // Only add the icon if we have a string as the icon is optional
+            jQuery(this).find('a').prepend(
+                jQuery('<i>').addClass('fa').addClass( icon ).addClass( color )
+            );
         }
     });
 
